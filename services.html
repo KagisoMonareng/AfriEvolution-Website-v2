@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afri Evolution - Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Color Palette for Option 7: Refined Neutrals with Earthy Gold Accent */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FBFBFB; /* Background Light: Very Soft Off-White */
+            color: #3A3F44; /* Primary Dark Grey/Brown (Text/Headers) */
+        }
+        .text-primary {
+            color: #3A3F44;
+        }
+        .bg-primary {
+            background-color: #3A3F44;
+        }
+        .text-secondary {
+            color: #6D737A; /* Secondary Medium Grey (Sub-elements) */
+        }
+        .bg-secondary {
+            background-color: #6D737A;
+        }
+        .text-accent-subtle {
+            color: #E6D3A0; /* Accent Subtle: Muted Gold/Cream (Gradients/Highlights) */
+        }
+        .bg-accent-subtle {
+            background-color: #E6D3A0;
+        }
+        .text-accent-vibrant {
+            color: #C99400; /* Accent Vibrant: Rich, Deep Gold (CTA/Highlight) */
+        }
+        .bg-accent-vibrant {
+            background-color: #C99400;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #C99400; /* Accent Vibrant */
+            color: #FFFFFF; /* White for strong contrast */
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* shadow-lg */
+            transition-property: all;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* hover:shadow-xl */
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid #C99400; /* Border Accent Vibrant */
+            color: #C99400; /* Text Accent Vibrant */
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition-property: all;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #C99400; /* hover:bg-accent-vibrant */
+            color: #FFFFFF; /* hover:text-white */
+        }
+        .service-block {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem; /* p-10 */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Deeper shadow for prominence */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            min-height: 480px; /* Ensure consistent height */
+            position: relative;
+            overflow: hidden;
+        }
+        .service-block:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .service-block-icon {
+            /* Consistent icon sizing across sections */
+            width: 64px; /* Explicit width */
+            height: 64px; /* Explicit height */
+            color: #C99400; /* Accent Vibrant */
+            margin-bottom: 1rem;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .service-block-title {
+            font-size: 2.25rem; /* text-3xl */
+            font-weight: 800; /* font-extrabold */
+            color: #3A3F44; /* Primary Dark */
+            margin-bottom: 0.75rem;
+        }
+        .service-block-description {
+            font-size: 1.125rem; /* text-lg */
+            color: #6D737A; /* Secondary Medium */
+            line-height: 1.6;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+        .service-block .btn-primary {
+            margin-top: auto; /* Pushes button to the bottom */
+            width: fit-content; /* Make button fit content */
+        }
+
+        /* Diagonal Accent Strip for Visual Interest */
+        .service-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230,211,160,0.2) 0%, transparent 40%, transparent 100%); /* Subtle diagonal gradient */
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .service-block:nth-child(2)::before {
+            background: linear-gradient(-135deg, rgba(230,211,160,0.2) 0%, transparent 40%, transparent 100%);
+        }
+        .service-block:nth-child(3)::before {
+            background: linear-gradient(135deg, rgba(230,211,160,0.2) 0%, transparent 40%, transparent 100%);
+        }
+
+        .section-header {
+            font-size: 2.25rem; /* text-3xl */
+            line-height: 1.25; /* leading-tight */
+            font-weight: 700; /* font-bold */
+            color: #3A3F44; /* text-primary */
+            text-align: center;
+            margin-bottom: 3rem; /* mb-12 */
+        }
+        @media (min-width: 768px) {
+            .section-header {
+                font-size: 3rem; /* md:text-4xl */
+            }
+        }
+        /* Scroll Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md py-4 px-6 sticky top-0 w-full z-20">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-primary">Afri Evolution</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="services.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Services</a>
+                <a href="about-us.html" class="text-secondary hover:text-primary transition duration-300 font-medium">About Us</a>
+                <a href="approach.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Our Approach</a>
+                <a href="contact.html" class="btn-primary text-sm px-6 py-2">Contact Us</a>
+            </div>
+            <button class="md:hidden text-primary text-2xl focus:outline-none" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+        <div id="mobile-menu" class="md:hidden bg-white shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
+            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-gray-100 rounded-md" onclick="toggleMobileMenu()">Services</a>
+            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-gray-100 rounded-md" onclick="toggleMobileMenu()">About Us</a>
+            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-gray-100 rounded-md" onclick="toggleMobileMenu()">Our Approach</a>
+            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-gray-100 rounded-md" onclick="toggleMobileMenu()">Contact Us</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Page Hero Section -->
+        <section class="relative bg-gradient-to-br from-[#3A3F44] to-[#6D737A] text-white py-16 md:py-24 px-4 overflow-hidden">
+            <div class="container mx-auto text-center relative z-10 fade-in is-visible">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    Our Comprehensive AI & Automation Solutions
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+                    From establishing your foundational digital presence to implementing advanced AI-as-a-Service, we provide sophisticated strategies and solutions for every stage of your business's transformation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Service Offerings Section - REVISED -->
+        <section id="services-detailed" class="py-16 md:py-24 px-4 bg-gray-50">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="section-header fade-in">Empowering Your Business Through Tiered Innovation</h2>
+                <p class="text-center text-lg text-secondary max-w-3xl mx-auto mb-12 fade-in">
+                    Our service packages are meticulously designed to deliver clear, measurable value, ensuring a seamless journey towards digital maturity and impactful AI integration.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Digital Foundation Block -->
+                    <div id="digital-foundation" class="service-block fade-in-up">
+                        <div class="service-block-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-hard-drive">
+                                <line x1="22" y1="12" x2="2" y2="12"></line>
+                                <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 2H7.24a2 2 0 0 0-1.79 3.11z"></path>
+                                <line x1="6" y1="16" x2="6" y2="16"></line>
+                                <line x1="10" y1="16" x2="10" y2="16"></line>
+                            </svg>
+                        </div>
+                        <h3 class="service-block-title">Digital Foundation</h3>
+                        <p class="service-block-description">
+                            Establish a robust digital footprint and organized data infrastructure, preparing your business for the demands of the modern AI economy.
+                        </p>
+                        <ul class="list-none text-base text-secondary space-y-2 text-left w-full">
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Modern, mobile-first website development.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Optimized data collection & cloud setup.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Core CRM implementation for customer insights.
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-primary">Establish Your Core</a>
+                    </div>
+
+                    <!-- Automation Essentials Block -->
+                    <div id="automation-essentials" class="service-block fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="service-block-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="15" x2="23" y2="15"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="15" x2="4" y2="15"></line>
+                            </svg>
+                        </div>
+                        <h3 class="service-block-title">Automation Essentials</h3>
+                        <p class="service-block-description">
+                            Streamline operations and boost efficiency by automating repetitive tasks, reducing manual effort and operational costs.
+                        </p>
+                        <ul class="list-none text-base text-secondary space-y-2 text-left w-full">
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Process automation for core business workflows.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Deployment of "Afri-Process Bots" for key functions.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Seamless integration with your existing systems.
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-primary">Optimize Operations</a>
+                    </div>
+
+                    <!-- AI Advantage (AIaaS) Block -->
+                    <div id="ai-advantage" class="service-block fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="service-block-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3 class="service-block-title">AI Advantage (AIaaS)</h3>
+                        <p class="service-block-description">
+                            Unlock unparalleled competitive advantage with cutting-edge, AI-driven solutions delivered as a scalable, subscription-based service.
+                        </p>
+                        <ul class="list-none text-base text-secondary space-y-2 text-left w-full">
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Implementation of "Afri-Agents" for enhanced productivity.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Predictive insights for smarter decision-making.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-vibrant text-xl mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-8.1"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> AI-driven marketing and customer engagement.
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-primary">Unleash AI Power</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action (Light) -->
+        <section class="py-16 md:py-24 px-4 bg-gradient-to-tr from-[#E6D3A0] to-[#C99400] text-primary text-center">
+            <div class="container mx-auto max-w-3xl fade-in">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Ready to Accelerate Your Business?</h2>
+                <p class="text-lg md:text-xl opacity-90 mb-10">
+                    Our team can help you assess your current digital maturity and recommend the perfect path to AI and automation integration for your business.
+                </p>
+                <a href="contact.html" class="btn-primary bg-primary text-white py-4 px-10">Schedule a Free Consultation</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 px-4 text-center">
+        <div class="container mx-auto">
+            <p class="mb-2">&copy; 2025 Afri Evolution. All rights reserved.</p>
+            <div class="text-sm space-x-4">
+                <a href="#" class="hover:underline text-accent-subtle">Privacy Policy</a>
+                <a href="#" class="hover:underline text-accent-subtle">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Scroll Animation Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in, .fade-in-up').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
