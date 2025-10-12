@@ -233,20 +233,51 @@ export function initAccordions() {
 }
 
 /**
- * Sticky Header on Scroll
- * Adds 'scrolled' class to header when user scrolls down
+ * Auto-Hide Header on Scroll
+ * Hides header when scrolling down, shows when scrolling up
+ * Always visible when near top of page
  */
 export function initStickyHeader() {
   const header = document.querySelector('header');
   if (!header) return;
   
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  const scrollThreshold = 100; // Minimum scroll before hiding
+  const scrollDelta = 5; // Minimum scroll delta to trigger hide/show
+  
+  function updateHeader() {
+    const currentScrollY = window.scrollY;
+    const scrollDifference = currentScrollY - lastScrollY;
+    
+    // Near top - always show
+    if (currentScrollY < scrollThreshold) {
+      header.classList.remove('nav-hidden');
       header.classList.remove('scrolled');
+    } 
+    // Scrolling down - hide
+    else if (scrollDifference > scrollDelta && currentScrollY > scrollThreshold) {
+      header.classList.add('nav-hidden');
+      header.classList.add('scrolled');
+    } 
+    // Scrolling up - show
+    else if (scrollDifference < -scrollDelta) {
+      header.classList.remove('nav-hidden');
+      header.classList.add('scrolled');
     }
-  }, { passive: true });
+    
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', requestTick, { passive: true });
 }
 
 /**
