@@ -173,7 +173,8 @@ header:not(.glass-nav) {
 /* ===== Variants (Scoped Overrides) ===== */
 
 /* Bold variant - More pronounced effect for hero/marketing */
-.v-bold {
+.v-bold,
+[data-glass-variant="v-bold"] {
   --glass-blur: 22px;
   --glass-saturate: 135%;
   --glass-tint: color-mix(in oklab, var(--bg) 80%, transparent);
@@ -182,13 +183,15 @@ header:not(.glass-nav) {
   --glass-shadow: 0 14px 40px rgba(0,0,0,.28);
 }
 
-:root.dark .v-bold {
+:root.dark .v-bold,
+:root.dark [data-glass-variant="v-bold"] {
   --glass-tint: color-mix(in oklab, var(--surface-1) 35%, transparent);
   --glass-tint-strong: color-mix(in oklab, var(--surface-1) 48%, transparent);
 }
 
 /* Subtle variant - Lighter effect for dense/analytical views */
-.v-subtle {
+.v-subtle,
+[data-glass-variant="v-subtle"] {
   --glass-blur: 8px;
   --glass-saturate: 108%;
   --glass-tint: color-mix(in oklab, var(--bg) 60%, transparent);
@@ -197,7 +200,8 @@ header:not(.glass-nav) {
   --glass-shadow: 0 6px 18px rgba(0,0,0,.16);
 }
 
-:root.dark .v-subtle {
+:root.dark .v-subtle,
+:root.dark [data-glass-variant="v-subtle"] {
   --glass-tint: color-mix(in oklab, var(--surface-1) 18%, transparent);
   --glass-tint-strong: color-mix(in oklab, var(--surface-1) 28%, transparent);
 }

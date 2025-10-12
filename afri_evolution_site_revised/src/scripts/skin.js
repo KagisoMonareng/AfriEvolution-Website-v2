@@ -1,62 +1,94 @@
 /**
  * Afri Evolution - Glass Skin Toggle
- * Provides persistent glass effect toggle with performance optimizations
+ * Cycles through glass variants: Off → Subtle → Standard → Bold → Off
  */
 
 (() => {
-  const KEY = "ae-skin";
+  const KEY_SKIN = "ae-skin";
+  const KEY_VARIANT = "ae-glass-variant";
   const body = document.body;
   
-  // Restore saved skin preference
+  // Glass variants in cycle order
+  const VARIANTS = [
+    { skin: "", variant: "", label: "Off" },
+    { skin: "glass", variant: "v-subtle", label: "Subtle" },
+    { skin: "glass", variant: "", label: "Standard" },
+    { skin: "glass", variant: "v-bold", label: "Bold" }
+  ];
+  
+  // Restore saved preferences
   try {
-    const saved = localStorage.getItem(KEY);
-    if (saved === "glass") {
+    const savedSkin = localStorage.getItem(KEY_SKIN);
+    const savedVariant = localStorage.getItem(KEY_VARIANT);
+    if (savedSkin === "glass") {
       body.setAttribute("data-skin", "glass");
+      if (savedVariant) {
+        body.setAttribute("data-glass-variant", savedVariant);
+      }
     }
   } catch (e) {
     console.warn('Glass skin: localStorage unavailable', e);
   }
   
   /**
-   * Toggle glass skin on/off
+   * Cycle through glass variants
    * Persists preference to localStorage
    */
   window.aeToggleSkin = () => {
-    const current = body.getAttribute("data-skin");
-    const next = current === "glass" ? "" : "glass";
+    const currentSkin = body.getAttribute("data-skin") || "";
+    const currentVariant = body.getAttribute("data-glass-variant") || "";
     
-    console.log('🎨 Glass toggle:', current, '→', next);
+    // Find current state in variants array
+    let currentIndex = VARIANTS.findIndex(v => v.skin === currentSkin && v.variant === currentVariant);
+    if (currentIndex === -1) currentIndex = 0;
     
-    if (next) {
-      body.setAttribute("data-skin", next);
-      console.log('✨ Glass effect ENABLED');
+    // Move to next variant (cycle back to start after last)
+    const nextIndex = (currentIndex + 1) % VARIANTS.length;
+    const next = VARIANTS[nextIndex];
+    
+    console.log(`🎨 Glass cycle: ${VARIANTS[currentIndex].label} → ${next.label}`);
+    
+    // Apply new variant
+    if (next.skin) {
+      body.setAttribute("data-skin", next.skin);
+      if (next.variant) {
+        body.setAttribute("data-glass-variant", next.variant);
+      } else {
+        body.removeAttribute("data-glass-variant");
+      }
+      console.log(`✨ Glass ${next.label} ENABLED`);
     } else {
       body.removeAttribute("data-skin");
-      console.log('❌ Glass effect DISABLED');
+      body.removeAttribute("data-glass-variant");
+      console.log('❌ Glass effect OFF');
     }
     
+    // Save to localStorage
     try {
-      localStorage.setItem(KEY, next);
+      localStorage.setItem(KEY_SKIN, next.skin);
+      localStorage.setItem(KEY_VARIANT, next.variant);
     } catch (e) {
       console.warn('Glass skin: Could not save preference', e);
     }
     
-    // Update toggle button ARIA state if it exists
+    // Update toggle button
     const toggleBtn = document.getElementById('glass-toggle');
     if (toggleBtn) {
-      toggleBtn.setAttribute('aria-pressed', next === "glass" ? 'true' : 'false');
-      console.log('🔘 Toggle button updated, aria-pressed:', next === "glass");
-    } else {
-      console.warn('⚠️ Toggle button #glass-toggle not found!');
+      toggleBtn.setAttribute('aria-pressed', next.skin === "glass" ? 'true' : 'false');
+      // Update button text to show current variant
+      const textNode = toggleBtn.childNodes[0];
+      if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+        toggleBtn.childNodes[0].textContent = `✨ Glass: ${next.label}`;
+      }
+      console.log(`🔘 Toggle button: ${next.label}`);
     }
     
-    // Dispatch custom event for other scripts to react
+    // Dispatch custom event
     window.dispatchEvent(new CustomEvent('skinChanged', { 
-      detail: { skin: next || 'default' } 
+      detail: { skin: next.skin || 'default', variant: next.variant, label: next.label } 
     }));
     
-    // Log current body data-skin attribute for verification
-    console.log('📋 Body data-skin attribute:', body.getAttribute('data-skin'));
+    console.log('📋 Body attributes:', body.getAttribute('data-skin'), body.getAttribute('data-glass-variant'));
   };
   
   /**
@@ -90,18 +122,25 @@
   document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('glass-toggle');
     if (toggleBtn) {
-      const currentSkin = body.getAttribute("data-skin");
+      const currentSkin = body.getAttribute("data-skin") || "";
+      const currentVariant = body.getAttribute("data-glass-variant") || "";
+      const current = VARIANTS.find(v => v.skin === currentSkin && v.variant === currentVariant) || VARIANTS[0];
+      
       toggleBtn.setAttribute('aria-pressed', currentSkin === "glass" ? 'true' : 'false');
+      
+      // Update button text to show current variant
+      const textNode = toggleBtn.childNodes[0];
+      if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+        toggleBtn.childNodes[0].textContent = `✨ Glass: ${current.label}`;
+      }
     }
   });
   
   // Log glass skin status for debugging
-  const initialSkin = body.getAttribute("data-skin");
-  if (initialSkin === "glass") {
-    console.log('✨ Glass skin active (loaded from localStorage)');
-  } else {
-    console.log('⚪ Glass skin inactive (default state)');
-  }
-  console.log('🎨 Glass skin module loaded. Use window.aeToggleSkin() to toggle.');
+  const initialSkin = body.getAttribute("data-skin") || "";
+  const initialVariant = body.getAttribute("data-glass-variant") || "";
+  const initialState = VARIANTS.find(v => v.skin === initialSkin && v.variant === initialVariant) || VARIANTS[0];
+  console.log(`🎨 Glass skin module loaded: ${initialState.label}`);
+  console.log('Click glass toggle to cycle: Off → Subtle → Standard → Bold');
 })();
 
