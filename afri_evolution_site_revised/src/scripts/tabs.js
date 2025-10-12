@@ -8,11 +8,13 @@
     btn.setAttribute('aria-selected', on ? 'true' : 'false');
     btn.setAttribute('tabindex', on ? '0' : '-1');
     if (on) {
-      btn.classList.add('bg-surface-1','text-fg');
-      btn.classList.remove('text-bg/80');
+      // Active tab: primary color, bold, on white/surface-1 background
+      btn.classList.add('bg-surface-1', 'text-primary', 'font-semibold');
+      btn.classList.remove('text-subtle', 'text-bg/80', 'font-medium');
     } else {
-      btn.classList.remove('bg-surface-1','text-fg');
-      btn.classList.add('text-bg/80');
+      // Inactive tab: subtle color, medium weight
+      btn.classList.remove('bg-surface-1', 'text-primary', 'font-semibold');
+      btn.classList.add('text-subtle', 'font-medium');
     }
   }
 
