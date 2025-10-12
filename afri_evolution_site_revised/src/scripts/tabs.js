@@ -81,6 +81,19 @@
   const m = /t=(t[0-4])/.exec(hash);
   const initial = m ? m[1] : (tabs[0]?.dataset.tab || 't0');
   activate(initial, false);
+
+  // Add subtle shadow when tabs stick to top
+  const sticky = document.getElementById('tabs-sticky');
+  if (sticky) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+        sticky.classList.add('shadow-sm');
+      } else {
+        sticky.classList.remove('shadow-sm');
+      }
+    }, {threshold: 1});
+    observer.observe(sticky);
+  }
 })();
 
 

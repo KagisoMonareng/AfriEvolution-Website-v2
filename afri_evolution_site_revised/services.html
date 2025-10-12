@@ -688,78 +688,7 @@
   </section>
   </main>
 
-  <!-- Tabs Script: ARIA + deep-linking (#services?t=tN) -->
-  <script>
-  (function(){
-    const tablist = document.querySelector('#tablist');
-    const tabs = [...document.querySelectorAll('#tablist .tab')];
-    const panels = [...document.querySelectorAll('.panel')];
-
-    function activate(id, push=true){
-      tabs.forEach(btn => {
-        const on = btn.dataset.tab === id;
-        btn.setAttribute('aria-selected', on ? 'true' : 'false');
-        // segmented control visual
-        if (on) {
-          btn.classList.add('bg-white','text-graphite','shadow');
-          btn.classList.remove('text-white/80','text-subtle');
-        } else {
-          btn.classList.remove('bg-white','text-graphite','shadow');
-          // Light mode: subtle grey; Dark mode handled by existing dark:text-* classes
-          btn.classList.add('text-subtle');
-          btn.classList.remove('text-white/80');
-        }
-      });
-      panels.forEach(p => p.classList.toggle('hidden', p.id !== id));
-      if (push){
-        const url = new URL(window.location);
-        url.hash = `services?t=${id}`;
-        history.replaceState(null, '', url);
-      }
-      try { window.dispatchEvent(new CustomEvent('tab_view', {detail:{service: id}})); } catch(e){}
-    }
-
-    tabs.forEach(t => {
-      t.setAttribute('role', 'tab');
-      t.setAttribute('aria-controls', t.dataset.tab);
-      t.addEventListener('click', (e) => { e.preventDefault(); activate(t.dataset.tab); });
-    });
-    tablist?.setAttribute('role','tablist');
-
-    // Keyboard navigation
-    tablist?.addEventListener('keydown', (e) => {
-      const current = document.activeElement;
-      const idx = tabs.indexOf(current);
-      if (idx === -1) return;
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        const next = tabs[(idx + 1) % tabs.length];
-        next.focus(); activate(next.dataset.tab);
-      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        const prev = tabs[(idx - 1 + tabs.length) % tabs.length];
-        prev.focus(); activate(prev.dataset.tab);
-      } else if (e.key === 'Home') {
-        e.preventDefault(); tabs[0].focus(); activate(tabs[0].dataset.tab);
-      } else if (e.key === 'End') {
-        e.preventDefault(); const last = tabs[tabs.length-1]; last.focus(); activate(last.dataset.tab);
-      }
-    });
-
-    const hash = new URL(window.location).hash;
-    const m = /t=(t[0-4])/.exec(hash);
-    const initial = m ? m[1] : (tabs[0]?.dataset.tab || 't0');
-    activate(initial, false);
-
-    // add subtle shadow when sticky
-    const sticky = document.getElementById('tabs-sticky');
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) sticky?.classList.add('shadow-sm');
-      else sticky?.classList.remove('shadow-sm');
-    }, {threshold: 1});
-    if (sticky) observer.observe(sticky);
-  })();
-  </script>
+  <!-- Tabs functionality handled by /src/scripts/tabs.js -->
   
   <!-- Footer -->
   <footer class="bg-primary text-white py-8 px-4 text-center">
