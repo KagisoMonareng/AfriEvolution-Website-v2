@@ -221,24 +221,23 @@
     <main id="main">
         <!-- Hero Section with Glass Effect -->
         <section id="hero" class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold" style="z-index: 10;">
-            <!-- Background Image -->
+            <!-- Background Image (visible top and bottom) -->
             <img src="/images/hero-africa.jpg" alt="Glowing outline of Africa with flowing gold lines" class="absolute inset-0 w-full h-full object-cover z-0" width="1920" height="1080" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='/images/og-cover.svg';">
 
             <!-- Overlay for contrast -->
             <div class="absolute inset-0 bg-black opacity-40 z-5"></div>
             
-            <!-- Full Glass Overlay covering entire hero -->
-            <div class="glass-strong glass-hero absolute inset-0 z-10"></div>
-            
-            <!-- Text Content on top -->
+            <!-- Glass band covering only text area (horizontal stripe) -->
             <div class="relative z-20 container mx-auto text-center max-w-5xl">
-                <h1 class="h1 mb-4 text-white">Achieve Digital Excellence. Powered by AI.</h1>
-                <p class="lead max-w-4xl mx-auto mb-8 text-white">
-                    For SME teams who want measurable ROI from automation in 4–8 weeks.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                    <a href="contact.html" class="btn-primary">Get Your ROI Plan</a>
-                    <a href="services.html#services-tabs" class="btn-ghost-white">See how it works</a>
+                <div class="glass-strong px-8 py-12 rounded-2xl">
+                    <h1 class="h1 mb-4 text-white">Achieve Digital Excellence. Powered by AI.</h1>
+                    <p class="lead max-w-4xl mx-auto mb-8 text-white">
+                        For SME teams who want measurable ROI from automation in 4–8 weeks.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <a href="contact.html" class="btn-primary">Get Your ROI Plan</a>
+                        <a href="services.html#services-tabs" class="btn-ghost-white">See how it works</a>
+                    </div>
                 </div>
             </div>
         </section>
