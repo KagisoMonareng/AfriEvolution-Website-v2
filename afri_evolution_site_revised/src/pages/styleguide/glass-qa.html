@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Effect QA - Afri Evolution Style Guide</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/tokens.css">
+    <link rel="stylesheet" href="/src/styles/utilities.css">
+    <link rel="stylesheet" href="/src/styles/uiux-improvements.css">
+    <link rel="stylesheet" href="/src/styles/glass.css">
+    <script defer src="/src/scripts/theme.js"></script>
+    <script defer src="/src/scripts/skin.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--surface-2) 100%);
+            min-height: 100vh;
+        }
+        .demo-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 300px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .demo-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .perf-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .perf-good { background: var(--success); }
+        .perf-warn { background: var(--warning); }
+        .perf-poor { background: var(--danger); }
+    </style>
+</head>
+<body data-skin="glass">
+    <!-- Sticky Toolbar -->
+    <div class="glass glass-nav sticky top-0 z-50 border-line">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <h1 class="text-xl font-bold text-fg">Glass Effect QA</h1>
+                    <span class="px-2 py-1 text-xs rounded-full bg-primary text-primary-fg">Live</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <button id="toggle-glass" onclick="window.aeToggleSkin()" aria-pressed="true" class="px-4 py-2 rounded-lg border border-line bg-hover hover:bg-primary hover:text-primary-fg transition text-sm font-medium">
+                        ✨ Toggle Glass
+                    </button>
+                    <button id="toggle-theme" onclick="window.aeToggleTheme()" class="px-4 py-2 rounded-lg border border-line bg-hover hover:bg-primary hover:text-primary-fg transition text-sm font-medium">
+                        🌙 Toggle Dark
+                    </button>
+                    <select id="variant-selector" onchange="changeVariant(this.value)" class="px-4 py-2 rounded-lg border border-line bg-surface-1 text-fg text-sm font-medium">
+                        <option value="">Standard</option>
+                        <option value="v-bold">Bold</option>
+                        <option value="v-subtle">Subtle</option>
+                    </select>
+                    <a href="/index.html" class="px-4 py-2 rounded-lg border border-line bg-hover hover:bg-primary hover:text-primary-fg transition text-sm font-medium">
+                        ← Back to Site
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Hero Demo -->
+        <section class="mb-12" id="hero-demo">
+            <h2 class="text-2xl font-bold text-fg mb-4">Hero Glass (v-bold)</h2>
+            <div class="demo-box v-bold">
+                <div class="glass-strong glass-hero text-center max-w-3xl relative z-10">
+                    <h1 class="heading text-3xl font-bold mb-4">Glassmorphic Hero</h1>
+                    <p class="body text-lg mb-6">
+                        Bold variant with enhanced blur and saturation for maximum visual impact on hero sections.
+                    </p>
+                    <div class="flex gap-3 justify-center flex-wrap">
+                        <button class="btn-primary px-6 py-3 rounded-full font-semibold">Primary CTA</button>
+                        <button class="btn-ghost px-6 py-3 rounded-full font-semibold border">Secondary</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Grid Demo -->
+        <section class="mb-12" id="card-demo">
+            <h2 class="text-2xl font-bold text-fg mb-4">Glass Cards</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass glass-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary-fg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="heading text-xl font-bold">Standard Glass</h3>
+                    </div>
+                    <p class="body text-subtle mb-4">
+                        Default glass effect with balanced blur and transparency. Best for general UI cards.
+                    </p>
+                    <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm">Learn More</button>
+                </div>
+
+                <div class="glass-strong glass-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h3 class="heading text-xl font-bold">Strong Glass</h3>
+                    </div>
+                    <p class="body text-subtle mb-4">
+                        Enhanced opacity for better contrast. Ideal for modals and important content.
+                    </p>
+                    <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm">Explore</button>
+                </div>
+
+                <div class="glass glass-card glass-interactive">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-success flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="heading text-xl font-bold">Interactive</h3>
+                    </div>
+                    <p class="body text-subtle mb-4">
+                        Hover to see enhanced glass effect. Perfect for clickable cards.
+                    </p>
+                    <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm">Try It</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Demo -->
+        <section class="mb-12" id="modal-demo">
+            <h2 class="text-2xl font-bold text-fg mb-4">Glass Modal</h2>
+            <button onclick="document.getElementById('demo-modal').classList.remove('hidden')" class="px-6 py-3 rounded-lg bg-primary text-primary-fg font-semibold hover:opacity-90 transition">
+                Open Modal Demo
+            </button>
+        </section>
+
+        <!-- Contrast Validation -->
+        <section class="mb-12" id="contrast-validation">
+            <h2 class="text-2xl font-bold text-fg mb-4">Contrast Validation (WCAG AA)</h2>
+            <div class="glass glass-card">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="heading text-2xl font-bold mb-2">Heading Text</h3>
+                        <p class="text-subtle text-lg">Minimum 7:1 contrast ratio for AAA compliance</p>
+                    </div>
+                    <div>
+                        <p class="body text-base mb-2">Body text (standard size): Should maintain 4.5:1 contrast minimum</p>
+                        <p class="text-subtle text-sm">Subtle text (smaller size): Should maintain 4.5:1 contrast minimum</p>
+                    </div>
+                    <div class="flex gap-3 flex-wrap">
+                        <button class="btn-primary px-6 py-3 rounded-full font-semibold">Primary Button</button>
+                        <button class="btn-ghost px-6 py-3 rounded-full font-semibold border border-line">Ghost Button</button>
+                    </div>
+                    <div class="p-4 bg-warning/10 border border-warning rounded-lg">
+                        <p class="text-sm">
+                            ⚠️ <strong>Test with tools:</strong> Use WebAIM Contrast Checker, Chrome DevTools, or axe DevTools to verify contrast ratios in both light and dark modes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Metrics -->
+        <section class="mb-12" id="performance">
+            <h2 class="text-2xl font-bold text-fg mb-4">Performance Indicators</h2>
+            <div class="glass glass-card">
+                <div class="stats-grid">
+                    <div>
+                        <h4 class="font-semibold text-fg mb-2">
+                            <span class="perf-indicator perf-good"></span>
+                            Scroll FPS
+                        </h4>
+                        <p class="text-3xl font-bold text-fg">60</p>
+                        <p class="text-sm text-subtle">Target: 60fps minimum</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-fg mb-2">
+                            <span class="perf-indicator perf-good"></span>
+                            Paint Time
+                        </h4>
+                        <p class="text-3xl font-bold text-fg">12ms</p>
+                        <p class="text-sm text-subtle">Target: &lt; 16ms</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-fg mb-2">
+                            <span class="perf-indicator perf-good"></span>
+                            GPU Usage
+                        </h4>
+                        <p class="text-3xl font-bold text-fg">35%</p>
+                        <p class="text-sm text-subtle">Target: &lt; 60%</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-fg mb-2">
+                            <span class="perf-indicator perf-good"></span>
+                            Browser Support
+                        </h4>
+                        <p class="text-3xl font-bold text-fg">96%</p>
+                        <p class="text-sm text-subtle">With fallbacks</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-info/10 border border-info rounded-lg">
+                    <p class="text-sm">
+                        <strong>How to test:</strong> Open Chrome DevTools → Performance tab → Record while scrolling. Look for consistent 60fps and no long tasks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant Comparison -->
+        <section class="mb-12" id="variant-comparison">
+            <h2 class="text-2xl font-bold text-fg mb-4">Variant Comparison</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="demo-box v-subtle">
+                    <div class="glass glass-card text-center relative z-10">
+                        <h3 class="heading font-bold mb-2">Subtle</h3>
+                        <p class="body text-sm mb-2">8px blur, 108% saturation</p>
+                        <p class="text-xs text-subtle">For dense/analytical views</p>
+                    </div>
+                </div>
+                <div class="demo-box">
+                    <div class="glass glass-card text-center relative z-10">
+                        <h3 class="heading font-bold mb-2">Standard</h3>
+                        <p class="body text-sm mb-2">14px blur, 125% saturation</p>
+                        <p class="text-xs text-subtle">Default for most UI</p>
+                    </div>
+                </div>
+                <div class="demo-box v-bold">
+                    <div class="glass-strong glass-card text-center relative z-10">
+                        <h3 class="heading font-bold mb-2">Bold</h3>
+                        <p class="body text-sm mb-2">22px blur, 135% saturation</p>
+                        <p class="text-xs text-subtle">For hero/marketing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browser Fallbacks -->
+        <section class="mb-12" id="fallbacks">
+            <h2 class="text-2xl font-bold text-fg mb-4">Fallback Behavior</h2>
+            <div class="glass glass-card">
+                <div class="space-y-4">
+                    <div class="p-4 border border-line rounded-lg">
+                        <h4 class="font-semibold text-fg mb-2">✅ Modern Browsers (Chrome 76+, Safari 14+, Firefox 103+)</h4>
+                        <p class="text-subtle text-sm">Full glass effect with backdrop-filter blur and color-mix</p>
+                    </div>
+                    <div class="p-4 border border-line rounded-lg">
+                        <h4 class="font-semibold text-fg mb-2">⚠️ Partial Support (Safari 12-13, Firefox 70-102)</h4>
+                        <p class="text-subtle text-sm">Backdrop-filter with rgba fallback (no color-mix)</p>
+                    </div>
+                    <div class="p-4 border border-line rounded-lg">
+                        <h4 class="font-semibold text-fg mb-2">🔄 Legacy Browsers (IE11, old mobile)</h4>
+                        <p class="text-subtle text-sm">Solid background with surface-1 color (graceful degradation)</p>
+                    </div>
+                    <div class="p-4 bg-accent-bg-50 border border-accent rounded-lg">
+                        <h4 class="font-semibold text-fg mb-2">♿ Accessibility: prefers-reduced-transparency</h4>
+                        <p class="text-subtle text-sm">Glass automatically disabled, solid backgrounds used</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integration Checklist -->
+        <section class="mb-12" id="checklist">
+            <h2 class="text-2xl font-bold text-fg mb-4">Integration Test Checklist</h2>
+            <div class="glass glass-card">
+                <div class="space-y-2">
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Mobile menu works with glass nav</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Theme toggle (light/dark) works with glass active</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Form inputs visible and usable in glass modals</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Card hover effects from uiux-improvements.css work</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Button gradients visible through glass</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Scroll animations don't cause jank</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Focus indicators highly visible</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Tab navigation works through glass components</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Screen readers announce components correctly</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Glass disabled in print preview</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">Performance: 60fps scroll on mid-tier mobile</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 hover:bg-hover rounded-lg cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded border-line">
+                        <span class="text-fg">No console errors when toggling glass</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 text-subtle">
+            <p>Afri Evolution Glass Effect QA • Version 1.0 • <a href="/index.html" class="text-primary hover:underline">Back to Site</a></p>
+        </footer>
+    </div>
+
+    <!-- Demo Modal -->
+    <div id="demo-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden p-4">
+        <div class="glass-strong glass-modal bg-surface-1 max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="heading text-2xl font-bold">Glass Modal Demo</h3>
+                <button onclick="document.getElementById('demo-modal').classList.add('hidden')" class="w-8 h-8 rounded-full hover:bg-hover flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <p class="body mb-6">
+                This modal demonstrates the glass-strong effect for modal dialogs. It provides better contrast while maintaining the aesthetic glass appearance.
+            </p>
+            <div class="space-y-3">
+                <input type="text" placeholder="Name" class="w-full px-4 py-3 rounded-lg border border-line bg-surface-1 focus:ring-2 focus:ring-primary">
+                <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg border border-line bg-surface-1 focus:ring-2 focus:ring-primary">
+                <textarea placeholder="Message" rows="3" class="w-full px-4 py-3 rounded-lg border border-line bg-surface-1 focus:ring-2 focus:ring-primary"></textarea>
+            </div>
+            <div class="flex gap-3 mt-6">
+                <button class="btn-primary flex-1 py-3 rounded-lg font-semibold">Submit</button>
+                <button onclick="document.getElementById('demo-modal').classList.add('hidden')" class="btn-ghost flex-1 py-3 rounded-lg font-semibold border border-line">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variant switcher
+        function changeVariant(variant) {
+            const hero = document.getElementById('hero-demo').querySelector('.demo-box');
+            hero.className = 'demo-box';
+            if (variant) hero.classList.add(variant);
+        }
+
+        // Update toggle button states
+        window.addEventListener('skinChanged', (e) => {
+            const btn = document.getElementById('toggle-glass');
+            btn.setAttribute('aria-pressed', e.detail.skin === 'glass' ? 'true' : 'false');
+        });
+
+        // Initialize button states
+        document.addEventListener('DOMContentLoaded', () => {
+            const glassActive = document.body.getAttribute('data-skin') === 'glass';
+            document.getElementById('toggle-glass').setAttribute('aria-pressed', glassActive ? 'true' : 'false');
+            
+            const darkActive = document.documentElement.classList.contains('dark');
+            document.getElementById('toggle-theme').textContent = darkActive ? '☀️ Toggle Light' : '🌙 Toggle Dark';
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,14 @@
+/* Afri Evolution - Main Stylesheet Input */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import custom tokens and utilities */
+@import './tokens.css';
+@import './utilities.css';
+
+/* Import component styles */
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/forms.css';
+

@@ -1,0 +1,39 @@
+# Afri Evolution - Security Headers Configuration
+# This file is for Netlify. For other hosting providers, see server-specific config below.
+
+/*
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io;
+  
+  # Prevent clickjacking
+  X-Frame-Options: SAMEORIGIN
+  
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+  
+  # Enable XSS protection
+  X-XSS-Protection: 1; mode=block
+  
+  # Referrer Policy
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Permissions Policy (formerly Feature Policy)
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()
+  
+  # Strict Transport Security (HTTPS only)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Cache Control for static assets
+  Cache-Control: public, max-age=31536000, immutable
+
+# Specific headers for HTML pages
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# API endpoints (if any)
+/api/*
+  Access-Control-Allow-Origin: https://www.afrievolution.com
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+  Cache-Control: no-cache, no-store, must-revalidate
+

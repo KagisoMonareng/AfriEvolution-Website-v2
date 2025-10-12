@@ -1,0 +1,119 @@
+/* Afri Evolution — Tokens (Light & Dark, gray-first + gold + plum) */
+:root {
+  /* Neutrals — LIGHT */
+  --bg:#F7F8FA;
+  --surface-1:#FFFFFF;
+  --surface-2:#F2F4F7;
+  --surface-3:#E9EDF2;
+  --line:#E5E7EB;
+
+  --fg:#101318;
+  --subtle:#4B5563;
+  --muted:#6B7280;
+
+  /* Brand & Accents */
+  --primary:#F2AD0D;        /* gold */
+  --primary-600:#D99500;
+  --primary-fg:#111214;
+
+  --accent:#7C3AED;         /* PLUM */
+  --accent-hover:#6D28D9;
+  --accent-bg-50:#F4EAFE;
+  --accent-200:#C4A5F5;
+
+  /* Secondary neutral accents */
+  --accent-taupe:#8E8578;
+  --accent-stone:#A8A29E;
+
+  /* States (Light) */
+  --success:#16A34A;  --success-fg:#06240F;
+  --warning:#F59E0B;  --warning-fg:#120E05;
+  --danger:#DC2626;   --danger-fg:#1A0A0A;
+  --info:#0284C7;     --info-fg:#06161E;
+
+  /* Interaction */
+  --hover:rgba(0,0,0,.05);
+  --focus-ring:#F2AD0D;
+}
+:root.dark {
+  /* Neutrals — DARK (gray-first, no browns) */
+  --bg:#0E1116;
+  --surface-1:#141922;
+  --surface-2:#1A202A;
+  --surface-3:#222A36;
+  --line:#2E3440;
+
+  --fg:#EDEFF3;
+  --subtle:#C9CDD6;
+  --muted:#9AA3B2;
+
+  /* Brand & Accents (dark-tuned) */
+  --primary:#DFA90E;
+  --primary-600:#BA8D00;
+  --primary-fg:#0A0B0D;
+
+  --accent:#9B6BFF;        /* PLUM (dark) */
+  --accent-hover:#8B58FA;
+  --accent-bg-50:#231A33;
+  --accent-200:#C8A9FF;
+
+  --accent-taupe:#B2ABA0;
+  --accent-stone:#9F9A93;
+
+  /* States (Dark) */
+  --success:#22C55E;  --success-fg:#06190D;
+  --warning:#FBBF24;  --warning-fg:#0F0A04;
+  --danger:#F87171;   --danger-fg:#1A0A0A;
+  --info:#38BDF8;     --info-fg:#06161E;
+
+  /* Interaction */
+  --hover:rgba(255,255,255,.08);
+  --focus-ring:#DFA90E;
+}
+
+html{color-scheme:light dark;background:var(--bg)}
+body{background:var(--bg);color:var(--fg)}
+
+/* ===== Glassmorphism Tokens (Light/Dark with Fallbacks) ===== */
+:root {
+  --glass-blur: 14px;
+  --glass-saturate: 125%;
+  
+  /* Fallbacks for browsers without color-mix support */
+  --glass-tint: rgba(247, 248, 250, 0.72);
+  --glass-tint-strong: rgba(247, 248, 250, 0.86);
+  --glass-border: rgba(229, 231, 235, 0.7);
+  
+  /* Modern browsers override with color-mix */
+  --glass-tint: color-mix(in oklab, var(--bg) 72%, transparent);
+  --glass-tint-strong: color-mix(in oklab, var(--bg) 86%, transparent);
+  --glass-border: color-mix(in oklab, var(--line) 70%, transparent);
+  
+  --glass-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
+
+:root.dark {
+  --glass-blur: 14px;
+  --glass-saturate: 125%;
+  
+  /* Fallbacks for browsers without color-mix support */
+  --glass-tint: rgba(20, 25, 34, 0.28);
+  --glass-tint-strong: rgba(20, 25, 34, 0.42);
+  --glass-border: rgba(46, 52, 64, 0.55);
+  
+  /* Modern browsers override with color-mix */
+  --glass-tint: color-mix(in oklab, var(--surface-1) 28%, transparent);
+  --glass-tint-strong: color-mix(in oklab, var(--surface-1) 42%, transparent);
+  --glass-border: color-mix(in oklab, var(--line) 55%, transparent);
+  
+  --glass-shadow: 0 10px 28px rgba(0,0,0,.35);
+}
+
+/* Mobile performance optimization */
+@media (max-width: 768px) {
+  :root {
+    --glass-blur: 8px;
+    --glass-saturate: 110%;
+  }
+}
+

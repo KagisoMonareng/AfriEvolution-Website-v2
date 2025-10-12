@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <title>Theme QA | Afri Evolution</title>
+  <!--#include file="../../partials/head-meta.html" -->
+  <script src="/src/scripts/theme.js" defer></script>
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/utilities.css">
+</head>
+<body class="bg-bg text-fg">
+  <!--#include file="../../components/header.html" -->
+  <main id="main" class="container mx-auto max-w-6xl px-4 py-10 space-y-10">
+    <section>
+      <h1 class="text-3xl font-bold">Tokens</h1>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-4">
+        <div class="p-4 rounded-xl border border-line" style="background:var(--bg)">bg</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--surface-1)">surface-1</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--surface-2)">surface-2</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--surface-3)">surface-3</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--line)">line</div>
+        <div class="p-4 rounded-xl border border-line text-primaryFg" style="background:var(--primary)">primary</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--accent-bg-50);color:var(--accent)">accent</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--success);color:var(--success-fg)">success</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--warning);color:var(--warning-fg)">warning</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--danger);color:var(--danger-fg)">danger</div>
+        <div class="p-4 rounded-xl border border-line" style="background:var(--info);color:var(--info-fg)">info</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold">Buttons</h2>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <button class="px-4 py-2 rounded-full bg-primary text-primaryFg hover:bg-primary600 focus-visible:ring-2 ring-focusRing">Primary</button>
+        <button class="px-4 py-2 rounded-full bg-hover text-fg border border-line focus-visible:ring-2 ring-focusRing">Secondary</button>
+        <a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2">Text link</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold">Tabs</h2>
+      <div role="tablist" class="inline-flex gap-2 bg-surface-2 p-2 rounded-full">
+        <button role="tab" aria-selected="true" class="px-4 py-1.5 rounded-full bg-surface-1 text-fg focus-visible:ring-2 ring-focusRing">Active</button>
+        <button role="tab" aria-selected="false" class="px-4 py-1.5 rounded-full text-muted hover:text-fg focus-visible:ring-2 ring-focusRing">Inactive</button>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold">Table</h2>
+      <table class="w-full border border-line text-sm bg-surface-1">
+        <thead>
+          <tr class="bg-surface-2">
+            <th class="text-left p-3 border border-line text-fg">Header</th>
+            <th class="text-left p-3 border border-line text-fg">Header</th>
+          </tr>
+        </thead>
+        <tbody class="text-subtle">
+          <tr>
+            <td class="p-3 border border-line">Cell</td>
+            <td class="p-3 border border-line">Cell</td>
+          </tr>
+          <tr class="even:bg-surface-3/40">
+            <td class="p-3 border border-line">Cell</td>
+            <td class="p-3 border border-line">Cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!--#include file="../../components/footer.html" -->
+</body>
+</html>
+
+

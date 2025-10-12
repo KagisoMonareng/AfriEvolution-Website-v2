@@ -1,0 +1,285 @@
+/**
+ * Afri Evolution - Main JavaScript Module
+ * Consolidates all common functionality across pages
+ */
+
+// Import sub-modules
+import './theme.js';
+import './a11y.js';
+
+/**
+ * Mobile Menu Toggle
+ * Handles mobile menu open/close with proper ARIA attributes
+ */
+export function initMobileMenu() {
+  const toggleBtn = document.querySelector('[data-toggle="mobile-menu"]');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (!toggleBtn || !mobileMenu) return;
+
+  const menuIcon = toggleBtn.querySelector('.menu-icon');
+  const closeIcon = toggleBtn.querySelector('.close-icon');
+
+  // Toggle menu with icon animation
+  function toggleMenu() {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    toggleBtn.setAttribute('aria-expanded', !isHidden ? 'true' : 'false');
+    
+    // Animate icon switch
+    if (!isHidden) {
+      menuIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+    } else {
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    }
+  }
+
+  // Close menu
+  function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    menuIcon?.classList.remove('hidden');
+    closeIcon?.classList.add('hidden');
+  }
+
+  // Event listeners
+  toggleBtn.addEventListener('click', toggleMenu);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      closeMenu();
+      toggleBtn.focus();
+    }
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.classList.contains('hidden')) {
+      const withinMenu = mobileMenu.contains(e.target);
+      const isToggle = toggleBtn.contains(e.target);
+      if (!withinMenu && !isToggle) {
+        closeMenu();
+      }
+    }
+  });
+}
+
+/**
+ * Scroll Animations
+ * Observes elements and adds 'is-visible' class when they enter viewport
+ */
+export function initScrollAnimations() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Stop observing once visible
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with fade-in classes
+  document.querySelectorAll('.fade-in, .fade-in-up').forEach(element => {
+    observer.observe(element);
+  });
+}
+
+/**
+ * Active Navigation Highlighting
+ * Highlights current page in navigation
+ */
+export function highlightActiveNav() {
+  try {
+    const currentPage = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    
+    // Highlight in both desktop and mobile menus
+    document.querySelectorAll('header a[href], #mobile-menu a[href]').forEach(link => {
+      const href = (link.getAttribute('href') || '').toLowerCase();
+      if (href === currentPage || href.endsWith(currentPage)) {
+        link.classList.add('text-primary', 'font-semibold', 'underline', 'underline-offset-8');
+      }
+    });
+  } catch (e) {
+    console.error('Error highlighting active nav:', e);
+  }
+}
+
+/**
+ * Form Validation
+ * Enhanced form validation with accessibility
+ */
+export function initFormValidation(formId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+
+  function showError(inputId, show) {
+    const errorEl = document.getElementById(`err-${inputId}`);
+    const inputEl = document.getElementById(inputId);
+    
+    if (errorEl) {
+      errorEl.classList.toggle('hidden', !show);
+    }
+    if (inputEl) {
+      inputEl.setAttribute('aria-invalid', show ? 'true' : 'false');
+      if (show) {
+        inputEl.classList.add('border-danger');
+      } else {
+        inputEl.classList.remove('border-danger');
+      }
+    }
+  }
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    let isValid = true;
+
+    // Validate name
+    const nameInput = document.getElementById('name');
+    if (nameInput && !nameInput.value.trim()) {
+      showError('name', true);
+      isValid = false;
+    } else if (nameInput) {
+      showError('name', false);
+    }
+
+    // Validate email
+    const emailInput = document.getElementById('email');
+    if (emailInput && !validateEmail(emailInput.value)) {
+      showError('email', true);
+      isValid = false;
+    } else if (emailInput) {
+      showError('email', false);
+    }
+
+    // Validate message
+    const messageInput = document.getElementById('message');
+    if (messageInput && !messageInput.value.trim()) {
+      showError('message', true);
+      isValid = false;
+    } else if (messageInput) {
+      showError('message', false);
+    }
+
+    if (!isValid) return;
+
+    // Submit to Formspree if valid
+    if (form.action.includes('formspree.io')) {
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        const messageEl = document.getElementById('form-message');
+        if (response.ok) {
+          if (messageEl) {
+            messageEl.classList.remove('hidden');
+            messageEl.classList.add('show');
+          }
+          form.reset();
+        } else {
+          alert('There was a problem submitting the form. Please try again.');
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        alert('There was a problem submitting the form. Please try again.');
+      }
+    }
+  });
+}
+
+/**
+ * Accordion Functionality
+ * For FAQ sections
+ */
+export function initAccordions() {
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('span');
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        content.style.maxHeight = '0';
+        icon.innerHTML = '<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
+      } else {
+        // Close all other accordions
+        document.querySelectorAll('.accordion-content.active').forEach(item => {
+          item.classList.remove('active');
+          item.style.maxHeight = '0';
+          item.previousElementSibling.querySelector('span').innerHTML = '<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
+        });
+
+        content.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.innerHTML = '<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
+      }
+    });
+  });
+}
+
+/**
+ * Sticky Header on Scroll
+ * Adds 'scrolled' class to header when user scrolls down
+ */
+export function initStickyHeader() {
+  const header = document.querySelector('header');
+  if (!header) return;
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+}
+
+/**
+ * Initialize all common functionality
+ * Call this on DOMContentLoaded
+ */
+export function init() {
+  initMobileMenu();
+  initScrollAnimations();
+  highlightActiveNav();
+  initAccordions();
+  initStickyHeader();
+  
+  // Initialize form validation if contact form exists
+  if (document.getElementById('contactForm')) {
+    initFormValidation('contactForm');
+  }
+}
+
+// Auto-initialize on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// Export for manual initialization if needed
+window.AfriEvolution = {
+  init,
+  initMobileMenu,
+  initScrollAnimations,
+  highlightActiveNav,
+  initFormValidation,
+  initAccordions
+};
+

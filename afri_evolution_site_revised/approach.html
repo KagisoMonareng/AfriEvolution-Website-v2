@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afri Evolution - Our Approach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/styles/tokens.css">
+<link rel="stylesheet" href="/src/styles/utilities.css">
+<link rel="stylesheet" href="/src/styles/uiux-improvements.css">
+<link rel="stylesheet" href="/src/styles/glass.css">
+<link rel="canonical" href="https://www.afrievolution.com/approach">
+    <meta property="og:site_name" content="Afri Evolution">
+    <script defer src="/src/scripts/theme.js"></script>
+    <script defer src="/src/scripts/skin.js"></script>
+    <script defer src="/src/scripts/a11y.js"></script>
+    <style>
+        /* Color Palette mapped to tokens */
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--fg); }
+        .text-primary { color: var(--fg); }
+        .bg-primary { background-color: var(--primary); }
+        .text-secondary { color: var(--subtle); }
+        .bg-secondary { background-color: var(--surface-2); }
+        .text-accent-subtle { color: var(--primary); }
+        .bg-accent-subtle { background-color: var(--surface-3); }
+        .text-accent-vibrant { color: var(--primary); }
+        .bg-accent-vibrant { background-color: var(--primary); }
+        /* Page no longer defines gold button; use global primitives */
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid #C99400; /* Border Accent Vibrant */
+            color: #C99400; /* Text Accent Vibrant */
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition-property: all;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #C99400; /* hover:bg-accent-vibrant */
+            color: #FFFFFF; /* hover:text-white */
+        }
+        /* --- Approach Step Block Styling --- */
+        .approach-step {
+            background-color: var(--surface-1);
+            border-radius: 12px;
+            padding: 2.5rem 1.5rem; /* adjusted padding for vertical flow */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            min-height: 220px; /* Consistent height for steps */
+            position: relative;
+            overflow: hidden;
+            justify-content: center; /* Center content vertically */
+        }
+        .approach-step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .approach-step-icon {
+            /* Consistent icon sizing across sections */
+            width: 64px; /* Explicit width */
+            height: 64px; /* Explicit height */
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .approach-step-title {
+            font-size: 1.75rem; /* text-2xl */
+            font-weight: 800; /* font-extrabold */
+            color: var(--fg);
+            margin-bottom: 0.5rem;
+        }
+        .approach-step-description {
+            font-size: 0.9rem; /* text-sm */
+            color: var(--subtle);
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        /* Diagonal Accent Strip */
+        .approach-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230,211,160,0.2) 0%, transparent 40%, transparent 100%); /* Subtle diagonal gradient */
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .approach-step:nth-child(even)::before { /* Apply gradient to alternating steps for visual variation */
+            background: linear-gradient(-135deg, rgba(230,211,160,0.2) 0%, transparent 40%, transparent 100%);
+        }
+        /* --- End Approach Step Block Styling --- */
+
+        .card-shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* shadow-md */
+            transition-property: box-shadow, transform;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .card-shadow:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* hover:shadow-lg */
+            transform: translateY(-5px); /* subtle lift */
+        }
+        .section-header {
+            font-size: 2.25rem; /* text-3xl */
+            line-height: 1.25; /* leading-tight */
+            font-weight: 700; /* font-bold */
+            color: var(--fg);
+            text-align: center;
+            margin-bottom: 3rem; /* mb-12 */
+        }
+        @media (min-width: 768px) {
+            .section-header {
+                font-size: 3rem; /* md:text-4xl */
+            }
+        }
+        .accordion-item { border-bottom: 1px solid var(--line); }
+        .accordion-header {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--surface-1);
+            border-radius: 8px;
+            margin-bottom: 8px; /* Space between items */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.2s ease-in-out;
+        }
+        .accordion-header:hover { background-color: var(--hover); }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 1.5rem;
+            background-color: var(--surface-2);
+            border-radius: 8px;
+        }
+        .accordion-content.active {
+            max-height: 300px; /* Adjust max-height as needed for content */
+            padding-bottom: 1.25rem;
+        }
+        /* Scroll Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<!-- Basic SEO -->
+<meta name="description" content="Discover Afri Evolution's proven 5-phase approach to AI transformation: Assess, Build, Automate, Augment, and Evolve. Start your digital journey today.">
+<link rel="icon" href="/favicon.ico">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.afrievolution.com/approach">
+<meta property="og:image" content="/images/og-cover.svg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/og-cover.svg">
+    <meta property="og:title" content="Afri Evolution - Our Approach">
+    <meta property="og:description" content="Digitize. Automate. Grow. Measurable impact with AI and intelligent automation.">
+    <meta name="twitter:title" content="Afri Evolution - Our Approach">
+    <meta name="twitter:description" content="Digitize. Automate. Grow. Measurable impact with AI and intelligent automation.">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Header/Navigation -->
+    <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-20 border-line">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-primary">Afri Evolution</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="services.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Services</a>
+                <a href="about-us.html" class="text-secondary hover:text-primary transition duration-300 font-medium">About Us</a>
+                <a href="approach.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Our Approach</a>
+                <a href="contact.html" class="btn-primary text-sm px-6 py-2">Contact Us</a>
+            </div>
+            <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
+            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Services</a>
+            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">About Us</a>
+            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Our Approach</a>
+            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Contact Us</a>
+        </div>
+    </header>
+
+    <main class="pt-20" id="main">
+        <!-- Page Hero Section -->
+        <section class="relative bg-gradient-to-br from-[#3A3F44] to-[#6D737A] text-white py-16 md:py-24 px-4 overflow-hidden">
+            <div class="container mx-auto text-center relative z-10 fade-in is-visible">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    Our Proven Approach to Digital Transformation
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+                    We guide your business through a structured, phased methodology, ensuring that every step of your AI and automation journey is strategic, impactful, and tailored to your unique needs.
+                </p>
+            </div>
+        </section>
+
+        <!-- Our Approach Section (Flowchart) - REVISED -->
+        <section id="approach-detailed" class="py-16 md:py-24 px-4 bg-surface-1">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="section-header fade-in">Your Structured Transformation Journey</h2>
+                <p class="text-center text-lg text-secondary max-w-3xl mx-auto mb-12 fade-in">
+                    Our systematic five-phase approach builds AI and automation solutions on a solid foundation, maximizing success and delivering tangible ROI.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-x-4 items-stretch">
+                    <div class="approach-step fade-in-up card-pop">
+                        <div class="approach-step-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <h3 class="approach-step-title">1. Assess & Strategize</h3>
+                        <p class="approach-step-description">Evaluate digital maturity, identify AI/automation opportunities, and define strategic goals for measurable impact.</p>
+                    </div>
+                    <div class="md:flex hidden items-center justify-center fade-in-up" style="transition-delay: 0.05s;">
+                        <span class="text-5xl text-secondary">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="approach-step fade-in-up card-pop" style="transition-delay: 0.1s;">
+                        <div class="approach-step-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M21 19c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="approach-step-title">2. Build Foundation</h3>
+                        <p class="approach-step-description">Digitize core processes, centralize data, and establish essential infrastructure for robust AI readiness.</p>
+                    </div>
+                    <div class="md:flex hidden items-center justify-center fade-in-up" style="transition-delay: 0.15s;">
+                        <span class="text-5xl text-secondary">
+                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="approach-step fade-in-up card-pop" style="transition-delay: 0.2s;">
+                        <div class="approach-step-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-repeat">
+                                <polyline points="17 1 21 5 17 9"></polyline>
+                                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                <polyline points="7 23 3 19 7 15"></polyline>
+                                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                            </svg>
+                        </div>
+                        <h3 class="approach-step-title">3. Implement Automation</h3>
+                        <p class="approach-step-description">Implement process automation tools and build efficient, repeatable workflows for immediate and tangible gains.</p>
+                    </div>
+                     <div class="md:hidden flex items-center justify-center w-full fade-in-up" style="transition-delay: 0.25s;">
+                        <span class="text-5xl text-secondary">
+                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="md:flex hidden items-center justify-center fade-in-up" style="transition-delay: 0.3s;">
+                        <span class="text-5xl text-secondary">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="approach-step fade-in-up card-pop md:col-start-2" style="transition-delay: 0.35s;">
+                        <div class="approach-step-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="15" x2="23" y2="15"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="15" x2="4" y2="15"></line>
+                            </svg>
+                        </div>
+                        <h3 class="approach-step-title">4. Augment with AI</h3>
+                        <p class="approach-step-description">Introduce advanced AI for analytics, prediction, enhanced decision-making, and intelligent interaction.</p>
+                    </div>
+                    <div class="md:flex hidden items-center justify-center fade-in-up" style="transition-delay: 0.4s;">
+                        <span class="text-5xl text-secondary">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="approach-step fade-in-up card-pop" style="transition-delay: 0.45s;">
+                        <div class="approach-step-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-ccw">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <polyline points="23 20 23 14 17 14"></polyline>
+                                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                            </svg>
+                        </div>
+                        <h3 class="approach-step-title">5. Optimize & Evolve</h3>
+                        <p class="approach-step-description">Continuously refine AI models, expand automation, and ensure sustainable, future-proof growth and adaptation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Market & Pain Points Section -->
+        <section id="target-market" class="py-16 md:py-24 px-4 bg-bg">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl">
+                <div class="fade-in">
+                    <h2 class="section-header text-left">Who We Empower: Focus on SMEs & Mid-Market Excellence</h2>
+                    <p class="text-lg text-secondary mb-6">
+                        We partner with ambitious small and medium enterprises (SMEs) and mid-market businesses. Our clients typically have some existing technological infrastructure and data, and are actively seeking to improve efficiency, reduce costs, and gain a competitive edge through intelligent, results-driven solutions.
+                    </p>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Key Industries We Serve:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-secondary text-base">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Financial Services & FinTech</li>
+                            <li>Retail & E-commerce</li>
+                            <li>Agriculture</li>
+                            <li>Healthcare</li>
+                        </ul>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Content Management/IDP</li>
+                            <li>Logistics & Supply Chain</li>
+                            <li>Professional Services</li>
+                            <li>Hospitality</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-6 rounded-lg shadow-lg bg-surface-1 border-t-4 border-accent-subtle card-shadow fade-in-up">
+                    <h3 class="text-2xl font-bold text-primary mb-4 text-center">Addressing Your Core Business Challenges</h3>
+                    <ul class="list-none space-y-4">
+                        <li>
+                            <p class="font-semibold text-primary mb-1">💸 High Implementation Cost</p>
+                            <p class="text-sm text-secondary">Our affordable, customizable AIaaS solutions leverage low-code platforms to fit your budget, delivering significant ROI.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold text-primary mb-1">🧠 Lack of In-house Skills</p>
+                            <p class="text-sm text-secondary">User-friendly platforms and ongoing expert support bridge the technical knowledge gap, empowering your team to thrive.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold text-primary mb-1">🔗 Integration Complexity</p>
+                            <p class="text-sm text-secondary">We ensure seamless integration of AI with your existing legacy systems and fragmented tech stacks, minimizing disruption.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold text-primary mb-1">📊 Data Quality & Availability</p>
+                            <p class="text-sm text-secondary">We provide data assessment, structuring, and cleaning services to ensure your AI success and accurate insights.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold text-primary mb-1">⚖️ Regulatory Uncertainty</p>
+                            <p class="text-sm text-secondary">Our "Ethical & Compliant AI by Design" approach ensures peace of mind and trust, adhering strictly to standards like POPIA.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Readiness Assessment Section -->
+        <section id="ai-assessment" class="py-16 md:py-24 px-4 text-primary text-center" style="background: linear-gradient(135deg,#3F444A 0%,#6F7680 60%);">
+            <div class="container mx-auto max-w-4xl fade-in">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Assess Your AI Readiness</h2>
+                <p class="text-lg md:text-xl opacity-90 mb-8">
+                    Take our quick assessment to understand your business's current digital maturity and identify prime opportunities for AI and automation. It's the essential first step to unlocking your full potential and preparing your business for the future.
+                </p>
+                <!-- Changed to trigger modal -->
+                <button onclick="openAssessmentModal()" class="px-6 py-3 rounded-full bg-primary text-primaryFg hover:bg-primary600 focus-visible:ring-2 ring-focusRing">Start Your AI Readiness Assessment</button>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faqs" class="py-16 md:py-24 px-4 bg-bg">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="section-header fade-in">Frequently Asked Questions</h2>
+                <div class="bg-surface-1 rounded-lg shadow-md divide-y divide-line">
+                    <div class="accordion-item fade-in-up">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h3 class="text-lg font-semibold text-primary">What kind of businesses do you work with?</h3>
+                            <span class="text-2xl text-secondary">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-secondary pb-4">We primarily partner with ambitious small and medium enterprises (SMEs) and mid-market businesses across diverse sectors. Our clients are typically those with some existing technological infrastructure and data, actively seeking to leverage AI and automation for enhanced efficiency, cost reduction, and competitive advantage.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item fade-in-up" style="transition-delay: 0.05s;">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h3 class="text-lg font-semibold text-primary">How do you ensure measurable ROI for our business?</h3>
+                            <span class="text-2xl text-secondary">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-secondary pb-4">Our solutions are meticulously designed with measurable outcomes in mind. We conduct initial, detailed assessments to identify specific pain points and quantifiable opportunities. We then implement solutions with clear Key Performance Indicators (KPIs) such as operational cost reduction, time savings, lead conversion rate improvements, or increased customer satisfaction, allowing you to track your tangible return on investment.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h3 class="text-lg font-semibold text-primary">What is "AI-as-a-Service" (AIaaS) and how does it benefit us?</h3>
+                            <span class="text-2xl text-secondary">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-secondary pb-4">AI-as-a-Service (AIaaS) refers to our productized, subscription-based offerings where you gain access to powerful AI capabilities—like our "Afri-Agents" or Predictive Insights Platform—without the need for extensive in-house development, infrastructure investment, or specialized AI expertise. It provides continuous value, support, and updates for a predictable fee, enabling faster AI adoption and scalability.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item fade-in-up" style="transition-delay: 0.15s;">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h3 class="text-lg font-semibold text-primary">Do we need to have existing tech infrastructure to start?</h3>
+                            <span class="text-2xl text-secondary">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-secondary pb-4">Not necessarily! Our "Digital Foundation" package is specifically designed for businesses just beginning their digital journey, helping you establish the necessary foundational infrastructure. For our more advanced "Automation Essentials" and "AI Advantage" packages, some existing digital presence or data is beneficial, but we always begin with a thorough assessment to meet you precisely where you are and design a suitable roadmap.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h3 class="text-lg font-semibold text-primary">How does Afri Evolution handle data privacy and security with AI solutions?</h3>
+                            <span class="text-2xl text-secondary">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-secondary pb-4">We prioritize data privacy and security with an "Ethical & Compliant AI by Design" approach. All our solutions adhere strictly to relevant regulations like POPIA in South Africa and global best practices for data governance. We ensure transparency in data usage, implement robust security measures to protect your information, and maintain a commitment to responsible AI deployment to build and maintain trust.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 px-4 text-center">
+        <div class="container mx-auto">
+            <p class="mb-2">&copy; 2025 Afri Evolution. All rights reserved.</p>
+            <div class="text-sm space-x-4">
+                <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+                <a href="terms.html" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Readiness Assessment Modal -->
+    <div id="assessment-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden p-4">
+        <div class="glass-strong glass-modal bg-surface-1 rounded-2xl shadow-xl max-w-2xl w-full relative">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closeAssessmentModal()">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <h2 id="assessment-title" class="text-3xl font-bold text-primary mb-6 text-center">Assess Your AI Readiness</h2>
+
+            <!-- Assessment Steps -->
+            <div id="assessment-step-1" class="assessment-step active">
+                <p class="text-lg text-secondary mb-6 text-center">Let's start with some basic information about your business.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label for="biz-size" class="block text-primary font-medium mb-2">What is your business size?</label>
+                        <select id="biz-size" class="p-3 border border-gray-300 rounded-md w-full text-primary focus:ring-2 focus:ring-accent-vibrant focus:border-transparent">
+                            <option value="">Select an option</option>
+                            <option value="small">Small Business (1-50 employees)</option>
+                            <option value="medium">Mid-Market (51-500 employees)</option>
+                            <option value="large">Large Enterprise (500+ employees)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="industry" class="block text-primary font-medium mb-2">Which industry are you in?</label>
+                        <input type="text" id="industry" placeholder="e.g., Financial Services, Retail, Healthcare" class="p-3 border border-gray-300 rounded-md w-full text-primary focus:ring-2 focus:ring-accent-vibrant focus:border-transparent">
+                    </div>
+                </div>
+                <button onclick="nextAssessmentStep()" class="btn-primary mt-8 w-full">Next</button>
+            </div>
+
+            <div id="assessment-step-2" class="assessment-step hidden">
+                <p class="text-lg text-secondary mb-6 text-center">Tell us about your current challenges.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label for="pain-point" class="block text-primary font-medium mb-2">What's your biggest operational challenge?</label>
+                        <textarea id="pain-point" rows="4" placeholder="e.g., manual data entry, slow customer support, inefficient workflows" class="p-3 border border-gray-300 rounded-md w-full text-primary focus:ring-2 focus:ring-accent-vibrant focus:border-transparent"></textarea>
+                    </div>
+                    <div>
+                        <label for="ai-familiarity" class="block text-primary font-medium mb-2">How familiar are you with AI/Automation?</label>
+                        <select id="ai-familiarity" class="p-3 border border-gray-300 rounded-md w-full text-primary focus:ring-2 focus:ring-accent-vibrant focus:border-transparent">
+                            <option value="">Select an option</option>
+                            <option value="none">Not familiar at all</option>
+                            <option value="some">Some basic understanding</option>
+                            <option value="moderate">Moderate understanding, exploring options</option>
+                            <option value="expert">Very familiar, already implementing</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-8">
+                    <button onclick="prevAssessmentStep()" class="btn-secondary">Back</button>
+                    <button onclick="submitAssessment()" class="btn-primary">Submit Assessment</button>
+                </div>
+            </div>
+
+            <div id="assessment-result" class="hidden text-center">
+                <h3 class="text-2xl font-bold text-primary mb-4">Your AI Readiness Snapshot:</h3>
+                <p id="result-text" class="text-lg text-secondary mb-6">
+                    Based on your responses, we recommend a tailored strategy.
+                </p>
+                <p class="text-secondary mb-8">
+                    An Afri Evolution expert will be in touch shortly to discuss your personalized results and how we can help you achieve your goals.
+                </p>
+                <a href="contact.html" class="btn-primary">Book a Detailed Consultation</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script defer type="module" src="/src/scripts/approach.js"></script>
+</body>
+</html>

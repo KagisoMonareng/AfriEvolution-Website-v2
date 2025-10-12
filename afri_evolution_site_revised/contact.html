@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afri Evolution - Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/styles/tokens.css">
+<link rel="stylesheet" href="/src/styles/utilities.css">
+<link rel="stylesheet" href="/src/styles/uiux-improvements.css">
+<link rel="stylesheet" href="/src/styles/glass.css">
+<link rel="canonical" href="https://www.afrievolution.com/contact">
+    <meta property="og:site_name" content="Afri Evolution">
+    <script defer src="/src/scripts/theme.js"></script>
+    <script defer src="/src/scripts/skin.js"></script>
+    <script defer src="/src/scripts/a11y.js"></script>
+    <style>
+        /* Color Palette mapped to tokens */
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--fg); }
+        .text-primary { color: var(--fg); }
+        .bg-primary { background-color: var(--primary); }
+        .text-secondary { color: var(--subtle); }
+        .bg-secondary { background-color: var(--surface-2); }
+        .text-accent-subtle { color: var(--primary); }
+        .bg-accent-subtle { background-color: var(--surface-3); }
+        .text-accent-vibrant { color: var(--primary); }
+        .bg-accent-vibrant { background-color: var(--primary); }
+        /* Page no longer defines gold button; use global primitives */
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid #C99400; /* Border Accent Vibrant */
+            color: #C99400; /* Text Accent Vibrant */
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition-property: all;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #C99400; /* hover:bg-accent-vibrant */
+            color: #FFFFFF; /* hover:text-white */
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* shadow-md */
+            transition-property: box-shadow, transform;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .card-shadow:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* hover:shadow-lg */
+            transform: translateY(-5px); /* subtle lift */
+        }
+        .section-header {
+            font-size: 2.25rem; /* text-3xl */
+            line-height: 1.25; /* leading-tight */
+            font-weight: 700; /* font-bold */
+            color: var(--fg);
+            text-align: center;
+            margin-bottom: 3rem; /* mb-12 */
+        }
+        @media (min-width: 768px) {
+            .section-header {
+                font-size: 3rem; /* md:text-4xl */
+            }
+        }
+        /* Scroll Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Form success message */
+        #form-message {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #form-message.show {
+            opacity: 1;
+        }
+        .contact-icon {
+            /* Consistent icon sizing */
+            width: 36px; /* Explicit width */
+            height: 36px; /* Explicit height */
+            color: var(--primary);
+            margin-right: 0.75rem; /* mr-3 */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+    </style>
+<!-- Basic SEO -->
+<meta name="description" content="Get in touch with Afri Evolution's AI experts. Schedule a free consultation to discuss your automation needs and discover your ROI potential.">
+<link rel="icon" href="/favicon.ico">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.afrievolution.com/contact">
+<meta property="og:image" content="/images/og-cover.svg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/og-cover.svg">
+    <meta property="og:title" content="Afri Evolution - Contact Us">
+    <meta property="og:description" content="Digitize. Automate. Grow. Measurable impact with AI and intelligent automation.">
+    <meta name="twitter:title" content="Afri Evolution - Contact Us">
+    <meta name="twitter:description" content="Digitize. Automate. Grow. Measurable impact with AI and intelligent automation.">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Header/Navigation -->
+    <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-20 border-line">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-primary">Afri Evolution</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="services.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Services</a>
+                <a href="about-us.html" class="text-secondary hover:text-primary transition duration-300 font-medium">About Us</a>
+                <a href="approach.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Our Approach</a>
+                <a href="contact.html" class="btn-primary text-sm px-6 py-2">Contact Us</a>
+            </div>
+            <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
+            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Services</a>
+            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">About Us</a>
+            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Our Approach</a>
+            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Contact Us</a>
+        </div>
+    </header>
+
+    <main class="pt-20" id="main">
+        <!-- Page Hero Section -->
+        <section class="relative bg-gradient-to-br from-[#3A3F44] to-[#6D737A] text-white py-16 md:py-24 px-4 overflow-hidden">
+            <div class="container mx-auto text-center relative z-10 fade-in is-visible">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    Connect with Afri Evolution Experts
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+                    We're ready to help you unlock your business's AI-powered future and achieve measurable results. Reach out to us today for a tailored consultation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact-form" class="py-16 md:py-24 px-4 bg-surface-1">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="section-header fade-in">Send Us a Message</h2>
+                <form id="contactForm" action="https://formspree.io/f/mrbyyvbb" method="POST" class="bg-bg rounded-lg shadow-md p-8 max-w-2xl mx-auto grid grid-cols-1 gap-6 fade-in-up">
+                    <div>
+                      <label for="name" class="block text-primary font-medium mb-2">Your Name</label>
+                      <input type="text" id="name" name="name" autocomplete="name" placeholder="e.g., Jane Doe" class="p-4 border border-line rounded-md focus:ring-2 focus:ring-accent-vibrant focus:border-transparent text-primary w-full" required>
+                      <p id="err-name" class="mt-1 text-sm text-red-600 hidden">Please enter your name</p>
+                    </div>
+                    <div>
+                      <label for="email" class="block text-primary font-medium mb-2">Business Email</label>
+                      <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" class="p-4 border border-line rounded-md focus:ring-2 focus:ring-accent-vibrant focus:border-transparent text-primary w-full" required>
+                      <p id="err-email" class="mt-1 text-sm text-red-600 hidden">Please enter a valid email</p>
+                    </div>
+                    <details class="bg-surface-1 rounded-md border border-line p-4">
+                      <summary class="cursor-pointer text-primary font-medium">Add more details (optional)</summary>
+                      <div class="mt-4 grid gap-4">
+                        <input type="text" id="company" name="company" autocomplete="organization" placeholder="Company Name" class="p-4 border border-line rounded-md focus:ring-2 focus:ring-accent-vibrant focus:border-transparent text-primary">
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Phone Number" pattern="[0-9\s\-\+\(\)]*" class="p-4 border border-line rounded-md focus:ring-2 focus:ring-accent-vibrant focus:border-transparent text-primary">
+                      </div>
+                    </details>
+                    <div>
+                      <label for="message" class="block text-primary font-medium mb-2">How can we help?</label>
+                      <textarea id="message" name="message" placeholder="Tell us about your AI and automation needs and goals..." rows="6" class="p-4 border border-line rounded-md focus:ring-2 focus:ring-accent-vibrant focus:border-transparent text-primary w-full" required></textarea>
+                      <p id="err-message" class="mt-1 text-sm text-red-600 hidden">Please add a short message</p>
+                    </div>
+                    <button type="submit" class="btn-primary py-4">
+                        Submit Inquiry
+                    </button>
+                    <p id="form-message" class="text-center text-lg font-semibold text-primary mt-4 hidden">Thank you for your message! We'll be in touch shortly.</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Direct Contact Info & Map -->
+        <section id="direct-contact" class="py-16 md:py-24 px-4 bg-bg">
+            <div class="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="bg-surface-1 rounded-lg shadow-md p-8 card-shadow fade-in-up">
+                    <h2 class="text-2xl font-bold text-primary mb-6">Our Contact Details</h2>
+                    <div class="space-y-4 text-secondary text-lg">
+                        <p class="flex items-center">
+                            <span class="contact-icon" aria-hidden="true">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-0.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-0.45 12.84 12.84 0 0 0 2.81 0.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </span>
+                            Phone: **+27 12 345 6789**
+                        </p>
+                        <p class="flex items-center">
+                            <span class="contact-icon" aria-hidden="true">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            Email: **info@afrievolution.com**
+                        </p>
+                        <p class="flex items-center">
+                            <span class="contact-icon" aria-hidden="true">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </span>
+                            Address: [Your Office Address Here]<br>
+                            Pretoria, South Africa
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="mailto:info@afrievolution.com" class="btn-primary text-sm px-6 py-3">Email Us Directly</a>
+                    </div>
+                </div>
+                <div class="bg-surface-1 rounded-lg shadow-md p-8 card-shadow h-[300px] md:h-[400px] flex flex-col items-center justify-center text-center text-secondary fade-in-up" style="transition-delay: 0.1s;">
+                    <!-- Placeholder for Map, as per instructions. NO actual map library included for simplicity. -->
+                    <p class="text-xl font-semibold mb-2">Location Map</p>
+                    <p class="text-sm">(An interactive map showing our office would typically be embedded here for enhanced user experience.)</p>
+                    <img src="https://placehold.co/400x300/E6D3A0/3A3F44?text=Office+Location" alt="Office Location Map Placeholder" class="max-w-full h-auto rounded-lg mt-4" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action (Vibrant) -->
+        <section class="py-16 md:py-24 px-4 bg-gradient-to-tr from-[#3A3F44] to-[#6D737A] text-white text-center">
+            <div class="container mx-auto max-w-3xl fade-in">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Ready to Drive Your Business Forward?</h2>
+                <p class="text-lg md:text-xl opacity-90 mb-10">
+                    Let's discuss how our AI and automation expertise can deliver measurable results for your enterprise.
+                </p>
+                <a href="contact.html" class="btn-primary bg-accent-vibrant text-primary py-4 px-10">Connect With An Expert</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 px-4 text-center">
+        <div class="container mx-auto">
+            <p class="mb-2">&copy; 2025 Afri Evolution. All rights reserved.</p>
+            <div class="text-sm space-x-4">
+                <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+                <a href="terms.html" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer><button onclick="nextAssessmentStep()" class="btn-primary mt-8 w-full">Next</button>
+            </div>
+
+            <div id="assessment-step-2" class="assessment-step hidden">
+                <p class="text-lg text-secondary mb-6 text-center">Tell us about your current challenges.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label for="pain-point" class="block text-primary font-medium mb-2">What's your biggest operational challenge?</label>
+                        <textarea id="pain-point" rows="4" placeholder="e.g., manual data entry, slow customer support, inefficient workflows" class="p-3 border border-gray-300 rounded-md w-full text-primary focus:ring-2 focus:ring-accent-vibrant focus:border-transparent"></textarea>
+                    </div>
+                    <div>
+                        <label for="ai-familiarity" class="block text-primary font-medium mb-2">How familiar are you with AI/Automation?</label>
+                        <select id="ai-familiarity" class="p-3 border border-gray-300 rounded-md w-full text-primary focus:ring-2 focus:ring-accent-vibrant focus:border-transparent">
+                            <option value="">Select an option</option>
+                            <option value="none">Not familiar at all</option>
+                            <option value="some">Some basic understanding</option>
+                            <option value="moderate">Moderate understanding, exploring options</option>
+                            <option value="expert">Very familiar, already implementing</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-8">
+                    <button onclick="prevAssessmentStep()" class="btn-secondary">Back</button>
+                    <button onclick="submitAssessment()" class="btn-primary">Submit Assessment</button>
+                </div>
+            </div>
+
+            <div id="assessment-result" class="hidden text-center">
+                <h3 class="text-2xl font-bold text-primary mb-4">Your AI Readiness Snapshot:</h3>
+                <p id="result-text" class="text-lg text-secondary mb-6">
+                    Based on your responses, we recommend a tailored strategy.
+                </p>
+                <p class="text-secondary mb-8">
+                    An Afri Evolution expert will be in touch shortly to discuss your personalized results and how we can help you achieve your goals.
+                </p>
+                <a href="contact.html" class="btn-primary">Book a Detailed Consultation</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script defer type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>

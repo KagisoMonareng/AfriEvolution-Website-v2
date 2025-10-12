@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afri Evolution - AI & Automation for SMEs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/tokens.css">
+    <link rel="stylesheet" href="/src/styles/utilities.css">
+    <link rel="stylesheet" href="/src/styles/uiux-improvements.css">
+    <link rel="stylesheet" href="/src/styles/glass.css">
+    <link rel="canonical" href="https://www.afrievolution.com/">
+    <meta property="og:site_name" content="Afri Evolution">
+    <script defer src="/src/scripts/theme.js"></script>
+    <script defer src="/src/scripts/skin.js"></script>
+    <script defer src="/src/scripts/a11y.js"></script>
+    <style>
+        /* Site tokens are defined in tokens.css; this file may include page tweaks */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--fg);
+        }
+        .text-primary {
+            color: var(--fg);
+        }
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        .text-secondary {
+            color: var(--subtle);
+        }
+        .bg-secondary {
+            background-color: var(--surface-2);
+        }
+        .text-accent-subtle {
+            color: var(--primary);
+        }
+        .bg-accent-subtle {
+            background-color: var(--surface-3);
+        }
+        .text-accent-vibrant {
+            color: var(--primary);
+        }
+        .bg-accent-vibrant {
+            background-color: var(--primary);
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--primary-fg);
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* shadow-lg */
+            transition-property: all;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* hover:shadow-xl */
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--hover);
+            border: 1px solid var(--line);
+            color: var(--fg);
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition-property: all;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        .btn-secondary:hover {
+            opacity: 0.9;
+        }
+        /* --- Service Block Styling (Adapted for Value Props & Why Us) --- */
+        .feature-block {
+            background-color: var(--surface-1);
+            border-radius: 12px;
+            padding: 2.5rem; /* p-10 */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Deeper shadow for prominence */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            min-height: 380px; /* Adjusted height for these blocks */
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-block:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .feature-block-icon {
+            /* Consistent icon sizing across sections */
+            width: 64px; /* Explicit width */
+            height: 64px; /* Explicit height */
+            color: var(--primary);
+            margin-bottom: 1rem;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .feature-block-title {
+            font-size: 2.25rem; /* text-3xl */
+            font-weight: 800; /* font-extrabold */
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+        .feature-block-description {
+            font-size: 1.125rem; /* text-lg */
+            color: var(--subtle);
+            line-height: 1.6;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+        /* Diagonal Accent Strip */
+        .feature-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(111,118,128,0.15) 0%, transparent 40%, transparent 100%);
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .feature-block:nth-child(even)::before {
+            background: linear-gradient(-135deg, rgba(230,211,160,0.2) 0%, transparent 40%, transparent 100%);
+        }
+        /* --- End Service Block Styling Adaptation --- */
+
+        .section-header {
+            font-size: 2.25rem; /* text-3xl */
+            line-height: 1.25; /* leading-tight */
+            font-weight: 700; /* font-bold */
+            color: var(--fg);
+            text-align: center;
+            margin-bottom: 3rem; /* mb-12 */
+        }
+        @media (min-width: 768px) {
+            .section-header {
+                font-size: 3rem; /* md:text-4xl */
+            }
+        }
+
+        /* Scroll Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<!-- Basic SEO -->
+<meta name="description" content="Achieve digital excellence with AI-powered automation for SMEs. Guaranteed ROI, accessible pricing, seamless integration. Get your ROI plan in 4-8 weeks.">
+<link rel="icon" href="/favicon.ico">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.afrievolution.com/">
+<meta property="og:image" content="/images/og-cover.svg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/og-cover.svg">
+    <meta property="og:title" content="Afri Evolution - AI & Automation for SMEs">
+    <meta property="og:description" content="Digitize. Automate. Grow. Measurable impact with AI and intelligent automation.">
+    <meta name="twitter:title" content="Afri Evolution - AI & Automation for SMEs">
+    <meta name="twitter:description" content="Digitize. Automate. Grow. Measurable impact with AI and intelligent automation.">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Header/Navigation -->
+    <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-20 border-line">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-primary">Afri Evolution</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="services.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Services</a>
+                <a href="about-us.html" class="text-secondary hover:text-primary transition duration-300 font-medium">About Us</a>
+                <a href="approach.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Our Approach</a>
+                <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line px-3 py-1 text-sm text-secondary hover:bg-hover transition" onclick="window.aeToggleTheme && window.aeToggleTheme(); this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'true' : 'false');">🌙</button>
+                <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line px-3 py-1 text-sm text-secondary hover:bg-hover transition" onclick="window.aeToggleSkin && window.aeToggleSkin();">✨</button>
+                <a href="contact.html" class="btn-primary text-sm px-6 py-2">Contact Us</a>
+            </div>
+            <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
+            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Services</a>
+            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">About Us</a>
+            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Our Approach</a>
+            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Contact Us</a>
+            <hr class="my-2 border-line">
+            <button type="button" aria-label="Toggle theme" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'false' : 'true'); window.aeToggleTheme && window.aeToggleTheme();">
+                Toggle theme
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero Section with Glass Effect -->
+        <section id="hero" class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold">
+            <!-- Background Image -->
+            <img src="/images/hero-africa.jpg" alt="Glowing outline of Africa with flowing gold lines" class="absolute inset-0 w-full h-full object-cover z-0" width="1920" height="1080" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='/images/og-cover.svg';">
+
+            <!-- Overlay for text readability -->
+            <div class="absolute inset-0 bg-black opacity-40 z-0"></div> <!-- Use black for neutral darkening -->
+            
+            <!-- Glass Hero Container -->
+            <div class="container mx-auto relative z-20">
+                <div class="glass-strong glass-hero text-center fade-in max-w-5xl mx-auto">
+                    <h1 class="heading typo-display mb-4">Achieve Digital Excellence. Powered by AI.</h1>
+                    <p class="body typo-lead max-w-4xl mx-auto mb-8">
+                        For SME teams who want measurable ROI from automation in 4–8 weeks.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <a href="contact.html" class="btn-primary">Get Your ROI Plan</a>
+                        <a href="services.html#services-tabs" class="btn-ghost-white">See how it works</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition / How We Work Section -->
+        <section id="value-prop" class="py-16 md:py-24 px-4 bg-surface-1">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="section-header fade-in">Your Strategic Path to AI-Driven Efficiency</h2>
+                <p class="text-center text-lg text-secondary max-w-3xl mx-auto mb-12 fade-in">
+                    We deliver advanced AI and automation solutions precisely engineered to address your business challenges, focusing on measurable impact, accessible affordability, and seamless integration.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="feature-block fade-in-up card-pop">
+                         <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="feature-block-title">Guaranteed ROI</h3>
+                        <p class="feature-block-description">Solutions engineered for tangible efficiency gains, substantial cost reductions, and accelerated business growth with clear, measurable returns.</p>
+                    </div>
+                    <div class="feature-block fade-in-up card-pop" style="transition-delay: 0.1s;">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-block-title">Accessible & Affordable</h3>
+                        <p class="feature-block-description">Cutting-edge AI tailored for your budget and technical comfort, leveraging low-code platforms for rapid, cost-effective deployment.</p>
+                    </div>
+                    <div class="feature-block fade-in-up card-pop" style="transition-delay: 0.2s;">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2">
+                                <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 class="feature-block-title">Seamless Integration</h3>
+                        <p class="feature-block-description">New AI capabilities merge effortlessly with your existing systems, ensuring a smooth transition and maximized impact across your operations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- High-level Services Overview -->
+        <section id="services-overview" class="py-16 md:py-24 px-4 bg-bg">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h2 class="section-header fade-in">Our Solutions: Modernizing Your Enterprise with AI</h2>
+                <p class="text-center text-lg text-secondary max-w-3xl mx-auto mb-12 fade-in">
+                    We offer structured solutions designed to meet your business at any stage of digital maturity, scaling your capabilities with intelligent automation and advanced AI.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="feature-block fade-in-up">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="feature-block-title">Digital Foundation</h3>
+                        <p class="feature-block-description">
+                            Establish your core digital presence and robust data infrastructure for resilient future growth.
+                        </p>
+                        <a href="services.html#digital-foundation" class="text-accent hover:text-accent-hover underline underline-offset-2">Discover More</a>
+                    </div>
+                    <div class="feature-block fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-repeat">
+                                <polyline points="17 1 21 5 17 9"></polyline>
+                                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                <polyline points="7 23 3 19 7 15"></polyline>
+                                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-block-title">Automation Essentials</h3>
+                        <p class="feature-block-description">
+                            Streamline core operations with intelligent, repeatable automation solutions for immediate efficiency.
+                        </p>
+                        <a href="services.html#automation-essentials" class="text-accent hover:text-accent-hover underline underline-offset-2">Boost Efficiency</a>
+                    </div>
+                    <div class="feature-block fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3 class="feature-block-title">AI Advantage (AIaaS)</h3>
+                        <p class="feature-block-description">
+                            Unlock advanced capabilities with specialized, scalable AI-as-a-Service, driving unparalleled competitive advantage.
+                        </p>
+                        <a href="services.html#ai-advantage" class="text-accent hover:text-accent-hover underline underline-offset-2">Elevate Your Business</a>
+                    </div>
+                </div>
+                <div class="mt-16 fade-in-up" style="transition-delay: 0.3s;">
+                    <a href="services.html" class="btn-secondary">View All Solutions</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- High-level Why Us Overview (Strategic Pillars) -->
+        <section id="why-us-overview" class="py-16 md:py-24 px-4 bg-surface-1">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h2 class="section-header fade-in">Why Partner with Afri Evolution? Your Strategic Edge.</h2>
+                <p class="text-center text-lg text-secondary max-w-3xl mx-auto mb-12 fade-in">
+                    Our distinct approach is built on strategic pillars designed to deliver exceptional value and future-proof your business in the evolving AI landscape.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-block fade-in-up">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-compass">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Vertical Focus</h3>
+                        <p class="text-secondary text-sm">Deep expertise in high-growth sectors delivers precision-engineered, tailored solutions for your unique market.</p>
+                    </div>
+                    <div class="feature-block fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.01" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Productized AIaaS</h3>
+                        <p class="text-secondary text-sm">Scalable, repeatable AI-as-a-Service offerings ensure predictable costs and consistent, high-value delivery.</p>
+                    </div>
+                    <div class="feature-block fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="feature-block-icon" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-3-1.07V7.07a4 4 0 0 1 3-3.87"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Ecosystem Driven</h3>
+                        <p class="text-secondary text-sm">Strategic partnerships with global tech leaders and local innovators provide comprehensive support and expanded capabilities.</p>
+                    </div>
+                </div>
+                <div class="mt-16 fade-in-up" style="transition-delay: 0.3s;">
+                    <a href="about-us.html" class="btn-secondary">Learn More About Our Vision</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Trust Signals Section: Client Logos -->
+        <section id="client-logos" class="py-16 md:py-24 px-4 bg-bg">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h2 class="section-header fade-in">Trusted By Industry Leaders & Innovators</h2>
+                <p class="text-center text-lg text-secondary max-w-3xl mx-auto mb-12 fade-in">
+                    Our commitment to delivering measurable results has earned the trust of diverse businesses, from dynamic startups to established enterprises.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center fade-in-up">
+                    <!-- Placeholder Logos - Replace with actual client logos -->
+                    <div class="w-32 h-16 md:w-40 md:h-20 bg-surface-1 rounded-lg flex items-center justify-center p-2 shadow-inner">
+                        <img src="https://placehold.co/120x50/FBFBFB/6D737A?text=Company+A" alt="Company A Logo" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async">
+                    </div>
+                    <div class="w-32 h-16 md:w-40 md:h-20 bg-surface-1 rounded-lg flex items-center justify-center p-2 shadow-inner">
+                        <img src="https://placehold.co/120x50/FBFBFB/6D737A?text=BizCorp" alt="BizCorp Logo" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async">
+                    </div>
+                    <div class="w-32 h-16 md:w-40 md:h-20 bg-surface-1 rounded-lg flex items-center justify-center p-2 shadow-inner">
+                        <img src="https://placehold.co/120x50/FBFBFB/6D737A?text=Innovate+X" alt="Innovate X Logo" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async">
+                    </div>
+                    <div class="w-32 h-16 md:w-40 md:h-20 bg-surface-1 rounded-lg flex items-center justify-center p-2 shadow-inner">
+                        <img src="https://placehold.co/120x50/FBFBFB/6D737A?text=Global+Tech" alt="Global Tech Logo" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async">
+                    </div>
+                    <div class="w-32 h-16 md:w-40 md:h-20 bg-surface-1 rounded-lg flex items-center justify-center p-2 shadow-inner">
+                        <img src="https://placehold.co/120x50/FBFBFB/6D737A?text=Growth+Hub" alt="Growth Hub Logo" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action (Light) -->
+        <section class="py-16 md:py-24 px-4 text-primary text-center" style="background: linear-gradient(135deg,#3F444A 0%,#6F7680 60%);">
+            <div class="container mx-auto max-w-3xl fade-in">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Ready to Drive Your Business Forward?</h2>
+                <p class="text-lg md:text-xl opacity-90 mb-10">
+                    Discover how Afri Evolution's intelligent solutions can help you achieve your digital transformation goals and secure a competitive edge.
+                </p>
+                <a href="contact.html" class="btn-primary bg-primary text-white py-4 px-10">Schedule a Free Consultation</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 px-4 text-center">
+        <div class="container mx-auto">
+            <p class="mb-2">&copy; 2025 Afri Evolution. All rights reserved.</p>
+            <div class="text-sm space-x-4">
+                <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+                <a href="terms.html" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script defer type="module" src="/src/scripts/main.js"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Afri Evolution",
+  "url":"https://www.afrievolution.com",
+  "logo":"https://www.afrievolution.com/logo.png",
+  "sameAs": [],
+  "contactPoint": [{
+    "@type":"ContactPoint",
+    "contactType":"sales",
+    "email":"info@afrievolution.com",
+    "telephone":"+27-12-345-6789",
+    "areaServed":"ZA"
+  }]
+}
+</script>
+</body>
+</html>

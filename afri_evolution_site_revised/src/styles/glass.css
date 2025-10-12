@@ -1,0 +1,251 @@
+/* Afri Evolution — Glass Skin Utilities (opt-in via [data-skin="glass"]) */
+
+/* ===== Core Glass Shells ===== */
+/* Gate: only apply when skin is enabled */
+[data-skin="glass"] .glass        { background: var(--glass-tint); }
+[data-skin="glass"] .glass-strong { background: var(--glass-tint-strong); }
+
+/* Base glass shell styling */
+.glass, .glass-strong {
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  will-change: backdrop-filter, background;
+  
+  /* GPU acceleration for smooth performance */
+  transform: translateZ(0);
+  
+  /* Smooth transitions */
+  transition: backdrop-filter 0.2s ease-out,
+              background 0.2s ease-out,
+              transform 0.2s ease-out,
+              box-shadow 0.2s ease-out;
+}
+
+/* Release GPU resources when not actively transitioning */
+.glass:not(:hover):not(:focus-within),
+.glass-strong:not(:hover):not(:focus-within) {
+  will-change: auto;
+}
+
+/* ===== Content Defaults Inside Glass Shells ===== */
+.glass .heading, .glass-strong .heading { color: var(--fg); }
+.glass .body,    .glass-strong .body    { color: var(--subtle); }
+
+.glass .btn-primary, .glass-strong .btn-primary {
+  /* Preserve existing gradient from uiux-improvements.css */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-600) 100%);
+  color: var(--primary-fg);
+}
+
+.glass .btn-ghost, .glass-strong .btn-ghost {
+  background: color-mix(in oklab, var(--bg) 10%, transparent);
+  border: 1px solid var(--line);
+}
+
+/* ===== Role-Based Spacing & Structure ===== */
+.glass-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Ensure nav stays on top */
+}
+
+.glass-hero  { 
+  padding: 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+.glass-card  { 
+  padding: 1rem;
+}
+
+.glass-modal { 
+  padding: 1rem;
+  z-index: 1000; /* Modals above everything */
+}
+
+/* ===== Variants (Scoped Overrides) ===== */
+
+/* Bold variant - More pronounced effect for hero/marketing */
+.v-bold {
+  --glass-blur: 22px;
+  --glass-saturate: 135%;
+  --glass-tint: color-mix(in oklab, var(--bg) 80%, transparent);
+  --glass-tint-strong: color-mix(in oklab, var(--bg) 88%, transparent);
+  --glass-border: color-mix(in oklab, var(--line) 80%, transparent);
+  --glass-shadow: 0 14px 40px rgba(0,0,0,.28);
+}
+
+:root.dark .v-bold {
+  --glass-tint: color-mix(in oklab, var(--surface-1) 35%, transparent);
+  --glass-tint-strong: color-mix(in oklab, var(--surface-1) 48%, transparent);
+}
+
+/* Subtle variant - Lighter effect for dense/analytical views */
+.v-subtle {
+  --glass-blur: 8px;
+  --glass-saturate: 108%;
+  --glass-tint: color-mix(in oklab, var(--bg) 60%, transparent);
+  --glass-tint-strong: color-mix(in oklab, var(--bg) 70%, transparent);
+  --glass-border: color-mix(in oklab, var(--line) 55%, transparent);
+  --glass-shadow: 0 6px 18px rgba(0,0,0,.16);
+}
+
+:root.dark .v-subtle {
+  --glass-tint: color-mix(in oklab, var(--surface-1) 18%, transparent);
+  --glass-tint-strong: color-mix(in oklab, var(--surface-1) 28%, transparent);
+}
+
+/* ===== Integration with Existing UI/UX Improvements ===== */
+
+/* Enhance hover effects from uiux-improvements.css */
+[data-skin="glass"] .glass.feature-block:hover,
+[data-skin="glass"] .glass.card-pop:hover {
+  backdrop-filter: blur(calc(var(--glass-blur) + 4px)) saturate(calc(var(--glass-saturate) + 10%));
+  /* Preserve existing transform from uiux-improvements.css */
+}
+
+/* Preserve button gradients and hover effects */
+[data-skin="glass"] .glass .btn-primary:hover,
+[data-skin="glass"] .glass-strong .btn-primary:hover {
+  /* Existing hover effects from uiux-improvements.css preserved */
+  transform: translateY(-2px);
+}
+
+/* ===== Nested Glass Handling ===== */
+
+/* Prevent double-blurring in nested glass components */
+.glass .glass,
+.glass-strong .glass,
+.glass .glass-strong,
+.glass-strong .glass-strong {
+  backdrop-filter: none; /* Inner glass doesn't blur */
+  -webkit-backdrop-filter: none;
+  background: transparent; /* Inherit parent's blur */
+  border: 1px solid var(--line); /* Just visual separation */
+  box-shadow: none;
+}
+
+/* ===== Enhanced Focus States for Accessibility ===== */
+
+[data-skin="glass"] .glass *:focus-visible,
+[data-skin="glass"] .glass-strong *:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  /* Add backdrop for better visibility through glass */
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+:root.dark [data-skin="glass"] .glass *:focus-visible,
+:root.dark [data-skin="glass"] .glass-strong *:focus-visible {
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Mobile Performance Optimizations ===== */
+
+@media (max-width: 768px) {
+  /* Reduce complexity on mobile */
+  .glass, .glass-strong {
+    --glass-blur: 8px;
+    --glass-saturate: 110%;
+  }
+  
+  .v-bold {
+    --glass-blur: 12px;
+    --glass-saturate: 115%;
+  }
+}
+
+/* Optional: Disable glass during active scrolling on mobile */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  body.scrolling [data-skin="glass"] .glass,
+  body.scrolling [data-skin="glass"] .glass-strong {
+    backdrop-filter: blur(6px) saturate(105%);
+    /* Lighter blur during scroll for better performance */
+  }
+}
+
+/* ===== Fallbacks & User Preferences ===== */
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass-strong, 
+  .glass-nav, .glass-hero, .glass-card, .glass-modal {
+    background: var(--surface-1);
+    border: 1px solid var(--line);
+  }
+}
+
+/* Fallback for browsers without color-mix support */
+@supports not (background: color-mix(in oklab, white 50%, transparent)) {
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+  }
+  
+  :root.dark .glass {
+    background: rgba(20, 25, 34, 0.28);
+  }
+  
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.86);
+  }
+  
+  :root.dark .glass-strong {
+    background: rgba(20, 25, 34, 0.42);
+  }
+}
+
+/* Respect user preference for reduced transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .glass-strong, 
+  .glass-nav, .glass-hero, .glass-card, .glass-modal {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--surface-1) !important;
+    border: 1px solid var(--line);
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .glass, .glass-strong {
+    transition: none;
+  }
+}
+
+/* ===== Print Styles ===== */
+
+@media print {
+  .glass, .glass-strong,
+  .glass-nav, .glass-hero, .glass-card, .glass-modal {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+  }
+  
+  :root.dark .glass, :root.dark .glass-strong {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* ===== Utility Classes ===== */
+
+/* Quick disable glass for specific elements */
+.glass-disabled {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: var(--surface-1) !important;
+}
+
+/* Enhanced glass on hover (for interactive cards) */
+.glass-interactive:hover {
+  backdrop-filter: blur(calc(var(--glass-blur) + 6px)) saturate(calc(var(--glass-saturate) + 15%));
+  box-shadow: 0 20px 40px rgba(0,0,0,.3);
+}
+

@@ -1,0 +1,50 @@
+/* Form Components */
+
+.form-input,
+.form-textarea,
+.form-select {
+  @apply p-4 border rounded-md w-full transition-all duration-200;
+  border-color: var(--line);
+  background-color: var(--surface-1);
+  color: var(--fg);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 0;
+  border-color: transparent;
+}
+
+.form-input[aria-invalid="true"],
+.form-textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+  outline-color: var(--danger);
+}
+
+.form-label {
+  @apply block font-medium mb-2;
+  color: var(--fg);
+}
+
+.form-error {
+  @apply mt-1 text-sm;
+  color: var(--danger);
+}
+
+.form-help {
+  @apply mt-1 text-sm;
+  color: var(--subtle);
+}
+
+/* Accessible form validation */
+.form-field {
+  @apply mb-6;
+}
+
+.form-field.has-error .form-input,
+.form-field.has-error .form-textarea {
+  border-color: var(--danger);
+}
+

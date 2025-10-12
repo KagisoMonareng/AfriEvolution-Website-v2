@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <title>Services | Afri Evolution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind (CDN) mapping handled globally in head-meta; tokens.css provides color system -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/utilities.css">
+  <link rel="stylesheet" href="/src/styles/uiux-improvements.css">
+  <link rel="stylesheet" href="/src/styles/glass.css">
+  <link rel="canonical" href="https://www.afrievolution.com/services">
+  <meta property="og:site_name" content="Afri Evolution">
+  <script defer src="/src/scripts/theme.js"></script>
+  <script defer src="/src/scripts/skin.js"></script>
+  <script defer src="/src/scripts/a11y.js"></script>
+  <script defer src="/src/scripts/tabs.js"></script>
+
+  <style>
+    .tab-active p,.tab-active svg{color:#1c170d!important}
+    .group:hover .group-hover\:text-foreground-light{color:#1c170d!important}
+    .dark .group:hover .dark\:group-hover\:text-foreground-dark{color:#f8f7f5!important}
+    .bg-gradient-light{background-image:radial-gradient(circle at top right,#3F444A 0%,#6F7680 60%)}
+    .dark .dark\:bg-gradient-dark{background-image:radial-gradient(circle at top right,#161A20 0%,#252B35 60%)}
+    .scroll-mt-nav{scroll-margin-top:96px}
+    /* Light-mode readability tweaks */
+    :root:not(.dark) .text-foreground-light { color: #3A3F44 !important; }
+  </style>
+
+  <!-- Basic SEO -->
+  <meta name="description" content="Explore our AI and automation services: Data Clarity Foundation, LaunchPad websites, Book Smart automation, Full Flow CRM, and Chat Boost AI assistants.">
+  <link rel="icon" href="/favicon.ico">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.afrievolution.com/services">
+  <meta property="og:image" content="/images/og-cover.svg">
+  <meta property="og:title" content="Services | Afri Evolution">
+  <meta property="og:description" content="Digitize. Automate. Grow. Measurable impact with AI and intelligent automation.">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/og-cover.svg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <a id="top"></a>
+
+  <!-- Header/Navigation -->
+  <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-20 border-line">
+    <nav class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-extrabold text-primary">Afri Evolution</a>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="services.html" class="text-subtle hover:text-fg transition duration-300 font-medium">Services</a>
+      <a href="about-us.html" class="text-subtle hover:text-fg transition duration-300 font-medium">About Us</a>
+      <a href="approach.html" class="text-subtle hover:text-fg transition duration-300 font-medium">Our Approach</a>
+        <a href="contact.html" class="btn-primary text-sm px-6 py-2">Contact Us</a>
+      </div>
+      <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+        <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
+      <a href="services.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Services</a>
+      <a href="about-us.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="toggleMobileMenu()">About Us</a>
+      <a href="approach.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Our Approach</a>
+      <a href="contact.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Contact Us</a>
+    </div>
+  </header>
+
+  
+
+  <!-- Hero (aligned to template) -->
+  <main id="main">
+  <section id="services-intro" class="relative hero-gradient-light dark:hero-gradient-dark text-white pt-16 pb-12 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight">Services that De-Risk, Digitize, and Scale</h1>
+      <p class="mt-6 max-w-4xl mx-auto text-lg sm:text-xl text-white/90">Start where you are. Each package is modular and upgradeable, designed to move you from ad-hoc processes to an integrated, automated operating model with clear governance and measurable ROI.</p>
+    </div>
+  </section>
+
+  
+
+  
+
+  <a id="services"></a>
+  <!-- Detail Tabs -->
+  <section id="services-tabs" class="pt-16 md:pt-24 pb-12 md:pb-16 bg-surface-1">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="text-center mb-6 md:mb-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-fg heading-accent">Services</h2>
+        <p class="mt-3 text-base text-subtle">Explore each service to see what’s included, expected outcomes, and who it’s best for.</p>
+      </div>
+      <!-- Segmented tabs (restored) -->
+      <!-- Elevated card wrapper for tabs + details -->
+      <div class="rounded-2xl bg-surface-1 shadow-md p-4 md:p-6 border border-line">
+      <div id="tabs-sticky" class="rounded-t-2xl p-0 sticky top-[64px] z-30 bg-surface-1/90 backdrop-blur-sm">
+        <div class="flex justify-center">
+          <div id="tablist" role="tablist" aria-label="Services tabs" class="relative inline-flex items-center gap-1 overflow-x-auto scrollbar-hide snap-x snap-mandatory rounded-full bg-surface-2/60 text-fg p-2">
+            <button role="tab" id="tab-t0" class="tab px-6 py-2 rounded-full text-sm font-medium text-fg bg-surface-1 snap-start focus:outline-none focus:ring-2 focus:ring-primary transition-shadow hover:shadow-sm" data-tab="t0" aria-controls="t0" aria-selected="true">Data Clarity Foundation</button>
+            <button role="tab" id="tab-t1" class="tab px-6 py-2 rounded-full text-sm font-medium text-subtle dark:text-bg/80 hover:text-fg snap-start focus:outline-none focus:ring-2 focus:ring-primary transition-shadow hover:shadow-sm" data-tab="t1" aria-controls="t1" aria-selected="false">LaunchPad</button>
+            <button role="tab" id="tab-t2" class="tab px-6 py-2 rounded-full text-sm font-medium text-subtle dark:text-bg/80 hover:text-fg snap-start focus:outline-none focus:ring-2 focus:ring-primary transition-shadow hover:shadow-sm" data-tab="t2" aria-controls="t2" aria-selected="false">Book Smart</button>
+            <button role="tab" id="tab-t3" class="tab px-6 py-2 rounded-full text-sm font-medium text-subtle dark:text-bg/80 hover:text-fg snap-start focus:outline-none focus:ring-2 focus:ring-primary transition-shadow hover:shadow-sm" data-tab="t3" aria-controls="t3" aria-selected="false">Full Flow</button>
+            <button role="tab" id="tab-t4" class="tab px-6 py-2 rounded-full text-sm font-medium text-subtle dark:text-bg/80 hover:text-fg snap-start focus:outline-none focus:ring-2 focus:ring-primary transition-shadow hover:shadow-sm" data-tab="t4" aria-controls="t4" aria-selected="false">Chat Boost</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tablist removed per request -->
+
+      <div class="p-6 md:p-8 mt-0">
+        
+
+        <!-- Panel: t0 DCF (tiles with icons) -->
+        <div class="panel scroll-mt-nav stack-8" id="t0">
+          <div class="text-center rounded-xl bg-surface-1 shadow-sm p-6 border border-line card-pop">
+            <h3 class="text-2xl font-bold text-fg">Data Clarity Foundation</h3>
+            <p class="mt-2 text-base text-subtle max-w-3xl mx-auto">Establish a robust data foundation. We help you organize, cleanse, and structure your data for accurate, accessible, and informed decision-making.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm card-pop">
+              <div class="bg-primary/10 dark:bg-primary/20 p-2 rounded-full text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A96.12,96.12,0,0,0,32,120v24a8,8,0,0,0,16,0V120a80,80,0,0,1,160,0v24a8,8,0,0,0,16,0V120A96.12,96.12,0,0,0,128,24Zm0,176a96.12,96.12,0,0,0-96-96H24a8,8,0,0,0-8,8v16a96.12,96.12,0,0,0,96,96h8a96.12,96.12,0,0,0,96-96V120a8,8,0,0,0-8-8h-8A96.12,96.12,0,0,0,128,200Z"></path></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-fg">Single Source of Truth</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm card-pop">
+              <div class="bg-primary/10 dark:bg-primary/20 p-2 rounded-full text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-fg">Improved Decision-Making</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm card-pop">
+              <div class="bg-primary/10 dark:bg-primary/20 p-2 rounded-full text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208Z"></path></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-fg">Enhanced Security</h4>
+            </div>
+          </div>
+          <!-- DETAIL: DCF -->
+          <div class="space-y-6">
+            <!-- What’s Included (wide checklist) -->
+            <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">What’s Included</h3>
+              <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Data discovery, mapping &amp; lineage</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Unified data model + master IDs</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Dedupe, validation &amp; standardisation rules</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Quality checks &amp; reconciliation routines</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Clarity Index &amp; data runbook</span></li>
+              </ul>
+            </article>
+
+            <!-- Outcomes + Best For -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">Business Outcomes</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>One source of truth across teams</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Trusted metrics &amp; faster reporting</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Lower reconciliation effort &amp; risk</span></li>
+                </ul>
+              </article>
+              <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">Best For</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Spreadsheet-heavy ops</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Inconsistent KPIs or disputed dashboards</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Audit/POPIA pain &amp; data sprawl</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+          <!-- spacing handled by stack-8 -->
+          <a href="contact.html?topic=dcf" class="btn-primary focus:outline-none focus:ring-2 focus:ring-primary">Book a DCF Discovery</a>
+        </div>
+
+        <!-- Panel: t1 LaunchPad -->
+        <div class="panel hidden scroll-mt-nav stack-8" id="t1" role="tabpanel" aria-labelledby="tab-t1">
+          <div class="text-center rounded-xl bg-surface-1 shadow-sm p-6 border border-line">
+            <h3 class="text-2xl font-bold text-fg">LaunchPad</h3>
+            <p class="mt-2 text-base text-subtle max-w-3xl mx-auto">
+            A modern, fast, brand-true site that captures structured data at the source and feeds analytics that learn over time.
+            </p>
+          </div>
+
+          <!-- BENEFITS: LaunchPad -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- bolt icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M13 2L3 14h6l-2 8 10-12h-6z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-fg">Conversion-Ready UX</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-6 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-3 rounded-full text-primary" aria-hidden="true">
+                <!-- inbox icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v10h6l2 3h6l2-3h6V5a2 2 0 00-2-2zM5 5h14v8h-3.586l-2 2H10.586l-2-2H5V5z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Clean Lead Capture</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-6 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-3 rounded-full text-primary" aria-hidden="true">
+                <!-- chart icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M3 3h2v18H3V3zm4 10h2v8H7v-8zm4-6h2v14h-2V7zm4 4h2v10h-2V11zm4-6h2v16h-2V5z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Analytics that Learn</h4>
+            </div>
+          </div>
+
+          <!-- DETAIL: LaunchPad -->
+          <div class="space-y-6">
+            <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">What’s Included</h3>
+              <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Webflow build (core pages + CMS where needed)</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Consent-aware forms with structured fields</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>SEO basics, GA4/Pixel events &amp; taxonomy</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>CMS training + content hand-off playbook</span></li>
+              </ul>
+            </article>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">Business Outcomes</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Higher-quality leads; cleaner capture</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Funnel &amp; attribution visibility that improves</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Faster updates; brand-true UX</span></li>
+                </ul>
+              </article>
+              <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">Best For</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>SMEs formalising online acquisition</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>DIY sites upgrading to a conversion engine</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <a href="contact.html?topic=launchpad" class="btn-primary focus:outline-none focus:ring-2 focus:ring-primary">Discuss LaunchPad</a>
+        </div>
+
+        <!-- Panel: t2 Book Smart -->
+        <div class="panel hidden scroll-mt-nav stack-8" id="t2" role="tabpanel" aria-labelledby="tab-t2">
+          <div class="text-center rounded-xl bg-surface-1 shadow-sm p-6 border border-line">
+            <h3 class="text-2xl font-bold text-fg">Book Smart</h3>
+            <p class="mt-2 text-base text-subtle max-w-3xl mx-auto">
+            Automate bookings, confirmations, reminders, and admin. Reduce no-shows, lift utilization, and surface operational insights.
+            </p>
+          </div>
+
+          <!-- BENEFITS: Book Smart -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-surface-1 border border-line p-6 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-3 rounded-full text-primary" aria-hidden="true">
+                <!-- calendar/clock icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 2h2v2h6V2h2v2h3a2 2 0 012 2v5h-2V8H4v12h8v2H4a2 2 0 01-2-2V6a2 2 0 012-2h3V2zm13 12a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm-1 1h2v3h-2v-3z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-fg">Calendar Automation</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- workflow arrows icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 7h10l-3-3 1.4-1.4L21.8 8l-6.4 5.4L14 12l3-3H7v4L1 8l6-5v4zM17 17H7l3 3-1.4 1.4L2.2 16l6.4-5.4L10 12l-3 3h10v-4l6 5-6 5v-4z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Workflow Basics</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- gauge/bar chart icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 13h2v8H3v-8zm4-6h2v14H7V7zm4 3h2v11h-2V10zm4 5h2v6h-2v-6zm4-9h2v15h-2V6z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Utilisation Insights</h4>
+            </div>
+          </div>
+
+          <!-- DETAIL: Book Smart -->
+          <div class="space-y-6">
+            <article class="bg-gray-50 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">What’s Included</h3>
+              <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Calendar integration + availability/slot logic</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Automated confirmations, reminders &amp; follow-ups</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Intake forms, simple routing &amp; task hand-offs</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Utilisation &amp; attendance dashboard</span></li>
+              </ul>
+            </article>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <article class="bg-gray-50 rounded-xl p-6">
+                <h3 class="text-base font-semibold text-fg">Business Outcomes</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Fewer no-shows; reduced admin overhead</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Faster cycle times &amp; better customer experience</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Clean data into CRM and BI</span></li>
+                </ul>
+              </article>
+              <article class="bg-gray-50 rounded-xl p-6">
+                <h3 class="text-base font-semibold text-fg">Best For</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Clinics, salons, training providers</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Field services &amp; appointment-driven ops</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <a href="contact.html?topic=book-smart" class="btn-primary focus:outline-none focus:ring-2 focus:ring-primary">Automate with Book Smart</a>
+        </div>
+
+        <!-- Panel: t3 Full Flow -->
+        <div class="panel hidden scroll-mt-nav stack-8" id="t3" role="tabpanel" aria-labelledby="tab-t3">
+          <div class="text-center rounded-xl bg-surface-1 shadow-sm p-6 border border-line">
+            <h3 class="text-2xl font-bold text-fg">Full Flow</h3>
+            <p class="mt-2 text-base text-subtle max-w-3xl mx-auto">
+            One operating rhythm from lead to revenue: CRM, tiered approvals, SLAs, and executive-ready analytics.
+            </p>
+          </div>
+
+          <!-- BENEFITS: Full Flow -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- check-circle/workflow icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm-1 15l-4-4 1.41-1.41L11 13.17l4.59-4.58L17 10z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-fg">Workflows &amp; SLAs</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- users/network icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Integrated CRM</h4>
+            </div>
+            <div class="bg-surface-1 border border-line p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- presentation/chart icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 4h18v2H3V4zm2 4h2v10H5V8zm4 3h2v7H9v-7zm4-5h2v12h-2V6zm4 8h2v4h-2v-4z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Executive Dashboards</h4>
+            </div>
+          </div>
+
+          <!-- DETAIL: Full Flow -->
+          <div class="space-y-6">
+            <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">What’s Included</h3>
+              <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>CRM setup (pipeline/service) &amp; role-based views</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Multi-step workflows, approvals &amp; SLA timers</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Data warehouse layer + governed metrics</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Exec dashboards, forecasting &amp; performance views</span></li>
+              </ul>
+            </article>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <article class="bg-surface-2 rounded-xl p-6">
+                <h3 class="text-base font-semibold text-fg">Business Outcomes</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Higher throughput; fewer handoff failures</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Forecast accuracy &amp; margin control</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>End-to-end visibility with auditability</span></li>
+                </ul>
+              </article>
+              <article class="bg-surface-2 rounded-xl p-6">
+                <h3 class="text-base font-semibold text-fg">Best For</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Scale-ups with multi-team operations</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Teams formalising governance &amp; SLAs</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <a href="contact.html?topic=full-flow" class="btn-primary focus:outline-none focus:ring-2 focus:ring-primary">Explore Full Flow</a>
+        </div>
+
+        <!-- Panel: t4 Chat Boost -->
+        <div class="panel hidden scroll-mt-nav stack-8" id="t4" role="tabpanel" aria-labelledby="tab-t4">
+          <div class="text-center rounded-xl bg-surface-1 shadow-sm p-6 border border-line">
+            <h3 class="text-2xl font-bold text-fg">Chat Boost</h3>
+            <p class="mt-2 text-base text-subtle max-w-3xl mx-auto">
+            A compliant, always-on conversational layer that answers FAQs, routes requests, and captures leads & bookings.
+            </p>
+          </div>
+
+          <!-- BENEFITS: Chat Boost -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white border border-border-light p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- clock/24 icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm1 11h-3V7h2v4h2z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-fg">24/7 Response</h4>
+            </div>
+            <div class="bg-white border border-border-light p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- filter/route icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 5h18v2H3V5zm4 6h10v2H7v-2zm-2 6h14v2H5v-2z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Lead Triage</h4>
+            </div>
+            <div class="bg-white border border-border-light p-5 rounded-xl text-center flex flex-col items-center shadow-sm">
+              <div class="bg-primary/10 p-2 rounded-full text-primary" aria-hidden="true">
+                <!-- plug/calendar-plus icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 2h2v3h6V2h2v3h3v2H4V5h3V2zm2 8h6v2h-4v4H9v-4H7v-2zM4 13h3v7H4v-7zm13 0h3v7h-3v-7zm-6 3h6v4h-6v-4z"/></svg>
+              </div>
+              <h4 class="mt-4 text-lg font-bold text-foreground-light">Bookings &amp; Integrations</h4>
+            </div>
+          </div>
+
+          <!-- DETAIL: Chat Boost -->
+          <div class="space-y-6">
+            <article class="bg-surface-2 rounded-xl p-6">
+              <h3 class="text-base font-semibold text-fg">What’s Included</h3>
+              <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>WhatsApp Business API onboarding</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Intent design, routing rules &amp; human handoff</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>CRM/calendar integrations + analytics</span></li>
+                <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Tuning playbook &amp; periodic optimisation</span></li>
+              </ul>
+            </article>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <article class="bg-surface-2 rounded-xl p-6">
+                <h3 class="text-base font-semibold text-fg">Business Outcomes</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Faster response; higher lead conversion</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Reduced agent load; consistent quality</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Insight into conversation drivers</span></li>
+                </ul>
+              </article>
+              <article class="bg-surface-2 rounded-xl p-6">
+                <h3 class="text-base font-semibold text-fg">Best For</h3>
+                <ul class="mt-3 space-y-2 text-sm text-subtle-light">
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>High inbound queries or repeat FAQs</span></li>
+                  <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Teams needing 24/7 engagement</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <a href="contact.html?topic=chat-boost" class="btn-primary focus:outline-none focus:ring-2 focus:ring-primary">Add Chat Boost</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Packages (moved below tabs) -->
+  <section id="packages" class="py-16 md:py-24 bg-bg">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-primary dark:text-foreground-dark">Our Packages</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-secondary dark:text-subtle-dark">Choose the package that aligns with your growth stage.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Foundation -->
+        <div class="rounded-2xl border border-line bg-surface-1 text-fg p-8 shadow flex flex-col">
+          <h3 class="text-2xl font-extrabold text-fg dark:text-white">Foundation</h3>
+          <p class="text-subtle dark:text-white/80 mt-2 mb-6">Start with a governed, automation-ready core.</p>
+          <ul class="space-y-3 text-subtle dark:text-white/80 min-h-[150px]">
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Data Clarity Setup</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>LaunchPad Essentials</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Clean Lead Capture & Analytics</span></li>
+          </ul>
+          <a href="contact.html?topic=dcf" class="mt-auto inline-block w-full text-center px-6 py-3 rounded-lg bg-primary text-primaryFg hover:bg-primary600 focus-visible:ring-2 ring-focusRing transition-transform transform hover:scale-105">Book Discovery</a>
+        </div>
+
+        <!-- Growth (Most Popular) -->
+        <div class="rounded-2xl border-2 border-accent-vibrant bg-surface-1 text-fg p-8 shadow relative flex flex-col">
+          <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primaryFg text-xs font-bold rounded-full shadow z-10">Most Popular</div>
+          <h3 class="text-2xl font-extrabold text-fg dark:text-white">Growth</h3>
+          <p class="text-subtle dark:text-white/80 mt-2 mb-6">Automate and scale operations end-to-end.</p>
+          <ul class="space-y-3 text-subtle dark:text-white/80 min-h-[150px]">
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Everything in Foundation</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Book Smart (Bookings, confirmations, reminders)</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Utilization & No-Show Insights</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Optional: Chat Boost Integration</span></li>
+          </ul>
+          <a href="contact.html?topic=full-flow" class="mt-auto inline-block w-full text-center px-6 py-3 rounded-lg bg-primary text-primaryFg hover:bg-primary600 focus-visible:ring-2 ring-focusRing transition-transform transform hover:scale-105">Book Discovery</a>
+        </div>
+
+        <!-- Scale -->
+        <div class="rounded-2xl border border-line bg-surface-1 text-fg p-8 shadow flex flex-col">
+          <h3 class="text-2xl font-extrabold text-fg dark:text-white">Scale</h3>
+          <p class="text-subtle dark:text-white/80 mt-2 mb-6">Comprehensive CRM, workflows and BI.</p>
+          <ul class="space-y-3 text-subtle dark:text-white/80 min-h-[150px]">
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Everything in Growth</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Full Flow (CRM, SLAs, approvals, workflows)</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Cross-domain Dashboards & Forecasts</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-2 h-2 rounded-full bg-accent-vibrant"></span><span>Strategic Consulting / Dedicated Support</span></li>
+          </ul>
+          <a href="contact.html?topic=full-flow" class="mt-auto inline-block w-full text-center px-6 py-3 rounded-lg bg-primary text-primaryFg hover:bg-primary600 focus-visible:ring-2 ring-focusRing transition-transform transform hover:scale-105">Book Discovery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compare Section (non-scrolling desktop, mobile cards) -->
+  <section id="compare" class="py-12 md:py-24 bg-bg">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-fg">Compare Services</h2>
+        <p class="mt-3 text-base text-subtle">See how each service differs across promises, automation depth, insights, compliance, and time-to-value.</p>
+      </div>
+
+      <!-- Desktop table (aligned to template rows) -->
+      <div class="hidden md:block">
+        <table class="w-full border border-line text-sm bg-surface-1">
+          <thead>
+            <tr class="bg-surface-2">
+              <th class="text-left p-3 border border-line text-fg">Dimension</th>
+              <th class="text-left p-3 border border-line text-fg">Data Clarity Foundation</th>
+              <th class="text-left p-3 border border-line text-fg">LaunchPad</th>
+              <th class="text-left p-3 border border-line text-fg">Book Smart</th>
+              <th class="text-left p-3 border border-line text-fg">Full Flow</th>
+              <th class="text-left p-3 border border-line text-fg">Chat Boost</th>
+            </tr>
+          </thead>
+          <tbody class="text-subtle">
+            <tr>
+              <td class="p-3 border border-line">Who it’s for</td>
+              <td class="p-3 border border-line text-center">Businesses needing a solid data foundation</td>
+              <td class="p-3 border border-line text-center">Startups/SMBs needing a conversion-ready site</td>
+              <td class="p-3 border border-line text-center">Ops with recurring bookings and admin drag</td>
+              <td class="p-3 border border-line text-center">Multi-team operations needing integrated governance</td>
+              <td class="p-3 border border-line text-center">Teams with high inbound queries</td>
+            </tr>
+            <tr class="even:bg-surface-3/40">
+              <td class="p-3 border border-line">Core Promise</td>
+              <td class="p-3 border border-line text-center">Accurate, accessible, governed data</td>
+              <td class="p-3 border border-line text-center">Structured lead capture; site that learns</td>
+              <td class="p-3 border border-line text-center">Automate bookings, confirmations, reminders</td>
+              <td class="p-3 border border-line text-center">End-to-end workflows & BI in one OS</td>
+              <td class="p-3 border border-line text-center">Always-on WhatsApp engagement</td>
+            </tr>
+            <tr>
+              <td class="p-3 border border-line">Automation Depth</td>
+              <td class="p-3 border text-center">Validation, standardisation, dedupe</td>
+              <td class="p-3 border text-center">Lead capture → CRM/analytics triggers</td>
+              <td class="p-3 border text-center">Calendar automation; reminders; basic workflows</td>
+              <td class="p-3 border text-center">Multi-step workflows, SLAs, approvals</td>
+              <td class="p-3 border text-center">AI intents; CRM/calendar hooks</td>
+            </tr>
+            <tr class="even:bg-surface-3/40">
+              <td class="p-3 border border-line">Intelligence & Insight</td>
+              <td class="p-3 border text-center">Central model; risk/ops reporting</td>
+              <td class="p-3 border text-center">Journey & conversion analytics; attribution</td>
+              <td class="p-3 border text-center">Utilization & attendance trends; capacity</td>
+              <td class="p-3 border text-center">Cross-domain dashboards; forecasting</td>
+              <td class="p-3 border text-center">Chat volumes; conversions; CSAT</td>
+            </tr>
+            <tr>
+              <td class="p-3 border border-line">Compliance & Control</td>
+              <td class="p-3 border text-center">POPIA controls; lineage; audit-ready</td>
+              <td class="p-3 border text-center">Consent-aware forms; secure capture</td>
+              <td class="p-3 border text-center">Consent tracking; retention policies</td>
+              <td class="p-3 border text-center">Governance; role-based access; audit trail</td>
+              <td class="p-3 border text-center">Consent-aware chat; message audit</td>
+            </tr>
+            <tr class="even:bg-surface-3/40">
+              <td class="p-3 border border-line">Time-to-Value</td>
+              <td class="p-3 border text-center">2–4 weeks</td>
+              <td class="p-3 border text-center">3–5 weeks</td>
+              <td class="p-3 border text-center">2–3 weeks</td>
+              <td class="p-3 border text-center">6–10 weeks</td>
+              <td class="p-3 border text-center">1–2 weeks</td>
+            </tr>
+            <tr>
+              <td class="p-3 border border-line">Custom Category</td>
+              <td class="p-3 border text-center">Digital Foundation</td>
+              <td class="p-3 border text-center">Digital Foundation</td>
+              <td class="p-3 border text-center">Automation Essentials</td>
+              <td class="p-3 border text-center">Automation Essentials</td>
+              <td class="p-3 border text-center">Pairs with any</td>
+            </tr>
+            <tr class="even:bg-surface-3/40">
+              <td class="p-3 border border-line">CTA</td>
+              <td class="p-3 border text-center"><a href="contact.html?topic=dcf" class="inline-block px-4 py-2 rounded-lg bg-primary text-primaryFg hover:opacity-90 focus-visible:ring-2 ring-focusRing">Book Discovery</a></td>
+              <td class="p-3 border text-center"><a href="contact.html?topic=launchpad" class="inline-block px-4 py-2 rounded-lg bg-primary text-primaryFg hover:opacity-90 focus-visible:ring-2 ring-focusRing">Book Discovery</a></td>
+              <td class="p-3 border text-center"><a href="contact.html?topic=book-smart" class="inline-block px-4 py-2 rounded-lg bg-primary text-primaryFg hover:opacity-90 focus-visible:ring-2 ring-focusRing">Book Discovery</a></td>
+              <td class="p-3 border text-center"><a href="contact.html?topic=full-flow" class="inline-block px-4 py-2 rounded-lg bg-primary text-primaryFg hover:opacity-90 focus-visible:ring-2 ring-focusRing">Book Discovery</a></td>
+              <td class="p-3 border text-center"><a href="contact.html?topic=chat-boost" class="inline-block px-4 py-2 rounded-lg bg-primary text-primaryFg hover:opacity-90 focus-visible:ring-2 ring-focusRing">Book Discovery</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile cards (aligned to template subset) -->
+      <div class="md:hidden space-y-6">
+        <div class="bg-surface-1 border border-line rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-primary mb-2">Data Clarity Foundation</h3>
+          <ul class="text-sm text-secondary space-y-2">
+            <li><strong class="text-primary">Who it’s for:</strong> Businesses needing a solid data foundation</li>
+            <li><strong class="text-primary">Core Promise:</strong> Accurate, accessible, governed data</li>
+            <li><strong class="text-primary">Automation Depth:</strong> Validation, standardisation, dedupe</li>
+            <li><strong class="text-primary">Time-to-Value:</strong> 2–4 weeks</li>
+          </ul>
+          <div class="mt-4 space-x-4">
+            <a href="contact.html?topic=dcf" class="btn-primary text-sm px-6 py-2">Book Discovery</a>
+            <a href="#services-tabs?t=t0" class="text-accent hover:text-accent-hover underline underline-offset-2">Learn more</a>
+          </div>
+        </div>
+        <div class="bg-surface-1 border border-line rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-primary mb-2">LaunchPad</h3>
+          <ul class="text-sm text-secondary space-y-2">
+            <li><strong class="text-primary">Who it’s for:</strong> Startups/SMBs needing a conversion-ready site</li>
+            <li><strong class="text-primary">Core Promise:</strong> Structured lead capture; site that learns</li>
+            <li><strong class="text-primary">Automation Depth:</strong> Lead capture → CRM/analytics triggers</li>
+            <li><strong class="text-primary">Time-to-Value:</strong> 3–5 weeks</li>
+          </ul>
+          <div class="mt-4 space-x-4">
+            <a href="contact.html?topic=launchpad" class="btn-primary text-sm px-6 py-2">Book Discovery</a>
+            <a href="#services-tabs?t=t1" class="text-accent hover:text-accent-hover underline underline-offset-2">Learn more</a>
+          </div>
+        </div>
+        <div class="bg-surface-1 border border-line rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-primary mb-2">Book Smart</h3>
+          <ul class="text-sm text-secondary space-y-2">
+            <li><strong class="text-primary">Who it’s for:</strong> Ops with recurring bookings and admin drag</li>
+            <li><strong class="text-primary">Core Promise:</strong> Automate bookings, confirmations, reminders</li>
+            <li><strong class="text-primary">Automation Depth:</strong> Calendar automation; reminders; basic workflows</li>
+            <li><strong class="text-primary">Time-to-Value:</strong> 2–3 weeks</li>
+          </ul>
+          <div class="mt-4 space-x-4">
+            <a href="contact.html?topic=book-smart" class="btn-primary text-sm px-6 py-2">Book Discovery</a>
+            <a href="#services-tabs?t=t2" class="text-accent hover:text-accent-hover underline underline-offset-2">Learn more</a>
+          </div>
+        </div>
+        <div class="bg-surface-1 border border-line rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-primary mb-2">Full Flow</h3>
+          <ul class="text-sm text-secondary space-y-2">
+            <li><strong class="text-primary">Who it’s for:</strong> Multi-team operations needing integrated governance</li>
+            <li><strong class="text-primary">Core Promise:</strong> End-to-end workflows & BI in one OS</li>
+            <li><strong class="text-primary">Automation Depth:</strong> Multi-step workflows, SLAs, approvals</li>
+            <li><strong class="text-primary">Time-to-Value:</strong> 6–10 weeks</li>
+          </ul>
+          <div class="mt-4 space-x-4">
+            <a href="contact.html?topic=full-flow" class="btn-primary text-sm px-6 py-2">Book Discovery</a>
+            <a href="#services-tabs?t=t3" class="text-accent hover:text-accent-hover underline underline-offset-2">Learn more</a>
+          </div>
+        </div>
+        <div class="bg-surface-1 border border-line rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-primary mb-2">Chat Boost (Add-On)</h3>
+          <ul class="text-sm text-secondary space-y-2">
+            <li><strong class="text-primary">Who it’s for:</strong> Teams with high inbound queries</li>
+            <li><strong class="text-primary">Core Promise:</strong> Always-on WhatsApp engagement</li>
+            <li><strong class="text-primary">Automation Depth:</strong> AI intents; CRM/calendar hooks</li>
+            <li><strong class="text-primary">Time-to-Value:</strong> 1–2 weeks</li>
+          </ul>
+          <div class="mt-4 space-x-4">
+            <a href="contact.html?topic=chat-boost" class="btn-primary text-sm px-6 py-2">Book Discovery</a>
+            <a href="#services-tabs?t=t4" class="text-accent hover:text-accent-hover underline underline-offset-2">Learn more</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 md:hidden text-center">
+        <a href="#top" class="text-secondary hover:underline">Back to top</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Tabs Script: ARIA + deep-linking (#services?t=tN) -->
+  <script>
+  (function(){
+    const tablist = document.querySelector('#tablist');
+    const tabs = [...document.querySelectorAll('#tablist .tab')];
+    const panels = [...document.querySelectorAll('.panel')];
+
+    function activate(id, push=true){
+      tabs.forEach(btn => {
+        const on = btn.dataset.tab === id;
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
+        // segmented control visual
+        if (on) {
+          btn.classList.add('bg-white','text-graphite','shadow');
+          btn.classList.remove('text-white/80','text-subtle');
+        } else {
+          btn.classList.remove('bg-white','text-graphite','shadow');
+          // Light mode: subtle grey; Dark mode handled by existing dark:text-* classes
+          btn.classList.add('text-subtle');
+          btn.classList.remove('text-white/80');
+        }
+      });
+      panels.forEach(p => p.classList.toggle('hidden', p.id !== id));
+      if (push){
+        const url = new URL(window.location);
+        url.hash = `services?t=${id}`;
+        history.replaceState(null, '', url);
+      }
+      try { window.dispatchEvent(new CustomEvent('tab_view', {detail:{service: id}})); } catch(e){}
+    }
+
+    tabs.forEach(t => {
+      t.setAttribute('role', 'tab');
+      t.setAttribute('aria-controls', t.dataset.tab);
+      t.addEventListener('click', (e) => { e.preventDefault(); activate(t.dataset.tab); });
+    });
+    tablist?.setAttribute('role','tablist');
+
+    // Keyboard navigation
+    tablist?.addEventListener('keydown', (e) => {
+      const current = document.activeElement;
+      const idx = tabs.indexOf(current);
+      if (idx === -1) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = tabs[(idx + 1) % tabs.length];
+        next.focus(); activate(next.dataset.tab);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = tabs[(idx - 1 + tabs.length) % tabs.length];
+        prev.focus(); activate(prev.dataset.tab);
+      } else if (e.key === 'Home') {
+        e.preventDefault(); tabs[0].focus(); activate(tabs[0].dataset.tab);
+      } else if (e.key === 'End') {
+        e.preventDefault(); const last = tabs[tabs.length-1]; last.focus(); activate(last.dataset.tab);
+      }
+    });
+
+    const hash = new URL(window.location).hash;
+    const m = /t=(t[0-4])/.exec(hash);
+    const initial = m ? m[1] : (tabs[0]?.dataset.tab || 't0');
+    activate(initial, false);
+
+    // add subtle shadow when sticky
+    const sticky = document.getElementById('tabs-sticky');
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) sticky?.classList.add('shadow-sm');
+      else sticky?.classList.remove('shadow-sm');
+    }, {threshold: 1});
+    if (sticky) observer.observe(sticky);
+  })();
+  </script>
+  
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-8 px-4 text-center">
+    <div class="container mx-auto">
+      <p class="mb-2">&copy; 2025 Afri Evolution. All rights reserved.</p>
+      <div class="text-sm space-x-4">
+        <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+        <a href="terms.html" class="hover:underline">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>
+ 

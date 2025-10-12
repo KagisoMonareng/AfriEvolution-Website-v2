@@ -1,0 +1,563 @@
+/**
+ * UI/UX Improvements - Immediate Visual Enhancements
+ * Based on comprehensive audit - Apply these for instant improvements
+ * Import this file AFTER tokens.css and utilities.css
+ */
+
+/* ==================================================
+   1. IMPROVED VISUAL HIERARCHY
+   ================================================== */
+
+/* Hero text shadow for better contrast */
+#hero h1,
+.hero h1 {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4),
+               0 4px 16px rgba(0,0,0,0.2);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+#hero p,
+.hero p {
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* Better section headers with accent bar */
+.section-header {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: 2px;
+}
+
+/* ==================================================
+   2. BETTER BUTTONS & CTAS
+   ================================================== */
+
+/* Enhanced primary button */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-600) 100%);
+  box-shadow: 0 4px 14px rgba(242, 173, 13, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 173, 13, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(242, 173, 13, 0.25);
+}
+
+/* Secondary button improvements */
+.btn-secondary {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+/* Ghost button (for dark backgrounds) */
+.btn-ghost-white {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-ghost-white:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-1px);
+}
+
+/* ==================================================
+   3. ENHANCED FEATURE CARDS
+   ================================================== */
+
+.feature-block {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle top accent bar */
+.feature-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.feature-block:hover::before {
+  opacity: 1;
+}
+
+.feature-block:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12) !important;
+  border-color: var(--primary);
+}
+
+/* Colorful gradient icons */
+.feature-block-icon {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  box-shadow: 0 8px 20px rgba(242, 173, 13, 0.25);
+  border-radius: 16px;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .feature-block-icon {
+  box-shadow: 0 8px 20px rgba(223, 169, 14, 0.3);
+}
+
+.feature-block-icon svg {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* ==================================================
+   4. IMPROVED FORMS
+   ================================================== */
+
+/* Better input styling */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  border: 2px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.2s;
+  background: var(--surface-1);
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--line));
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(242, 173, 13, 0.1),
+              0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Animated error messages */
+.error-message,
+[id^="err-"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Success animation */
+#form-message.show {
+  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==================================================
+   5. BETTER FOCUS INDICATORS (ACCESSIBILITY)
+   ================================================== */
+
+/* Strong, visible focus indicators */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.btn:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Skip link enhancement */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--primary-fg);
+  padding: 1rem 2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.3s;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* ==================================================
+   6. NAVIGATION IMPROVEMENTS
+   ================================================== */
+
+/* Active nav indicator */
+header nav a.active,
+header nav a[aria-current="page"] {
+  color: var(--primary);
+  font-weight: 600;
+  position: relative;
+}
+
+header nav a.active::after,
+header nav a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Sticky header shadow on scroll */
+header.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.dark header.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+/* Better mobile menu */
+#mobile-menu {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border-radius: 0 0 1rem 1rem;
+}
+
+#mobile-menu a {
+  transition: all 0.2s;
+}
+
+#mobile-menu a:hover {
+  padding-left: 2rem;
+  background: var(--hover);
+}
+
+/* ==================================================
+   7. IMPROVED ANIMATIONS
+   ================================================== */
+
+/* Smooth fade-in-up */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale animation for cards */
+.fade-in-scale {
+  animation: fadeInScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==================================================
+   8. DARK MODE CONTRAST FIXES
+   ================================================== */
+
+.dark {
+  /* Improved text contrast */
+  --subtle: #D1D5DB;
+  --muted: #B4BAC5;
+}
+
+.dark .feature-block {
+  background: var(--surface-1);
+  border-color: var(--line);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.dark .feature-block:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5) !important;
+}
+
+/* ==================================================
+   9. MOBILE OPTIMIZATIONS
+   ================================================== */
+
+@media (max-width: 768px) {
+  /* Touch-friendly targets */
+  button, .btn, a[class*="btn"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  #mobile-menu a {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+  }
+  
+  /* Prevent iOS zoom */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  /* Smaller hero text */
+  #hero h1,
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  /* Compact cards */
+  .feature-block {
+    padding: 1.5rem;
+  }
+  
+  .feature-block-icon {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* ==================================================
+   10. LOADING STATES
+   ================================================== */
+
+/* Button loading state */
+.btn:disabled,
+.btn.loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Image loading shimmer */
+img[loading="lazy"] {
+  background: linear-gradient(
+    90deg,
+    var(--surface-2) 0%,
+    var(--surface-3) 50%,
+    var(--surface-2) 100%
+  );
+  background-size: 200% 100%;
+}
+
+img[loading="lazy"]:not([src]) {
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ==================================================
+   11. LIST IMPROVEMENTS
+   ================================================== */
+
+/* Better checkmark lists */
+ul[class*="space-y"] li {
+  display: flex;
+  align-items: start;
+  gap: 0.75rem;
+}
+
+ul[class*="space-y"] li span[aria-hidden="true"] {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--success);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-top: 0.125rem;
+}
+
+/* ==================================================
+   12. REDUCED MOTION SUPPORT
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==================================================
+   13. PRINT STYLES
+   ================================================== */
+
+@media print {
+  .skip-link,
+  header,
+  #mobile-menu,
+  button:not([type="submit"]),
+  [data-toggle],
+  footer {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.875rem;
+    color: #666;
+  }
+}
+
+/* ==================================================
+   14. UTILITY CLASSES
+   ================================================== */
+
+/* Stagger children animations */
+.stagger-children > * {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Badge/Pill */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--primary-fg);
+}
+
+/* Card shadows */
+.card-shadow {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05),
+              0 10px 20px rgba(0,0,0,0.08);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 8px 12px rgba(0,0,0,0.08),
+              0 16px 32px rgba(0,0,0,0.12);
+}
+
+/* Smooth scrolling */
+html.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-smooth {
+    scroll-behavior: auto;
+  }
+}
+
