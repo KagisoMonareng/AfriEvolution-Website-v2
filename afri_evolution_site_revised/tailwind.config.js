@@ -11,6 +11,28 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['var(--font-display)'],
+        sans: ['var(--font-sans)'],
+        mono: ['var(--font-mono)']
+      },
+      fontSize: {
+        xs:   ['var(--text-xs)',   { lineHeight: 'var(--lh-xs)' }],
+        sm:   ['var(--text-sm)',   { lineHeight: 'var(--lh-sm)' }],
+        base: ['var(--text-base)', { lineHeight: 'var(--lh-base)' }],
+        lg:   ['var(--text-lg)',   { lineHeight: 'var(--lh-lg)' }],
+        xl:   ['var(--text-xl)',   { lineHeight: 'var(--lh-xl)' }],
+        '2xl': ['var(--text-2xl)', { lineHeight: 'var(--lh-2xl)' }],
+        '3xl': ['var(--text-3xl)', { lineHeight: 'var(--lh-3xl)' }],
+        '4xl': ['var(--text-4xl)', { lineHeight: 'var(--lh-4xl)' }]
+      },
+      fontWeight: {
+        regular: 'var(--weight-regular)',
+        medium: 'var(--weight-medium)',
+        semibold: 'var(--weight-semibold)',
+        bold: 'var(--weight-bold)',
+        xbold: 'var(--weight-xbold)'
+      },
       colors: {
         bg: 'var(--bg)',
         fg: 'var(--fg)',
