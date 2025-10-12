@@ -25,16 +25,17 @@
 /* Better section headers with accent bar */
 .section-header {
   position: relative;
-  display: inline-block;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 .section-header::after {
   content: '';
   position: absolute;
-  bottom: -12px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
