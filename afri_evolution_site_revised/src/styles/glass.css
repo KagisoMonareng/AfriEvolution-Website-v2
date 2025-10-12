@@ -2,13 +2,20 @@
 
 /* ===== Core Glass Shells ===== */
 /* Gate: only apply when skin is enabled */
-[data-skin="glass"] .glass        { background: var(--glass-tint); }
-[data-skin="glass"] .glass-strong { background: var(--glass-tint-strong); }
-
-/* Base glass shell styling */
-.glass, .glass-strong {
+[data-skin="glass"] .glass {
+  background: var(--glass-tint);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+[data-skin="glass"] .glass-strong {
+  background: var(--glass-tint-strong);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+/* Base glass shell styling (structural only, no glass effect) */
+.glass, .glass-strong {
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 16px;
@@ -22,6 +29,33 @@
               background 0.2s ease-out,
               transform 0.2s ease-out,
               box-shadow 0.2s ease-out;
+}
+
+/* When glass is disabled, ensure no backdrop filter */
+body:not([data-skin="glass"]) .glass,
+body:not([data-skin="glass"]) .glass-strong {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent;
+}
+
+/* Visual indicator for glass toggle button */
+#glass-toggle {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+[data-skin="glass"] #glass-toggle {
+  background: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 10px rgba(242, 173, 13, 0.5);
+}
+
+[data-skin="glass"] #glass-toggle::after {
+  content: " ON";
+  font-size: 0.7em;
+  font-weight: bold;
 }
 
 /* Release GPU resources when not actively transitioning */
@@ -65,17 +99,19 @@
   z-index: 10;
 }
 
-/* Glass enabled - subtle dark tint */
+/* Glass enabled - subtle dark tint with backdrop blur */
 [data-skin="glass"] .glass-hero,
 [data-skin="glass"] .glass-strong.glass-hero,
 [data-skin="glass"] .glass.glass-hero {
   background: rgba(0, 0, 0, 0.15) !important; /* Very subtle dark tint instead of white */
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
 }
 
-/* Glass disabled - transparent */
-.glass-hero:not([data-skin="glass"]),
-.glass-strong.glass-hero:not([data-skin="glass"]),
-.glass.glass-hero:not([data-skin="glass"]) {
+/* Glass disabled - transparent (default state, no backdrop filter) */
+body:not([data-skin="glass"]) .glass-hero,
+body:not([data-skin="glass"]) .glass-strong.glass-hero,
+body:not([data-skin="glass"]) .glass.glass-hero {
   background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;

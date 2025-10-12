@@ -25,10 +25,14 @@
     const current = body.getAttribute("data-skin");
     const next = current === "glass" ? "" : "glass";
     
+    console.log('🎨 Glass toggle:', current, '→', next);
+    
     if (next) {
       body.setAttribute("data-skin", next);
+      console.log('✨ Glass effect ENABLED');
     } else {
       body.removeAttribute("data-skin");
+      console.log('❌ Glass effect DISABLED');
     }
     
     try {
@@ -41,12 +45,18 @@
     const toggleBtn = document.getElementById('glass-toggle');
     if (toggleBtn) {
       toggleBtn.setAttribute('aria-pressed', next === "glass" ? 'true' : 'false');
+      console.log('🔘 Toggle button updated, aria-pressed:', next === "glass");
+    } else {
+      console.warn('⚠️ Toggle button #glass-toggle not found!');
     }
     
     // Dispatch custom event for other scripts to react
     window.dispatchEvent(new CustomEvent('skinChanged', { 
       detail: { skin: next || 'default' } 
     }));
+    
+    // Log current body data-skin attribute for verification
+    console.log('📋 Body data-skin attribute:', body.getAttribute('data-skin'));
   };
   
   /**
@@ -86,8 +96,12 @@
   });
   
   // Log glass skin status for debugging
-  if (body.getAttribute("data-skin") === "glass") {
-    console.log('✨ Glass skin active');
+  const initialSkin = body.getAttribute("data-skin");
+  if (initialSkin === "glass") {
+    console.log('✨ Glass skin active (loaded from localStorage)');
+  } else {
+    console.log('⚪ Glass skin inactive (default state)');
   }
+  console.log('🎨 Glass skin module loaded. Use window.aeToggleSkin() to toggle.');
 })();
 
