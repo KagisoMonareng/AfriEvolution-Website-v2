@@ -25,6 +25,21 @@
     .bg-gradient-light{background-image:radial-gradient(circle at top right,#3F444A 0%,#6F7680 60%)}
     .dark .dark\:bg-gradient-dark{background-image:radial-gradient(circle at top right,#161A20 0%,#252B35 60%)}
     .scroll-mt-nav{scroll-margin-top:96px}
+    
+    /* Elevated container with subtle glow */
+    .elevated-glow {
+      box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        0 0 40px rgba(242, 173, 13, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark .elevated-glow {
+      box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(242, 173, 13, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
   </style>
 
   <!-- Basic SEO -->
@@ -99,7 +114,7 @@
       </div>
       <!-- Segmented tabs (restored) -->
       <!-- Elevated card wrapper for tabs + details -->
-      <div class="rounded-2xl bg-surface-1 shadow-md p-4 md:p-6 border border-line">
+      <div class="rounded-2xl bg-surface-1 p-4 md:p-6 border border-line elevated-glow">
       <div id="tabs-sticky" class="rounded-t-2xl p-0 sticky top-[64px] z-30 bg-surface-1/90 backdrop-blur-sm">
         <div class="flex justify-center">
           <div id="tablist" role="tablist" aria-label="Services tabs" class="relative inline-flex items-center gap-1 overflow-x-auto scrollbar-hide snap-x snap-mandatory rounded-full bg-surface-2/60 text-fg p-2">
