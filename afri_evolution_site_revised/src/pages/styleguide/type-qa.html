@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography QA - Afri Evolution Style Guide</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600..800&family=Source+Sans+3:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/tokens.css">
+    <link rel="stylesheet" href="/src/styles/type.css">
+    <link rel="stylesheet" href="/src/styles/utilities.css">
+    <link rel="stylesheet" href="/src/styles/uiux-improvements.css">
+    <link rel="stylesheet" href="/src/styles/glass.css">
+    <script defer src="/src/scripts/theme.js"></script>
+    <script defer src="/src/scripts/skin.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--surface-2) 100%);
+            min-height: 100vh;
+        }
+        .demo-box {
+            background: var(--surface-1);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .spec-table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+        }
+        .spec-table th,
+        .spec-table td {
+            text-align: left;
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+        .spec-table th {
+            color: var(--subtle);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-semibold);
+        }
+        .spec-table td {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--fg);
+        }
+    </style>
+</head>
+<body class="bg-bg text-fg">
+    <div class="container mx-auto p-8 max-w-7xl">
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="h1 mb-4">Typography System QA</h1>
+            <p class="lead mb-6">
+                Complete typography showcase using Manrope (display) + Source Sans 3 (body). 
+                Test light/dark modes, responsive scaling, and accessibility.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line px-4 py-2 text-sm text-fg hover:bg-hover transition" onclick="window.aeToggleTheme && window.aeToggleTheme(); this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'true' : 'false');">
+                    🌙 Toggle Theme
+                </button>
+                <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line px-4 py-2 text-sm text-fg hover:bg-hover transition" onclick="window.aeToggleSkin && window.aeToggleSkin();">
+                    ✨ Toggle Glass
+                </button>
+            </div>
+        </header>
+
+        <!-- Headings Showcase -->
+        <section class="demo-box">
+            <h2 class="h2 mb-6">Display Headings (Manrope)</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h1 class="h1">H1: Achieve Digital Excellence</h1>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                            <th>Line Height</th>
+                            <th>Letter Spacing</th>
+                        </tr>
+                        <tr>
+                            <td>.h1</td>
+                            <td>Manrope</td>
+                            <td>clamp(2rem, 5vw, 49px)</td>
+                            <td>800</td>
+                            <td>56px</td>
+                            <td>-0.01em</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h2 class="h2">H2: Your Strategic Path to AI-Driven Efficiency</h2>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                            <th>Line Height</th>
+                        </tr>
+                        <tr>
+                            <td>.h2</td>
+                            <td>Manrope</td>
+                            <td>clamp(1.75rem, 4vw, 39px)</td>
+                            <td>700</td>
+                            <td>48px</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h3 class="h3">H3: Guaranteed ROI</h3>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                        </tr>
+                        <tr>
+                            <td>.h3</td>
+                            <td>Manrope</td>
+                            <td>clamp(1.5rem, 3vw, 31px)</td>
+                            <td>700</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h4 class="h4">H4: What's Included</h4>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                        </tr>
+                        <tr>
+                            <td>.h4</td>
+                            <td>Manrope</td>
+                            <td>25px</td>
+                            <td>600</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h5 class="h5">H5: Subsection Title</h5>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                        </tr>
+                        <tr>
+                            <td>.h5</td>
+                            <td>Manrope</td>
+                            <td>20px</td>
+                            <td>600</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h6 class="h6">H6: Small Heading</h6>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                        </tr>
+                        <tr>
+                            <td>.h6</td>
+                            <td>Manrope</td>
+                            <td>16px</td>
+                            <td>600</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Body Text Showcase -->
+        <section class="demo-box">
+            <h2 class="h2 mb-6">Body Text (Source Sans 3)</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <p class="lead">Lead Paragraph: For SME teams who want measurable ROI from automation in 4–8 weeks. This introductory text draws attention and sets context.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                            <th>Line Height</th>
+                        </tr>
+                        <tr>
+                            <td>.lead</td>
+                            <td>Source Sans 3</td>
+                            <td>20px</td>
+                            <td>500</td>
+                            <td>28px</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <p class="body">Body Text: We deliver advanced AI and automation solutions precisely engineered to address your business challenges, focusing on measurable impact, accessible affordability, and seamless integration. This is the default paragraph style for content blocks.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                            <th>Line Height</th>
+                        </tr>
+                        <tr>
+                            <td>.body / p</td>
+                            <td>Source Sans 3</td>
+                            <td>16px</td>
+                            <td>400</td>
+                            <td>24px</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <p class="small">Small Text: Deep expertise in high-growth sectors delivers precision-engineered, tailored solutions for your unique market.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                            <th>Line Height</th>
+                        </tr>
+                        <tr>
+                            <td>.small</td>
+                            <td>Source Sans 3</td>
+                            <td>14px</td>
+                            <td>400</td>
+                            <td>21px</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <p class="caption">Caption / Meta: Last updated: October 2024</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Weight</th>
+                            <th>Line Height</th>
+                        </tr>
+                        <tr>
+                            <td>.caption</td>
+                            <td>Source Sans 3</td>
+                            <td>12px</td>
+                            <td>400</td>
+                            <td>18px</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <p class="meta">META TEXT / LABEL</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Class</th>
+                            <th>Font</th>
+                            <th>Size</th>
+                            <th>Transform</th>
+                            <th>Spacing</th>
+                        </tr>
+                        <tr>
+                            <td>.meta</td>
+                            <td>Source Sans 3</td>
+                            <td>14px</td>
+                            <td>uppercase</td>
+                            <td>0.06em</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialty Styles -->
+        <section class="demo-box">
+            <h2 class="h2 mb-6">Specialty Styles</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="h3 mb-2">Blockquote</h3>
+                    <blockquote class="blockquote">
+                        "Afri Evolution transformed our operations in just 6 weeks. The ROI was clear from day one, and their team understood our unique challenges perfectly."
+                        <footer class="small mt-2">— CEO, Mid-Market Manufacturing Company</footer>
+                    </blockquote>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">Links</h3>
+                    <p>
+                        Visit our <a href="/services.html">Services page</a> to learn more about how we can help your business. 
+                        External resources like <a href="https://example.com" target="_blank" rel="noopener">industry reports</a> are also available.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">Lists</h3>
+                    <ul>
+                        <li>Guaranteed ROI with measurable outcomes</li>
+                        <li>Accessible & Affordable AI solutions</li>
+                        <li>Seamless Integration with existing systems</li>
+                        <li>Expert support throughout your journey</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">Inline Code</h3>
+                    <p>Use the <code>.h1</code> class for hero headings and <code>.lead</code> for introductory paragraphs. Typography tokens are defined in <code>tokens.css</code>.</p>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">Code Block</h3>
+                    <pre><code>.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, var(--text-4xl));
+  line-height: var(--lh-4xl);
+  font-weight: var(--weight-xbold);
+}</code></pre>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">Tabular Numbers</h3>
+                    <p class="tnums">Revenue Growth: <strong>$1,234,567</strong> → <strong>$2,345,678</strong></p>
+                    <p class="tnums">Time Saved: <strong>42 hours/week</strong> → <strong>84 hours/week</strong></p>
+                    <p class="caption mt-2">Use <code>.tnums</code> for numerical data to maintain alignment</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Check -->
+        <section class="demo-box">
+            <h2 class="h2 mb-6">Accessibility (WCAG AA Compliance)</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="h3 mb-2">✓ Minimum Contrast Ratios</h3>
+                    <ul>
+                        <li><strong>Headings:</strong> 4.5:1 minimum (AAA: 7:1 recommended)</li>
+                        <li><strong>Body Text:</strong> 4.5:1 minimum</li>
+                        <li><strong>Small Text (&lt;14px):</strong> 4.5:1 minimum</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">✓ Responsive Typography</h3>
+                    <ul>
+                        <li>H1, H2, H3 use <code>clamp()</code> for fluid scaling</li>
+                        <li>Body text: 16px base, 15px on mobile</li>
+                        <li>Touch targets: 44×44px minimum for interactive elements</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">✓ Semantic HTML</h3>
+                    <ul>
+                        <li>Use <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> tags for proper document structure</li>
+                        <li>Apply <code>.h1</code> through <code>.h6</code> classes for styling</li>
+                        <li>Maintain logical heading hierarchy (no skipping levels)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="h3 mb-2">✓ Font Features</h3>
+                    <ul>
+                        <li>Ligatures (<code>liga</code>) and contextual alternates (<code>calt</code>) enabled by default</li>
+                        <li>Tabular numbers (<code>tnum</code>) opt-in via <code>.tnums</code> class</li>
+                        <li>Variable fonts for optimal loading and flexibility</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testing Checklist -->
+        <section class="demo-box">
+            <h2 class="h2 mb-6">QA Checklist</h2>
+            
+            <div class="space-y-4">
+                <h3 class="h3">Visual Tests</h3>
+                <ul class="space-y-2">
+                    <li>☐ Verify all headings render in Manrope font</li>
+                    <li>☐ Verify body text renders in Source Sans 3 font</li>
+                    <li>☐ Test light mode contrast (all text readable)</li>
+                    <li>☐ Test dark mode contrast (all text readable)</li>
+                    <li>☐ Resize browser from 320px to 1920px (responsive scaling works)</li>
+                    <li>☐ Check mobile (text sizes are appropriate)</li>
+                </ul>
+
+                <h3 class="h3 mt-6">Technical Tests</h3>
+                <ul class="space-y-2">
+                    <li>☐ Run WebAIM Contrast Checker on key pages</li>
+                    <li>☐ Validate with Chrome DevTools Lighthouse (Accessibility score)</li>
+                    <li>☐ Check font loading (no FOUT/FOIT)</li>
+                    <li>☐ Verify tabular numbers align in tables</li>
+                    <li>☐ Test with screen reader (NVDA/JAWS/VoiceOver)</li>
+                </ul>
+
+                <h3 class="h3 mt-6">Browser Tests</h3>
+                <ul class="space-y-2">
+                    <li>☐ Chrome (latest)</li>
+                    <li>☐ Firefox (latest)</li>
+                    <li>☐ Safari (latest)</li>
+                    <li>☐ Edge (latest)</li>
+                    <li>☐ Mobile Safari (iOS)</li>
+                    <li>☐ Chrome Mobile (Android)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center">
+            <hr class="mb-6">
+            <p class="small text-subtle">
+                Typography System QA • Afri Evolution • <a href="/index.html">Back to Homepage</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+
