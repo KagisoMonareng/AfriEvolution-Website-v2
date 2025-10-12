@@ -530,6 +530,19 @@ ul[class*="space-y"] li span[aria-hidden="true"] {
   -webkit-text-fill-color: transparent;
 }
 
+/* Elevated glow for service tabs container */
+.elevated-glow {
+  box-shadow: 
+    0 0 20px rgba(242, 173, 13, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .elevated-glow {
+  box-shadow: 
+    0 0 25px rgba(242, 173, 13, 0.25),
+    0 10px 35px rgba(0, 0, 0, 0.3);
+}
+
 /* Badge/Pill */
 .badge {
   display: inline-flex;
