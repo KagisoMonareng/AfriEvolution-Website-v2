@@ -213,12 +213,23 @@
 
     <main class="pt-20" id="main">
         <!-- Page Hero Section -->
-        <section class="relative bg-gradient-to-br from-[#3A3F44] to-[#6D737A] text-white py-16 md:py-24 px-4 overflow-hidden">
-            <div class="container mx-auto text-center relative z-10 fade-in is-visible">
-                <h1 class="h1 mb-4">
+        <!-- Hero Section with Glass Effect -->
+        <section class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold" style="z-index: 10;">
+            <!-- Background Image -->
+            <img src="/images/hero-africa.jpg" alt="Glowing outline of Africa with flowing gold lines" class="absolute inset-0 w-full h-full object-cover z-0" width="1920" height="1080" loading="eager">
+            
+            <!-- Overlay for contrast -->
+            <div class="absolute inset-0 bg-black opacity-40 z-5"></div>
+            
+            <!-- Full Glass Overlay covering entire hero -->
+            <div class="glass-strong absolute inset-0 z-10" style="border-radius: 0 !important; border: none !important;"></div>
+            
+            <!-- Text Content on top -->
+            <div class="relative z-20 container mx-auto text-center max-w-5xl">
+                <h1 class="h1 mb-4 text-white">
                     Our Proven Approach to Digital Transformation
                 </h1>
-                <p class="lead max-w-3xl mx-auto opacity-90">
+                <p class="lead max-w-3xl mx-auto text-white">
                     We guide your business through a structured, phased methodology, ensuring that every step of your AI and automation journey is strategic, impactful, and tailored to your unique needs.
                 </p>
             </div>

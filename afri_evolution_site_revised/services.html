@@ -92,12 +92,22 @@
 
   
 
-  <!-- Hero (aligned to template) -->
+  <!-- Hero Section with Glass Effect -->
   <main id="main">
-  <section id="services-intro" class="relative hero-gradient-light dark:hero-gradient-dark text-white pt-16 pb-12 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="h1">Services that De-Risk, Digitize, and Scale</h1>
-      <p class="lead mt-6 max-w-4xl mx-auto text-white/90">Start where you are. Each package is modular and upgradeable, designed to move you from ad-hoc processes to an integrated, automated operating model with clear governance and measurable ROI.</p>
+  <section id="services-intro" class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold" style="z-index: 10;">
+    <!-- Background Image -->
+    <img src="/images/hero-africa.jpg" alt="Glowing outline of Africa with flowing gold lines" class="absolute inset-0 w-full h-full object-cover z-0" width="1920" height="1080" loading="eager">
+    
+    <!-- Overlay for contrast -->
+    <div class="absolute inset-0 bg-black opacity-40 z-5"></div>
+    
+    <!-- Full Glass Overlay covering entire hero -->
+    <div class="glass-strong absolute inset-0 z-10" style="border-radius: 0 !important; border: none !important;"></div>
+    
+    <!-- Text Content on top -->
+    <div class="relative z-20 container mx-auto text-center max-w-5xl">
+      <h1 class="h1 mb-4 text-white">Services that De-Risk, Digitize, and Scale</h1>
+      <p class="lead max-w-4xl mx-auto text-white">Start where you are. Each package is modular and upgradeable, designed to move you from ad-hoc processes to an integrated, automated operating model with clear governance and measurable ROI.</p>
     </div>
   </section>
 
