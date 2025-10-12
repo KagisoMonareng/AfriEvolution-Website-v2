@@ -24,6 +24,10 @@
             background-color: var(--bg);
             color: var(--fg);
         }
+        /* Ensure header always has rounded bottom corners */
+        header {
+            border-radius: 0 0 24px 24px;
+        }
         .text-primary {
             color: var(--fg);
         }
@@ -192,7 +196,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <!-- Header/Navigation -->
-    <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-20 border-line">
+    <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-50 border-line">
         <nav class="container mx-auto flex justify-between items-center">
             <a href="index.html" class="text-2xl font-extrabold text-primary">Afri Evolution</a>
             <div class="hidden md:flex space-x-8 items-center">
@@ -229,23 +233,25 @@
 
     <main id="main">
         <!-- Hero Section with Glass Effect -->
-        <section id="hero" class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold">
+        <section id="hero" class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold" style="z-index: 10;">
             <!-- Background Image -->
             <img src="/images/hero-africa.jpg" alt="Glowing outline of Africa with flowing gold lines" class="absolute inset-0 w-full h-full object-cover z-0" width="1920" height="1080" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='/images/og-cover.svg';">
 
             <!-- Overlay for text readability -->
             <div class="absolute inset-0 bg-black opacity-40 z-0"></div> <!-- Use black for neutral darkening -->
             
-            <!-- Glass Hero Container -->
-            <div class="container mx-auto relative z-20">
-                <div class="glass-strong glass-hero text-center fade-in max-w-5xl mx-auto">
-                    <h1 class="heading typo-display mb-4">Achieve Digital Excellence. Powered by AI.</h1>
-                    <p class="body typo-lead max-w-4xl mx-auto mb-8">
-                        For SME teams who want measurable ROI from automation in 4–8 weeks.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                        <a href="contact.html" class="btn-primary">Get Your ROI Plan</a>
-                        <a href="services.html#services-tabs" class="btn-ghost-white">See how it works</a>
+            <!-- Glass Hero Container - Full Width -->
+            <div class="glass-strong glass-hero relative z-20 w-full">
+                <div class="container mx-auto text-center fade-in px-4">
+                    <div class="max-w-5xl mx-auto">
+                        <h1 class="heading typo-display mb-4 text-white">Achieve Digital Excellence. Powered by AI.</h1>
+                        <p class="body typo-lead max-w-4xl mx-auto mb-8 text-white">
+                            For SME teams who want measurable ROI from automation in 4–8 weeks.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                            <a href="contact.html" class="btn-primary">Get Your ROI Plan</a>
+                            <a href="services.html#services-tabs" class="btn-ghost-white">See how it works</a>
+                        </div>
                     </div>
                 </div>
             </div>

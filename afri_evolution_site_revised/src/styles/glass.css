@@ -45,17 +45,84 @@
   border: 1px solid var(--line);
 }
 
+/* ===== Hero Section Overrides - Works in ALL modes ===== */
+/* Remove ALL borders and ensure full-width spanning */
+.glass-hero,
+.glass-strong.glass-hero,
+.glass.glass-hero {
+  border: none !important; /* Remove border completely */
+  box-shadow: none !important; /* Remove shadow for seamless blend */
+  border-radius: 0 !important; /* Remove rounded corners for full blend */
+  padding: 3rem 0 !important; /* Add vertical padding, no horizontal padding for full width */
+  margin: 0 !important; /* Remove any margins */
+  width: 100vw !important; /* Full viewport width */
+  max-width: 100vw !important; /* Ensure no max-width constraint */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  z-index: 10;
+}
+
+/* Glass enabled - subtle dark tint */
+[data-skin="glass"] .glass-hero,
+[data-skin="glass"] .glass-strong.glass-hero,
+[data-skin="glass"] .glass.glass-hero {
+  background: rgba(0, 0, 0, 0.15) !important; /* Very subtle dark tint instead of white */
+}
+
+/* Glass disabled - transparent */
+.glass-hero:not([data-skin="glass"]),
+.glass-strong.glass-hero:not([data-skin="glass"]),
+.glass.glass-hero:not([data-skin="glass"]) {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure text is readable in BOTH light and dark modes */
+.glass-hero .heading,
+.glass-hero h1,
+.glass-hero h2,
+:root.dark .glass-hero .heading,
+:root.dark .glass-hero h1,
+:root.dark .glass-hero h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.glass-hero .body,
+.glass-hero p,
+:root.dark .glass-hero .body,
+:root.dark .glass-hero p {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure buttons remain visible on hero */
+.glass-hero .btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-600) 100%);
+  color: var(--primary-fg);
+  box-shadow: 0 4px 12px rgba(242, 173, 13, 0.4);
+}
+
 /* ===== Role-Based Spacing & Structure ===== */
 .glass-nav {
   position: sticky;
   top: 0;
   z-index: 100; /* Ensure nav stays on top */
+  border-radius: 0 0 24px 24px; /* Rounded bottom corners */
 }
 
-.glass-hero  { 
-  padding: 1.25rem;
-  position: relative;
-  z-index: 10;
+/* When glass is disabled, still keep rounded corners on nav */
+header:not(.glass-nav) {
+  border-radius: 0 0 24px 24px; /* Rounded bottom corners for non-glass nav */
+}
+
+/* Override for glass-enabled nav */
+[data-skin="glass"] .glass-nav {
+  border-radius: 0 0 24px 24px !important; /* Rounded bottom corners */
 }
 
 .glass-card  { 
