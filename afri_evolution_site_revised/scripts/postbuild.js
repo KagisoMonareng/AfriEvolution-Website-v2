@@ -2,10 +2,14 @@ import fs from 'fs';
 import path from 'path';
 
 const distDir = path.resolve(process.cwd(), 'dist');
-const manifestPath = path.join(distDir, 'manifest.json');
+const legacyManifestPath = path.join(distDir, 'manifest.json');
+const vite5ManifestPath = path.join(distDir, '.vite', 'manifest.json');
+const manifestPath = fs.existsSync(vite5ManifestPath)
+  ? vite5ManifestPath
+  : legacyManifestPath;
 
 if (!fs.existsSync(manifestPath)) {
-  console.error('manifest.json not found in dist/. Make sure Vite is configured with build.manifest = true and run `npm run build`.');
+  console.error('manifest.json not found in dist/ (checked dist/manifest.json and dist/.vite/manifest.json). Make sure Vite is configured with build.manifest = true and run `npm run build`.');
   process.exit(1);
 }
 
