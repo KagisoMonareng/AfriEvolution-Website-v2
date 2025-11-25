@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run build:css && vite build",
-    "build:css": "tailwindcss -i ./src/styles/input.css -o ./dist/assets/main.css --minify",
+    "build:css": "npx -p tailwindcss tailwindcss -i ./src/styles/input.css -o ./dist/assets/main.css --minify",
     "postbuild": "node scripts/postbuild.js",
     "gen:sitemap": "node scripts/gen-sitemap.js",
     "generate-favicons": "node scripts/generate-favicons.js",
