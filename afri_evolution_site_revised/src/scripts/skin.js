@@ -46,7 +46,7 @@
     const nextIndex = (currentIndex + 1) % VARIANTS.length;
     const next = VARIANTS[nextIndex];
     
-    console.log(`🎨 Glass cycle: ${VARIANTS[currentIndex].label} → ${next.label}`);
+    console.log(`Glass cycle: ${VARIANTS[currentIndex].label} → ${next.label}`);
     
     // Apply new variant
     if (next.skin) {
@@ -56,11 +56,11 @@
       } else {
         body.removeAttribute("data-glass-variant");
       }
-      console.log(`✨ Glass ${next.label} ENABLED`);
+      console.log(`Glass ${next.label} ENABLED`);
     } else {
       body.removeAttribute("data-skin");
       body.removeAttribute("data-glass-variant");
-      console.log('❌ Glass effect OFF');
+      console.log('Glass effect OFF');
     }
     
     // Save to localStorage
@@ -80,7 +80,7 @@
       if (textNode && textNode.nodeType === Node.TEXT_NODE) {
         toggleBtn.childNodes[0].textContent = `✨ Glass: ${next.label}`;
       }
-      console.log(`🔘 Toggle button: ${next.label}`);
+      console.log(`Toggle button: ${next.label}`);
     }
     
     // Dispatch custom event
@@ -88,7 +88,7 @@
       detail: { skin: next.skin || 'default', variant: next.variant, label: next.label } 
     }));
     
-    console.log('📋 Body attributes:', body.getAttribute('data-skin'), body.getAttribute('data-glass-variant'));
+    console.log('Body attributes:', body.getAttribute('data-skin'), body.getAttribute('data-glass-variant'));
   };
   
   /**

@@ -21,12 +21,24 @@ export function initMobileMenu() {
   const closeIcon = toggleBtn.querySelector('.close-icon');
 
   // Toggle menu with icon animation
+  function lockScroll(lock) {
+    if (lock) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overscrollBehavior = 'contain';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overscrollBehavior = '';
+    }
+  }
+
   function toggleMenu() {
     const isHidden = mobileMenu.classList.toggle('hidden');
-    toggleBtn.setAttribute('aria-expanded', !isHidden ? 'true' : 'false');
+    const isOpen = !isHidden;
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    lockScroll(isOpen);
     
     // Animate icon switch
-    if (!isHidden) {
+    if (isOpen) {
       menuIcon?.classList.add('hidden');
       closeIcon?.classList.remove('hidden');
     } else {
@@ -39,12 +51,21 @@ export function initMobileMenu() {
   function closeMenu() {
     mobileMenu.classList.add('hidden');
     toggleBtn.setAttribute('aria-expanded', 'false');
+    lockScroll(false);
     menuIcon?.classList.remove('hidden');
     closeIcon?.classList.add('hidden');
   }
 
   // Event listeners
   toggleBtn.addEventListener('click', toggleMenu);
+
+  // Close when clicking any link inside the mobile menu
+  mobileMenu.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target && target.closest && target.closest('a')) {
+      closeMenu();
+    }
+  });
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
@@ -86,8 +107,8 @@ export function initScrollAnimations() {
     });
   }, observerOptions);
 
-  // Observe all elements with fade-in classes
-  document.querySelectorAll('.fade-in, .fade-in-up').forEach(element => {
+  // Observe all elements with fade-in and reveal classes
+  document.querySelectorAll('.fade-in, .fade-in-up, .reveal').forEach(element => {
     observer.observe(element);
   });
 }
@@ -100,11 +121,16 @@ export function highlightActiveNav() {
   try {
     const currentPage = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
     
-    // Highlight in both desktop and mobile menus
+    // Clear any existing aria-current
+    document.querySelectorAll('header a[aria-current], #mobile-menu a[aria-current]').forEach(link => {
+      link.removeAttribute('aria-current');
+    });
+
+    // Set aria-current on matching links in both desktop and mobile menus
     document.querySelectorAll('header a[href], #mobile-menu a[href]').forEach(link => {
       const href = (link.getAttribute('href') || '').toLowerCase();
       if (href === currentPage || href.endsWith(currentPage)) {
-        link.classList.add('text-primary', 'font-semibold', 'underline', 'underline-offset-8');
+        link.setAttribute('aria-current', 'page');
       }
     });
   } catch (e) {

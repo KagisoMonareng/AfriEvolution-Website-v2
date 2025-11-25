@@ -2,6 +2,13 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: ".",
+  build: {
+    outDir: 'dist',
+    manifest: true,
+    rollupOptions: {
+      // add input entries here if you want per-page entrypoints
+    }
+  },
   appType: "mpa",
   server: {
     host: true,

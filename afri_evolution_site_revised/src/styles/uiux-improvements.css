@@ -22,26 +22,14 @@
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
-/* Better section headers with accent bar */
+/* Better section headers */
 .section-header {
   position: relative;
   display: block;
   width: 100%;
   text-align: center;
-  margin-bottom: 1rem;
-  padding-bottom: 1.5rem;
-}
-
-.section-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary) 0%, var(--accent-taupe) 100%);
-  border-radius: 2px;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0;
 }
 
 /* ==================================================
@@ -87,6 +75,22 @@
   background: rgba(255,255,255,0.1);
   transform: translateY(-1px);
 }
+
+/* Outline button enhancers */
+.btn-outline {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+/* Link button tweaks */
+.btn-link { transition: color 0.2s ease; }
+.btn-link:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 /* ==================================================
    3. ENHANCED FEATURE CARDS
@@ -574,6 +578,478 @@ html.scroll-smooth {
 @media (prefers-reduced-motion: reduce) {
   html.scroll-smooth {
     scroll-behavior: auto;
+  }
+}
+
+/* ==================================================
+   15. DEPTH & MOTION ENHANCEMENTS
+   ================================================== */
+
+/* Vignette overlay for hero depth */
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle noise texture for depth */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Hero ambient light effect */
+.hero-ambient {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-ambient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at center top,
+    rgba(242, 173, 13, 0.15) 0%,
+    rgba(230, 211, 160, 0.08) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 3;
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 0.8; transform: translateX(-50%) scale(1.05); }
+}
+
+.dark .hero-ambient::before {
+  background: radial-gradient(
+    ellipse at center top,
+    rgba(242, 173, 13, 0.2) 0%,
+    rgba(230, 211, 160, 0.1) 30%,
+    transparent 70%
+  );
+}
+
+/* Gold section divider */
+.gold-divider {
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary) 20%,
+    var(--accent-taupe) 50%,
+    var(--primary) 80%,
+    transparent 100%
+  );
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-divider::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmerSlide 3s ease-in-out infinite;
+}
+
+@keyframes shimmerSlide {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Elevated card with depth */
+.card-elevated {
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-elevated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-elevated:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(242, 173, 13, 0.1);
+  border-color: rgba(242, 173, 13, 0.3);
+}
+
+.card-elevated:hover::before {
+  opacity: 1;
+}
+
+.dark .card-elevated {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.dark .card-elevated:hover {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 12px 24px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(242, 173, 13, 0.2);
+}
+
+/* Metric tile animations */
+.metric-tile {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.metric-tile:nth-child(1) { animation-delay: 0.1s; }
+.metric-tile:nth-child(2) { animation-delay: 0.2s; }
+.metric-tile:nth-child(3) { animation-delay: 0.3s; }
+.metric-tile:nth-child(4) { animation-delay: 0.4s; }
+
+.metric-tile:hover {
+  transform: scale(1.05);
+  border-color: var(--primary);
+  background: var(--surface-1);
+}
+
+.metric-arrow {
+  display: inline-block;
+  font-size: 2rem;
+  line-height: 1;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.metric-tile:nth-child(odd) .metric-arrow {
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+.metric-tile:nth-child(even) .metric-arrow {
+  animation: bounceUp 2s ease-in-out infinite;
+}
+
+@keyframes bounceUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Reveal animation classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* Case study cards with subtle gradient */
+.case-card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--bg) 0%,
+    var(--surface-1) 50%,
+    var(--bg) 100%
+  );
+  overflow: hidden;
+}
+
+.case-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(242, 173, 13, 0.03) 0%,
+    rgba(230, 211, 160, 0.02) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.case-card:hover::before {
+  opacity: 1;
+}
+
+.dark .case-card {
+  background: linear-gradient(
+    135deg,
+    var(--bg) 0%,
+    var(--surface-1) 50%,
+    var(--bg) 100%
+  );
+}
+
+/* ==================================================
+   16. COHESIVE OUTCOMES PANEL UTILITIES
+   ================================================== */
+
+/* Unified panel wrapper with subtle vertical gradient and inner highlight */
+.panel-cohesive {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.08) 100%),
+    var(--surface-1);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem; /* ~20px */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+/* Fixed-height metric pill */
+.metric-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 64px;
+  padding: 0 1rem;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  background: var(--surface-1);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.metric-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 148, 0, 0.4); /* #C99400 tint */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.metric-pill .metric-arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Uniform case cards with left gold accent strip */
+.panel-cohesive .case-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 272px; /* ~260–280px */
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.panel-cohesive .case-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: #C99400; /* gold accent */
+}
+
+.panel-cohesive .case-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 148, 0, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* Consistent internal hierarchy */
+.case-h {
+  font-size: 1.25rem; /* ~text-xl */
+  line-height: 1.4;
+  font-weight: 800;
+  color: var(--fg);
+}
+
+.case-k {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.case-p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--subtle);
+}
+
+/* Panel footer CTA row */
+.panel-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 768px) {
+  .panel-cta {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}
+
+
+.dark .case-card::before {
+  background: linear-gradient(
+    135deg,
+    rgba(242, 173, 13, 0.05) 0%,
+    rgba(230, 211, 160, 0.03) 50%,
+    transparent 100%
+  );
+}
+
+/* Glow effect for primary CTA */
+.glow {
+  position: relative;
+  box-shadow: 
+    0 4px 14px rgba(242, 173, 13, 0.3),
+    0 0 20px rgba(242, 173, 13, 0.2);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 14px rgba(242, 173, 13, 0.3),
+      0 0 20px rgba(242, 173, 13, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 4px 18px rgba(242, 173, 13, 0.4),
+      0 0 30px rgba(242, 173, 13, 0.3);
+  }
+}
+
+.glow:hover {
+  animation: none;
+  box-shadow: 
+    0 6px 20px rgba(242, 173, 13, 0.5),
+    0 0 40px rgba(242, 173, 13, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient::before,
+  .gold-divider::after,
+  .metric-arrow,
+  .glow {
+    animation: none !important;
+  }
+  
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

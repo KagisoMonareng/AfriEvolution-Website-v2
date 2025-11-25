@@ -1,43 +1,25 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Self-hosted fonts: put WOFF2 files in /public/fonts and adjust as needed -->
+<link rel="stylesheet" href="/src/styles/fonts.css">
 
-<!-- Tokens and utilities -->
-<link rel="stylesheet" href="/src/styles/tokens.css">
-<link rel="stylesheet" href="/src/styles/utilities.css">
+<!-- Open Graph / Social -->
+<meta property="og:image" content="/images/og-cover.svg">
+<meta name="twitter:card" content="summary_large_image">
 
-<!-- Tailwind CDN + config mapping tokens (for dev/static usage) -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        colors: {
-          primary: 'var(--primary)',
-          primaryFg: 'var(--primary-fg)',
-          bg: 'var(--bg)',
-          fg: 'var(--fg)',
-          subtle: 'var(--subtle)',
-          line: 'var(--line)',
-          surface: { 1: 'var(--surface-1)', 2: 'var(--surface-2)', 3: 'var(--surface-3)' },
-          hover: 'var(--hover)',
-          focusRing: 'var(--focus-ring)'
-        },
-        boxShadow: {
-          sm: '0 1px 2px rgba(0,0,0,.06)',
-          md: '0 6px 16px rgba(0,0,0,.10)',
-          lg: '0 12px 28px rgba(0,0,0,.16)'
-        },
-        borderRadius: { xl: '0.75rem', '2xl': '1rem' }
-      }
-    }
-  };
-</script>
+<!-- Analytics placeholder: insert GA4 / GTM snippet in src/partials/analytics.html -->
+
+<!-- Tokens and utilities (development). In production these should be replaced
+     by the built, manifest-backed CSS emitted to /dist/assets/. Use the
+     provided scripts/postbuild.js to inject the correct built filenames. -->
+<!-- Built CSS (replace with actual dist asset after running `npm run build`): -->
+<!-- Example: <link rel="stylesheet" href="/dist/assets/main.[hash].css"> -->
+
+<!-- Note: Tailwind CDN removed for production. If you need to preview in dev
+     without a build, run `npm run dev`. -->
 
 
