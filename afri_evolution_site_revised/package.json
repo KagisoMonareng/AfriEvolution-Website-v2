@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run build:css && vite build",
-    "build:css": "npx -p tailwindcss tailwindcss -i ./src/styles/input.css -o ./dist/assets/main.css --minify",
+    "build:css": "npx tailwindcss@3.4.13 -i ./src/styles/input.css -o ./dist/assets/main.css --minify",
     "postbuild": "node scripts/postbuild.js",
     "gen:sitemap": "node scripts/gen-sitemap.js",
     "generate-favicons": "node scripts/generate-favicons.js",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "vite": "^7.1.9",
-    "tailwindcss": "^4.1.14",
+    "tailwindcss": "^3.4.13",
     "postcss": "^8.5.6",
     "autoprefixer": "^10.4.21",
     "sharp": "^0.32.0",
