@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Afri Evolution</title>
-    <link rel="stylesheet" href="/dist/assets/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/input.css">
     <link rel="canonical" href="https://www.afrievolution.com/terms">
     <meta property="og:site_name" content="Afri Evolution">
     <script defer type="module" src="/src/scripts/main.js"></script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFF3KTE1KT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KFF3KTE1KT');
+    </script>
     
     <!-- Basic SEO -->
     <meta name="description" content="Afri Evolution Terms of Service. Review the terms and conditions for using our AI and automation services and website.">
@@ -42,11 +48,13 @@
             </div>
             <button class="md:hidden text-primary text-2xl focus:outline-none" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false">☰</button>
         </nav>
-        <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
-            <a href="services.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Services</a>
-            <a href="about-us.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">About Us</a>
-            <a href="approach.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Our Approach</a>
-            <a href="contact.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Contact Us</a>
+        <div id="mobile-menu" class="md:hidden mobile-panel bg-surface-1 shadow-md py-2 mt-2 absolute" aria-hidden="true">
+            <div class="panel-inner">
+                <a href="services.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Services</a>
+                <a href="about-us.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">About Us</a>
+                <a href="approach.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Our Approach</a>
+                <a href="contact.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Contact Us</a>
+            </div>
         </div>
     </header>
 

@@ -6,6 +6,86 @@
 // Import sub-modules
 import './theme.js';
 import './a11y.js';
+import './skin.js';
+
+/**
+ * Product Interest Event Mapping
+ * Maps product event names to their GA4 parameters
+ */
+const PRODUCT_INTEREST_MAP = {
+  'launchpad_interest': {
+    product_key: 'launchpad',
+    section: 'services_page',
+    cta_position: 'services_card'
+  },
+  'dcf_interest': {
+    product_key: 'dcf',
+    section: 'services_page',
+    cta_position: 'services_card'
+  },
+  'flowstudio_interest': {
+    product_key: 'flowstudio',
+    section: 'services_page',
+    cta_position: 'services_card'
+  },
+  'connectcrm_interest': {
+    product_key: 'connectcrm',
+    section: 'services_page',
+    cta_position: 'services_card'
+  },
+  'chatboost_interest': {
+    product_key: 'chatboost',
+    section: 'services_page',
+    cta_position: 'services_card'
+  }
+};
+
+/**
+ * GA4 CTA Tracking
+ * Tracks all CTA interactions with gtag
+ * Sends specific product interest events or generic cta_click events
+ */
+function trackCtaClick({ label, location = 'unknown' }) {
+  // Safely check if gtag is available globally
+  if (typeof window.gtag !== 'function') {
+    return; // silently skip if gtag not available
+  }
+
+  // Check if this is a product interest event
+  if (PRODUCT_INTEREST_MAP[label]) {
+    const params = PRODUCT_INTEREST_MAP[label];
+    window.gtag('event', label, {
+      product_key: params.product_key,
+      section: params.section,
+      cta_position: params.cta_position,
+      page_path: window.location.pathname
+    });
+  } else {
+    // Fall back to generic cta_click event for other CTAs
+    window.gtag('event', 'cta_click', {
+      cta_label: label,
+      cta_location: location,
+      page_path: window.location.pathname
+    });
+  }
+}
+
+/**
+ * Initialize CTA Tracking
+ * Attaches click listeners to all elements with data-cta attribute
+ */
+export function initCtaTracking() {
+  const ctaElements = document.querySelectorAll('[data-cta]');
+
+  ctaElements.forEach(element => {
+    element.addEventListener('click', () => {
+      const label = element.getAttribute('data-cta');
+      const location = element.getAttribute('data-cta-location');
+
+      trackCtaClick({ label, location });
+    });
+  });
+}
 
 /**
  * Mobile Menu Toggle
@@ -32,13 +112,27 @@ export function initMobileMenu() {
   }
 
   function toggleMenu() {
-    const isHidden = mobileMenu.classList.toggle('hidden');
-    const isOpen = !isHidden;
-    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    lockScroll(isOpen);
-    
+    const willOpen = !mobileMenu.classList.contains('open');
+
+    if (willOpen) {
+      mobileMenu.classList.remove('hidden');
+      // force reflow to ensure transition
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      mobileMenu.offsetWidth;
+      mobileMenu.classList.add('open');
+    } else {
+      mobileMenu.classList.remove('open');
+      // after transition, hide to remove from flow
+      setTimeout(() => mobileMenu.classList.add('hidden'), 260);
+    }
+
+    // Update accessibility
+    toggleBtn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    mobileMenu.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
+    lockScroll(willOpen);
+
     // Animate icon switch
-    if (isOpen) {
+    if (willOpen) {
       menuIcon?.classList.add('hidden');
       closeIcon?.classList.remove('hidden');
     } else {
@@ -49,7 +143,10 @@ export function initMobileMenu() {
 
   // Close menu
   function closeMenu() {
-    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('open');
+    // hide after transition completes
+    setTimeout(() => mobileMenu.classList.add('hidden'), 260);
+    mobileMenu.setAttribute('aria-hidden', 'true');
     toggleBtn.setAttribute('aria-expanded', 'false');
     lockScroll(false);
     menuIcon?.classList.remove('hidden');
@@ -69,7 +166,7 @@ export function initMobileMenu() {
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
       closeMenu();
       toggleBtn.focus();
     }
@@ -77,7 +174,7 @@ export function initMobileMenu() {
 
   // Close when clicking outside
   document.addEventListener('click', (e) => {
-    if (!mobileMenu.classList.contains('hidden')) {
+    if (mobileMenu.classList.contains('open')) {
       const withinMenu = mobileMenu.contains(e.target);
       const isToggle = toggleBtn.contains(e.target);
       if (!withinMenu && !isToggle) {
@@ -316,6 +413,7 @@ export function init() {
   highlightActiveNav();
   initAccordions();
   initStickyHeader();
+  initCtaTracking();
   
   // Initialize form validation if contact form exists
   if (document.getElementById('contactForm')) {
@@ -337,6 +435,7 @@ window.AfriEvolution = {
   initScrollAnimations,
   highlightActiveNav,
   initFormValidation,
-  initAccordions
+  initAccordions,
+  initCtaTracking
 };
 

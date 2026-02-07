@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afri Evolution - Contact Us</title>
-    <!-- Tailwind CDN removed for production -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="/src/styles/fonts.css">
-    <!-- Built CSS placeholder: replace with /dist/assets/*.css after build -->
+    <link rel="stylesheet" href="/src/styles/input.css">
     <link rel="canonical" href="https://www.afrievolution.com/contact">
     <meta property="og:site_name" content="Afri Evolution">
     <script defer src="/src/scripts/theme.js"></script>
     <script defer src="/src/scripts/skin.js"></script>
     <script defer src="/src/scripts/a11y.js"></script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFF3KTE1KT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KFF3KTE1KT');
+    </script>
     <!-- Dev preview script removed for production -->
     <style>
         /* Color Palette mapped to tokens */
@@ -132,15 +137,24 @@
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
-            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Services</a>
-            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">About Us</a>
-            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Our Approach</a>
-            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Contact Us</a>
+        <div id="mobile-menu" class="md:hidden mobile-panel bg-surface-1 shadow-md py-2 mt-2 absolute" aria-hidden="true">
+            <div class="panel-inner">
+                <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Services</a>
+                <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">About Us</a>
+                <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Our Approach</a>
+                <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Contact Us</a>
+                <hr class="my-2 border-line">
+                <button type="button" aria-label="Toggle theme" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'false' : 'true'); window.aeToggleTheme && window.aeToggleTheme();">
+                  Toggle theme
+                </button>
+                <button type="button" aria-label="Toggle glass effect" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.getAttribute('data-skin') === 'glass' ? 'false' : 'true'); window.aeToggleSkin && window.aeToggleSkin();">
+                  Toggle glass effect
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="pt-20" id="main">
+    <main id="main">
         <!-- Page Hero Section -->
         <!-- Hero Section with Glass Effect -->
         <section class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold" style="z-index: 10;">
@@ -191,7 +205,7 @@
                       <textarea id="message" name="message" placeholder="Tell us about your AI and automation needs and goals..." rows="6" class="p-4 border border-line rounded-md focus:ring-2 focus:ring-accent-vibrant focus:border-transparent text-primary w-full" required></textarea>
                       <p id="err-message" class="mt-1 text-sm text-red-600 hidden">Please add a short message</p>
                     </div>
-                    <button type="submit" class="btn btn-primary py-4">
+                    <button type="submit" class="btn btn-primary">
                         Submit Inquiry
                     </button>
                     <p id="form-message" class="text-center text-lg font-semibold text-primary mt-4 hidden">Thank you for your message! We'll be in touch shortly.</p>
@@ -211,7 +225,7 @@
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-0.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-0.45 12.84 12.84 0 0 0 2.81 0.7A2 2 0 0 1 22 16.92z"></path>
                                 </svg>
                             </span>
-                            Phone: **+27 12 345 6789**
+                            Phone: 061 471 9384
                         </p>
                         <p class="flex items-center">
                             <span class="contact-icon" aria-hidden="true">
@@ -220,7 +234,7 @@
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </span>
-                            Email: **info@afrievolution.com**
+                            Email: contact@afrievolution.co.za
                         </p>
                         <p class="flex items-center">
                             <span class="contact-icon" aria-hidden="true">
@@ -229,19 +243,18 @@
                                     <circle cx="12" cy="10" r="3"></circle>
                                 </svg>
                             </span>
-                            Address: [Your Office Address Here]<br>
-                            Pretoria, South Africa
+                            Address: Cape Town, Western Cape
                         </p>
                     </div>
                     <div class="mt-8">
-                        <a href="mailto:info@afrievolution.com" class="btn btn-primary text-sm px-6 py-3">Email Us Directly</a>
+                        <a href="mailto:contact@afrievolution.co.za" class="btn btn-primary" data-cta="contact_email" data-cta-location="contact_page">Email Us Directly</a>
                     </div>
                 </div>
                 <div class="bg-surface-1 rounded-lg shadow-md p-8 card-shadow h-[300px] md:h-[400px] flex flex-col items-center justify-center text-center text-secondary fade-in-up" style="transition-delay: 0.1s;">
-                    <!-- Placeholder for Map, as per instructions. NO actual map library included for simplicity. -->
+                    <!-- Cape Town Location Map -->
                     <p class="text-xl font-semibold mb-2">Location Map</p>
-                    <p class="text-sm">(An interactive map showing our office would typically be embedded here for enhanced user experience.)</p>
-                    <img src="https://placehold.co/400x300/E6D3A0/3A3F44?text=Office+Location" alt="Office Location Map Placeholder" class="max-w-full h-auto rounded-lg mt-4" loading="lazy" decoding="async">
+                    <p class="text-sm mb-4">Cape Town, Western Cape</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.571799519866!2d18.417!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc4bf4570d7f4d%3A0x2e6bccb1cfc88f9a!2sCapeTown%2C%20Western%20Cape!5e0!3m2!1sen!2sza!4v1234567890" width="100%" height="250" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
@@ -253,7 +266,7 @@
                 <p class="text-lg md:text-xl opacity-90 mb-10">
                     Let's discuss how our AI and automation expertise can deliver measurable results for your enterprise.
                 </p>
-                <a href="contact.html" class="btn btn-primary bg-accent-vibrant text-primary py-4 px-10">Connect With An Expert</a>
+                <a href="contact.html" class="btn btn-primary bg-accent-vibrant text-primary" data-cta="contact_expert" data-cta-location="contact_footer">Connect With An Expert</a>
             </div>
         </section>
 
@@ -303,7 +316,7 @@
                 <p class="text-secondary mb-8">
                     An Afri Evolution expert will be in touch shortly to discuss your personalized results and how we can help you achieve your goals.
                 </p>
-                <a href="contact.html" class="btn btn-primary">Book a Detailed Consultation</a>
+                <a href="contact.html" class="btn btn-primary" data-cta="contact_consultation" data-cta-location="contact_assessment">Book a Detailed Consultation</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,16 @@
+# Afri Evolution - Robots.txt
+# Allow all robots to index the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin/private areas (add as needed)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.afrievolution.com/sitemap.xml
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1
+

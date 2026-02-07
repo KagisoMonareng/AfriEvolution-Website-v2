@@ -1,12 +1,23 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: './', // Use relative paths for assets so dist folder works standalone
   root: ".",
   build: {
     outDir: 'dist',
     manifest: true,
     rollupOptions: {
-      // add input entries here if you want per-page entrypoints
+      input: {
+        main: './index.html',
+        about: './about-us.html',
+        services: './services.html',
+        approach: './approach.html',
+        contact: './contact.html',
+        privacy: './privacy.html',
+        terms: './terms.html',
+        stack: './stack.html',
+        notfound: './404.html'
+      }
     }
   },
   appType: "mpa",

@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AfriEvolution Stack — AI-Powered Systems for African SMEs</title>
+  <link rel="canonical" href="https://www.afrievolution.com/services">
+  <meta property="og:site_name" content="Afri Evolution"><!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFF3KTE1KT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KFF3KTE1KT');
+  </script>
+  
+  <!-- DEV-ONLY: tweakcn live preview (remove before production) -->
+  
+
+  <style>
+    .bg-gradient-light{background-image:radial-gradient(circle at top right,#3F444A 0%,#6F7680 60%)}
+    .dark .dark\:bg-gradient-dark{background-image:radial-gradient(circle at top right,#161A20 0%,#252B35 60%)}
+    .scroll-mt-nav{scroll-margin-top:96px}
+    
+    /* Micro-interactions */
+    .card-elevated {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-elevated:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 
+                  0 10px 10px -5px rgba(0, 0, 0, 0.08);
+    }
+    
+    .btn-primary,
+    .btn-ghost-white {
+      transition: all 0.2s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(201, 148, 0, 0.3);
+    }
+    
+    /* FAQ Details Styling */
+    details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    
+    details summary::-webkit-details-marker,
+    details summary::marker {
+      display: none;
+    }
+    
+    details[open] summary {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color, rgba(0,0,0,0.1));
+    }
+    
+    details summary:hover {
+      color: var(--color-primary, #C99400);
+    }
+    
+    /* Smooth transitions */
+    .transition-all {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
+    
+    /* Tab scroll fade */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    /* Pulse animation for badges */
+    @keyframes pulse-subtle {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.02); opacity: 0.95; }
+    }
+    
+    .animate-pulse-subtle {
+      animation: pulse-subtle 3s ease-in-out infinite;
+    }
+    
+    /* Bundle featured scale */
+    @media (min-width: 1024px) {
+      .bundle-featured {
+        transform: scale(1.05);
+        z-index: 10;
+      }
+      
+      .bundle-featured:hover {
+        transform: scale(1.08);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+    }
+    
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <!-- Basic SEO -->
+  <meta name="description" content="AI-powered business systems for African SMEs: Launchpad OS, Clarity Engine, Flow Studio, Connect CRM+, and ChatBoost AI. Human-centered intelligence that starts anywhere and amplifies when combined.">
+  <link rel="icon" href="/favicon.ico">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.afrievolution.com/services">
+  <meta property="og:image" content="./images/og-cover.svg">
+  <meta property="og:title" content="The AfriEvolution Stack | AI-Powered Systems for African SMEs">
+  <meta property="og:description" content="Five layers of AI-powered systems: Launchpad OS, Clarity Engine, Flow Studio, Connect CRM+, ChatBoost AI. Built for African SMEs, designed for adoption and outcomes.">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="./images/og-cover.svg">
+  <script type="module" crossorigin src="./assets/main-BZXEHRBQ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/input-DNg-ggrf.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <a id="top"></a>
+
+  <!-- Header/Navigation -->
+  <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-20 border-line">
+    <nav class="container mx-auto flex items-center justify-between">
+      <a href="index.html" class="brand-logo text-2xl font-extrabold">AfriEvolution</a>
+      <div class="hidden md:flex flex-1 justify-center space-x-4 items-center">
+        <a href="services.html" class="text-subtle hover:text-fg transition duration-300 font-medium text-sm">Services</a>
+        <a href="about-us.html" class="text-subtle hover:text-fg transition duration-300 font-medium text-sm">About Us</a>
+        <a href="approach.html" class="text-subtle hover:text-fg transition duration-300 font-medium text-sm">Our Approach</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-3">
+        <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing" onclick="window.aeToggleTheme && window.aeToggleTheme()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="sr-only">Toggle dark mode</span>
+        </button>
+        <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing ml-2" onclick="window.aeToggleSkin && window.aeToggleSkin()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+            <path d="M12 3l1.5 3L17 8l-3.5 1L12 12l-1.5-3L7 8l3.5-2L12 3z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 14l.8 1.6L7.5 17l-1.7.4L5 19l-.8-1.6L2.5 17l1.7-.4L5 14z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="sr-only">Toggle glass effect</span>
+        </button>
+      </div>
+      <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+        <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+        <div id="mobile-menu" class="md:hidden mobile-panel bg-surface-1 shadow-md py-2 mt-2 absolute" aria-hidden="true">
+      <div class="panel-inner">
+        <a href="services.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Services</a>
+        <a href="about-us.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">About Us</a>
+        <a href="approach.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Our Approach</a>
+        <a href="contact.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Contact Us</a>
+        <hr class="my-2 border-line">
+        <button type="button" aria-label="Toggle theme" aria-pressed="false" class="block w-full text-left py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'false' : 'true'); window.aeToggleTheme && window.aeToggleTheme();">
+          Toggle theme
+        </button>
+        <button type="button" aria-label="Toggle glass effect" aria-pressed="false" class="block w-full text-left py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.getAttribute('data-skin') === 'glass' ? 'false' : 'true'); window.aeToggleSkin && window.aeToggleSkin();">
+          Toggle glass effect
+        </button>
+      </div>
+    </div>
+  </header>
+
+  
+
+  <!-- Hero Section with Glass Effect -->
+  <main id="main">
+  <!-- 1) HERO -->
+  <section id="hero" class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold vignette noise hero-ambient" style="z-index: 10;">
+    <!-- Background Image -->
+    <img src="./assets/hero-africa-DYv64hjN.jpg" alt="Glowing outline of Africa with flowing gold lines" class="absolute inset-0 w-full h-full object-cover z-0" width="1920" height="1080" loading="eager">
+    
+    <!-- Overlay for contrast -->
+    <div class="absolute inset-0 bg-black opacity-40 z-5"></div>
+    
+    <!-- Full Glass Overlay covering entire hero -->
+    <div class="glass-strong glass-hero absolute inset-0 z-10"></div>
+    
+    <!-- Text Content on top -->
+    <div class="relative z-20 container mx-auto text-center max-w-5xl">
+      <div class="text-xs font-bold tracking-wider uppercase text-white/80 mb-3 reveal">AI-Powered Systems for African SMEs</div>
+      <h1 class="h1 mb-4 text-white reveal">Where people and AI build together</h1>
+      <p class="lead max-w-4xl mx-auto text-white reveal reveal-delay-1">Human-centered systems that connect data, automate workflows, and scale engagement.</p>
+      <p class="text-white/90 text-lg mt-3 reveal reveal-delay-1">Start anywhere. Integrate to amplify.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-6 reveal reveal-delay-2">
+        <a href="contact.html?topic=discovery" class="btn btn-primary" data-cta="contact_discovery" data-cta-location="services_hero">Start Your Digital Evolution</a>
+        <a href="approach.html" class="btn btn-ghost-white" data-cta="approach_overview" data-cta-location="services_hero">See the Stack</a>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- 2) SYNERGY - THE BIG PICTURE -->
+  <section id="synergy" class="pt-16 md:pt-24 pb-6 md:pb-8 bg-surface-1 scroll-mt-24">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="h2 section-header reveal">Grow faster when it all works together</h2>
+        <div class="gold-divider mx-auto"></div>
+        <p class="text-lg text-subtle mt-4 mb-0 max-w-4xl mx-auto reveal reveal-delay-1">Each layer amplifies the next. Launchpad OS builds presence, Clarity Engine structures data, Flow Studio automates workflows, Connect CRM+ nurtures customers, and ChatBoost AI keeps the conversation alive—all connected by a shared intelligence layer.</p>
+      </div>
+      
+      <!-- Stack Interoperability Diagram -->
+      <div class="panel-cohesive p-8 mb-8 reveal">
+        <h3 class="text-2xl font-bold text-center mb-6">The AfriEvolution Stack: Connected Intelligence</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 items-center text-center">
+          <div class="card-elevated p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <div class="text-primary font-bold mb-2">Launchpad OS</div>
+            <div class="text-xs text-subtle">Digital Presence</div>
+          </div>
+          <div class="hidden lg:flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </div>
+          <div class="card-elevated p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <div class="text-primary font-bold mb-2">Clarity Engine</div>
+            <div class="text-xs text-subtle">Data Foundation</div>
+          </div>
+          <div class="hidden lg:flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </div>
+          <div class="card-elevated p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <div class="text-primary font-bold mb-2">Flow Studio</div>
+            <div class="text-xs text-subtle">Automation</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 max-w-2xl mx-auto text-center">
+          <div class="card-elevated p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <div class="text-primary font-bold mb-2">Connect CRM+</div>
+            <div class="text-xs text-subtle">Relationships</div>
+          </div>
+          <div class="card-elevated p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <div class="text-primary font-bold mb-2">ChatBoost AI</div>
+            <div class="text-xs text-subtle">Engagement</div>
+          </div>
+        </div>
+        <div class="card-elevated text-center mt-6 p-4 md:p-5">
+          <p class="text-[13px] md:text-sm font-semibold">Shared Data Model · Unified Intelligence · Human‑Centered AI · Built for African SMEs</p>
+          <div class="flex flex-wrap gap-2 justify-center mt-3">
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-xs font-medium border border-primary/20 hover:-translate-y-[1px] hover:shadow-sm transition inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              WhatsApp Native
+            </span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-xs font-medium border border-primary/20 hover:-translate-y-[1px] hover:shadow-sm transition inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Multilingual
+            </span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-xs font-medium border border-primary/20 hover:-translate-y-[1px] hover:shadow-sm transition inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h.01"/><path d="M4 16c1.5-1.5 3.5-2 8-2s6.5.5 8 2"/><path d="M2 12c2-2 5-3 10-3s8 1 10 3"/></svg>
+              Low‑Bandwidth
+            </span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-xs font-medium border border-primary/20 hover:-translate-y-[1px] hover:shadow-sm transition inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              POPIA Compliant
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Adoption roadmap header -->
+      <div class="text-center mb-12">
+        <h2 class="h2 section-header reveal">AI Adoption Roadmap</h2>
+        <div class="gold-divider mx-auto"></div>
+        <p class="text-subtle mt-4 max-w-3xl mx-auto reveal reveal-delay-1">From foundation to outcomes — Launchpad, Clarity, Flow, CRM+, and ChatBoost structured for adoption.</p>
+      </div>
+      <!-- Benefits Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <article class="card-elevated p-6 reveal transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-xl font-bold mb-3">Start Anywhere</h3>
+          <p class="text-sm text-subtle">Each layer delivers value independently. No forced bundles, no vendor lock-in.</p>
+        </article>
+        <article class="card-elevated p-6 reveal reveal-delay-1 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-xl font-bold mb-3">Integrate to Amplify</h3>
+          <p class="text-sm text-subtle">When combined, layers share data and intelligence—multiplying impact across your business.</p>
+        </article>
+        <article class="card-elevated p-6 reveal reveal-delay-2 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-xl font-bold mb-3">Continuous Evolution</h3>
+          <p class="text-sm text-subtle">AI learns from your data; workflows improve; insights sharpen—automatically.</p>
+        </article>
+      </div>
+      <!-- Solutions header placed after AI Adoption and before tabs -->
+      <div class="text-center mt-16 md:mt-20 mb-4">
+        <h2 class="h2 section-header reveal">Our Solutions</h2>
+        <div class="gold-divider mx-auto"></div>
+        <p class="text-subtle mt-4 max-w-3xl mx-auto reveal reveal-delay-1">Website, data, workflow, CRM, and chat — five layers built to work together.</p>
+      </div>
+    </div>
+  </section>
+
+  <a id="services"></a>
+
+  <!-- 4) TIERS -->
+  <section id="tiers" class="pt-6 md:pt-20 pb-16 md:pb-24 bg-surface-1">
+    <div class="container mx-auto max-w-6xl px-4 space-y-10">
+      <!-- Tier 1: Launchpad OS -->
+      <div id="t1" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
+        <div class="flex items-start gap-3 mb-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 1</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">Launchpad OS</h2>
+        <p class="text-lg text-subtle mb-2"> Create your website—fast, credible, analytics-ready.</p>
+        <p class="text-base text-subtle mb-8">A conversion-focused Webflow website built for speed, accessibility, and lead capture — with analytics and events wired from day one, plus AI-assisted content optimization.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">What's Included</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Custom Webflow website with clear information architecture and on-page SEO</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>High-performance media + accessibility pass</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Forms, CMS collections (as needed), lead capture</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Analytics (Plausible/GA4) + events on primary CTAs</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Basic automations (email notifications, Zapier hooks)</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
+            <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>AI-assisted copy optimization suggestions</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Component recommendations for UX</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>SEO tuning and content scoring</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Analytics pattern recognition</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">Business Outcomes</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">↓</span><span>Time-to-launch <strong class="text-fg">↓ 50%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>Brand credibility <strong class="text-fg">↑</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>CTA conversion <strong class="text-fg">↑ 18–25%</strong></span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 bg-gradient-to-br from-primary/5 to-transparent">
+            <h3 class="text-lg font-semibold mb-4">Investment</h3>
+            <div class="space-y-3 mb-4">
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Setup</div>
+                <div class="text-2xl font-bold text-primary">R35k–R60k</div>
+              </div>
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Monthly Support</div>
+                <div class="text-xl font-bold text-fg">R1.5k–R2k</div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-line">
+              <h4 class="text-sm font-semibold mb-2">Best For</h4>
+              <p class="text-sm text-subtle">SMEs formalising online acquisition, site refreshes needing conversion focus</p>
+            </div>
+          </article>
+        </div>
+        <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
+          <a href="contact.html?topic=launchpad" class="btn btn-primary" data-cta="launchpad_interest" data-cta-location="services_launchpad">Launch Your Website</a>
+          <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
+        </div>
+      </div>
+
+      <!-- Tier 2: Clarity Engine -->
+      <div id="t2" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
+        <div class="flex items-start gap-3 mb-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 2</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">Clarity Engine</h2>
+        <p class="text-lg text-subtle mb-2">Your single source of truth with predictive insight.</p>
+        <p class="text-base text-subtle mb-8">Unified data model, automated pipelines, and AI-powered forecasting—transforming scattered spreadsheets into trusted intelligence.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">What's Included</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Data inventory + schema design</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>ETL/Power Query pipelines and validation rules</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Central model (measures, dimensions)</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Dashboards with role-based views</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Scheduled refresh + data governance docs</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Training + handover pack</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
+            <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Auto-schema builder suggestions</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Anomaly detection alerts</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Small-data forecasting models</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Pattern recognition in metrics</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">Business Outcomes</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">↓</span><span>Reporting time <strong class="text-fg">↓ 60%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↓</span><span>Decision turnaround <strong class="text-fg">↓ 40%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>Data confidence <strong class="text-fg">↑</strong></span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 bg-gradient-to-br from-primary/5 to-transparent">
+            <h3 class="text-lg font-semibold mb-4">Investment</h3>
+            <div class="space-y-3 mb-4">
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Setup</div>
+                <div class="text-2xl font-bold text-primary">R20k</div>
+              </div>
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Monthly Subscription</div>
+                <div class="text-xl font-bold text-fg">R1.2k–R2.5k</div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-line">
+              <h4 class="text-sm font-semibold mb-2">Best For</h4>
+              <p class="text-sm text-subtle">Spreadsheet-heavy teams, finance/ops leaders managing multi-source data</p>
+            </div>
+          </article>
+        </div>
+        <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
+          <a href="contact.html?topic=dcf" class="btn btn-primary" data-cta="dcf_interest" data-cta-location="services_clarity">Book a DCF Discovery</a>
+          <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
+        </div>
+      </div>
+
+      <!-- Tier 3: Flow Studio -->
+      <div id="t3" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
+        <div class="flex items-start gap-3 mb-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 3</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">Flow Studio</h2>
+        <p class="text-lg text-subtle mb-2">Automate the repetitive so your team focuses on the valuable.</p>
+        <p class="text-base text-subtle mb-8">Low-code automations for approvals, notifications, document generation, and scheduled jobs.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">What's Included</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Process mapping + SLA targets</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Power Automate flows & connectors</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Human-in-the-loop approvals (email/Teams)</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Document generation + storage rules</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Error alerting + run history</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Ops dashboard (throughput, failures)</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
+            <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>"FlowSense" automation suggestions</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>SLA improvement recommendations</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Bottleneck identification</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Smart routing logic</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">Business Outcomes</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>Hours saved/month <strong class="text-fg">↑ 120+</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↓</span><span>Error rate <strong class="text-fg">↓ 70%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>SLA compliance <strong class="text-fg">↑ 35%</strong></span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 bg-gradient-to-br from-primary/5 to-transparent">
+            <h3 class="text-lg font-semibold mb-4">Investment</h3>
+            <div class="space-y-3 mb-4">
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Setup</div>
+                <div class="text-2xl font-bold text-primary">R25k–R50k</div>
+              </div>
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Per Workflow</div>
+                <div class="text-xl font-bold text-fg">R600–R1.2k</div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-line">
+              <h4 class="text-sm font-semibold mb-2">Best For</h4>
+              <p class="text-sm text-subtle">Finance, HR, operations, compliance-heavy processes</p>
+            </div>
+          </article>
+        </div>
+        <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
+          <a href="contact.html?topic=workflow" class="btn btn-primary" data-cta="flowstudio_interest" data-cta-location="services_workflow">Automate My Process</a>
+          <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
+        </div>
+      </div>
+
+      <!-- Tier 4: Connect CRM+ -->
+      <div id="t4" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
+        <div class="flex items-start gap-3 mb-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 4</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">Connect CRM+</h2>
+        <p class="text-lg text-subtle mb-2">Client clarity—contacts, pipeline, tasks, and AI-powered insights in one place.</p>
+        <p class="text-base text-subtle mb-8">Keep every interaction in one place with tasks, reminders, and simple forecasting — integrated with automations.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">What's Included</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Unified contacts, companies, opportunities</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Kanban pipeline + stages + reminders</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Task queues and follow-up nudges</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Email/WhatsApp logging (where supported)</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Role-based access + basic reporting</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Training + handover documentation</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
+            <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Lead scoring & prioritization</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Churn risk prediction</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Sentiment tracking in communications</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Next-best-action recommendations</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">Business Outcomes</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>Retention rate <strong class="text-fg">↑ 22%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>Win rate <strong class="text-fg">↑ 15%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>Team visibility & follow-through <strong class="text-fg">↑</strong></span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 bg-gradient-to-br from-primary/5 to-transparent">
+            <h3 class="text-lg font-semibold mb-4">Investment</h3>
+            <div class="space-y-3 mb-4">
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Setup</div>
+                <div class="text-2xl font-bold text-primary">R15k</div>
+              </div>
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Per User/Month</div>
+                <div class="text-xl font-bold text-fg">R500–R1.5k</div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-line">
+              <h4 class="text-sm font-semibold mb-2">Best For</h4>
+              <p class="text-sm text-subtle">Services SMEs, sales/account teams needing pipeline clarity</p>
+            </div>
+          </article>
+        </div>
+        <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
+          <a href="contact.html?topic=crm" class="btn btn-primary" data-cta="connectcrm_interest" data-cta-location="services_crm">Centralize My Clients</a>
+          <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
+        </div>
+      </div>
+
+      <!-- Tier 5: ChatBoost AI -->
+      <div id="t5" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
+        <div class="flex items-start gap-3 mb-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 5</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">ChatBoost AI</h2>
+        <p class="text-lg text-subtle mb-2">Conversational AI that qualifies, books, and supports 24/7.</p>
+        <p class="text-base text-subtle mb-8">WhatsApp and web chat trained on your data with routing, booking, and CRM sync.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">What's Included</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>WhatsApp Business / web widget setup</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>FAQ/knowledge training + intents</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Lead capture + qualification</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Appointment booking + human handoff</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Conversation analytics + tuning</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Training + handover documentation</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
+            <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Multilingual LLM (African languages ready)</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Knowledge retrieval from Clarity/CRM</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Intent routing & context awareness</span></li>
+              <li class="flex gap-2"><span class="text-primary">✓</span><span>Sentiment detection & escalation</span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5">
+            <h3 class="text-lg font-semibold mb-3">Business Outcomes</h3>
+            <ul class="text-sm text-subtle space-y-2">
+              <li class="flex gap-2"><span class="text-primary">↓</span><span>Response time <strong class="text-fg">↓ 85%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>Lead capture <strong class="text-fg">↑ 30%</strong></span></li>
+              <li class="flex gap-2"><span class="text-primary">↑</span><span>After-hours coverage <strong class="text-fg">24/7</strong></span></li>
+            </ul>
+          </article>
+          <article class="card-elevated p-5 bg-gradient-to-br from-primary/5 to-transparent">
+            <h3 class="text-lg font-semibold mb-4">Investment</h3>
+            <div class="space-y-3 mb-4">
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Setup</div>
+                <div class="text-2xl font-bold text-primary">R12k</div>
+              </div>
+              <div>
+                <div class="text-xs text-subtle uppercase mb-1">Monthly Usage</div>
+                <div class="text-xl font-bold text-fg">R1k–R2.5k</div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-line">
+              <h4 class="text-sm font-semibold mb-2">Best For</h4>
+              <p class="text-sm text-subtle">Support teams, lead gen, booking-heavy services, WhatsApp-first businesses</p>
+            </div>
+          </article>
+        </div>
+        <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
+          <a href="contact.html?topic=chatboost" class="btn btn-primary" data-cta="chatboost_interest" data-cta-location="services_chatboost">Activate ChatBoost</a>
+          <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5) BUNDLES -->
+  <section id="bundles" class="py-16 md:py-24 bg-bg scroll-mt-24">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="h2 section-header reveal">Start Smart with Our Bundles</h2>
+        <div class="gold-divider mx-auto"></div>
+        <p class="text-subtle mt-4 max-w-3xl mx-auto reveal reveal-delay-1">Combine multiple layers for faster results and better value. Each bundle is designed for common business scenarios.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Engagement Pack -->
+        <article class="panel-cohesive p-6 reveal flex flex-col">
+          <h3 class="h3 mb-2">Engagement Pack</h3>
+          <p class="text-subtle mb-4">Perfect for businesses launching or refreshing their digital presence.</p>
+          <ul class="text-sm text-subtle space-y-2 mb-6">
+            <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Launchpad OS</span></li>
+            <li class="flex gap-2"><span aria-hidden="true">✓</span><span>ChatBoost AI</span></li>
+          </ul>
+          <p class="text-lg font-bold text-primary mb-4">From R47k setup</p>
+          <a href="contact.html?topic=engagement-pack" class="btn btn-primary w-full text-center block mt-auto" data-cta="engagement_pack" data-cta-location="services_bundles">Get Started</a>
+        </article>
+        
+        <!-- Insight Pack -->
+        <article class="panel-cohesive p-6 reveal reveal-delay-1 border-2 border-primary shadow-2xl bundle-featured relative overflow-hidden flex flex-col">
+          <div class="absolute top-4 right-4 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse-subtle z-10">
+            Most Popular
+          </div>
+          <h3 class="text-2xl font-bold mb-2 mt-2">Insight Pack</h3>
+          <p class="text-subtle mb-4">For teams drowning in spreadsheets and manual processes.</p>
+          <ul class="text-sm text-subtle space-y-2 mb-6">
+            <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Clarity Engine</span></li>
+            <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Flow Studio</span></li>
+          </ul>
+          <p class="text-lg font-bold text-primary mb-4">From R45k setup</p>
+          <a href="contact.html?topic=insight-pack" class="btn btn-primary w-full text-center block mt-auto" data-cta="insight_pack" data-cta-location="services_bundles">Get Started</a>
+        </article>
+        
+        <!-- Evolution Pack -->
+        <article class="panel-cohesive p-6 reveal reveal-delay-2 flex flex-col">
+          <h3 class="h3 mb-2">Evolution Pack</h3>
+          <p class="text-subtle mb-4">Complete stack for businesses ready to transform end-to-end.</p>
+          <ul class="text-sm text-subtle space-y-2 mb-6">
+            <li class="flex gap-2"><span aria-hidden="true">✓</span><span>All 5 layers</span></li>
+            <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Full integration</span></li>
+            <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Priority support</span></li>
+          </ul>
+          <p class="text-lg font-bold text-primary mb-4">Contact for pricing</p>
+          <a href="contact.html?topic=evolution-pack" class="btn btn-primary w-full text-center block mt-auto" data-cta="evolution_pack" data-cta-location="services_bundles">Book Discovery</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 6) FAQ -->
+  <section id="faq" class="py-16 md:py-24 bg-bg scroll-mt-24">
+    <div class="container mx-auto max-w-4xl px-4">
+      <div class="text-center mb-12">
+        <h2 class="h2 section-header reveal">Frequently Asked Questions</h2>
+        <div class="gold-divider mx-auto"></div>
+      </div>
+      <div class="space-y-4">
+        <details class="card-elevated p-5 reveal group">
+          <summary class="flex justify-between items-center font-semibold cursor-pointer">
+            <span>Can we start with one layer?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="text-subtle mt-4 pt-4 border-t border-line">Absolutely. Each layer is designed to deliver value independently. You can begin with the one that addresses your most pressing need and add others over time.</p>
+        </details>
+        <details class="card-elevated p-5 reveal reveal-delay-1 group">
+          <summary class="flex justify-between items-center font-semibold cursor-pointer">
+            <span>Do you integrate with our existing tools?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="text-subtle mt-4 pt-4 border-t border-line">Yes. We work with Webflow, Power Platform, WhatsApp Business API, major CRMs, analytics tools, and Microsoft 365—designed for the African SME tech stack.</p>
+        </details>
+        <details class="card-elevated p-5 reveal reveal-delay-2 group">
+          <summary class="flex justify-between items-center font-semibold cursor-pointer">
+            <span>How does AI fit into these systems?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="text-subtle mt-4 pt-4 border-t border-line">AI is embedded throughout: copy optimization in Launchpad OS, forecasting in Clarity Engine, workflow suggestions in Flow Studio, lead scoring in Connect CRM+, and multilingual conversations in ChatBoost AI. All human-supervised and explainable.</p>
+        </details>
+        <details class="card-elevated p-5 reveal reveal-delay-3 group">
+          <summary class="flex justify-between items-center font-semibold cursor-pointer">
+            <span>What about data privacy and security?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="text-subtle mt-4 pt-4 border-t border-line">We follow consent-aware data handling, role-based access controls, audit trails, and POPIA compliance. Your data stays in your environment where possible, with transparent governance documentation.</p>
+        </details>
+        <details class="card-elevated p-5 reveal reveal-delay-4 group">
+          <summary class="flex justify-between items-center font-semibold cursor-pointer">
+            <span>How do we scope a first project?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="text-subtle mt-4 pt-4 border-t border-line">Start with a Discovery workshop where we map your goals, processes, current tools, and KPI targets. We'll recommend the best entry point and integration roadmap.</p>
+        </details>
+        <details class="card-elevated p-5 reveal reveal-delay-5 group">
+          <summary class="flex justify-between items-center font-semibold cursor-pointer">
+            <span>What does handover include?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="text-subtle mt-4 pt-4 border-t border-line">Complete documentation, recorded training sessions, admin access, governance playbooks, and optional ongoing support subscriptions.</p>
+        </details>
+        <details class="card-elevated p-5 reveal reveal-delay-6 group">
+          <summary class="flex justify-between items-center font-semibold cursor-pointer">
+            <span>Is this suitable for African businesses?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="text-subtle mt-4 pt-4 border-t border-line">Yes—that's our focus. We optimize for low-bandwidth environments, support multilingual needs, integrate with WhatsApp Business, and understand local business contexts and compliance requirements.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7) FINAL CTA -->
+  <section id="final-cta" class="py-16 md:py-24 px-4 text-white text-center" style="background: linear-gradient(135deg,#3F444A 0%,#6F7680 60%);">
+    <div class="container mx-auto max-w-3xl reveal">
+      <h2 class="h2 mb-6 text-white">Ready to evolve your business?</h2>
+      <p class="lead opacity-90 mb-10 text-white">Book a discovery call and we'll map the right entry point for your needs—whether it's one layer or the full stack.</p>
+      <a href="contact.html?topic=discovery" class="btn btn-primary" data-cta="contact_discovery" data-cta-location="services_final">Book a Discovery Call</a>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-8 px-4 text-center">
+    <div class="container mx-auto">
+      <p class="mb-2">&copy; 2025 Afri Evolution. All rights reserved.</p>
+      <div class="text-sm space-x-4">
+        <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+        <a href="terms.html" class="hover:underline">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Highlight active tab on scroll/hash change
+    (function() {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('#service-tabs a'));
+      if (!tabs.length) return;
+      function setActive(hash) {
+        tabs.forEach(function(t){ t.classList.remove('bg-white','text-fg'); t.classList.add('text-subtle'); });
+        var active = tabs.find(function(t){ return t.getAttribute('href') === hash; });
+        if (active) { active.classList.add('bg-white','text-fg'); active.classList.remove('text-subtle'); }
+      }
+      function onScroll() {
+        var sections = ['#t1','#t2','#t3','#t4','#t5'].map(function(id){ return document.querySelector(id); }).filter(Boolean);
+        var top = window.scrollY + 100; // offset under header
+        var current = sections.reduce(function(acc, el){
+          if (el.offsetTop <= top) return '#' + el.id; return acc;
+        }, '#t1');
+        setActive(current);
+      }
+      window.addEventListener('hashchange', function(){ setActive(location.hash || '#t1'); });
+      window.addEventListener('scroll', onScroll, { passive: true });
+      setActive(location.hash || '#t1');
+    })();
+  </script>
+</body>
+</html>

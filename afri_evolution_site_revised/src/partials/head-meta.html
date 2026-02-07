@@ -11,7 +11,14 @@
 <meta property="og:image" content="/images/og-cover.svg">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Analytics placeholder: insert GA4 / GTM snippet in src/partials/analytics.html -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KFF3KTE1KT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KFF3KTE1KT');
+</script>
 
 <!-- Tokens and utilities (development). In production these should be replaced
      by the built, manifest-backed CSS emitted to /dist/assets/. Use the

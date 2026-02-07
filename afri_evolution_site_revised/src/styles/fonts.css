@@ -1,4 +1,7 @@
 /* Self-hosted fonts. Place WOFF2 files in /public/fonts/ */
+/* NOTE: The Manrope WOFF2 is not present in the repo (a JS file placeholder was found).
+   Add real WOFF2 binary files to `public/fonts/` (e.g. `Manrope-600.woff2`) before enabling.
+   For now, we only register Source Sans which is present. */
 @font-face {
   font-family: 'Manrope';
   font-style: normal;
@@ -6,6 +9,7 @@
   font-display: swap;
   src: url('/fonts/Manrope-600.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Source Sans 3';
   font-style: normal;

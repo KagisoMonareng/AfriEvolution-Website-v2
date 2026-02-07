@@ -1,16 +1,16 @@
 /* Button Components */
 
 .btn-primary {
-  @apply inline-block rounded-lg px-6 py-3 font-semibold transition-all duration-300;
+  @apply inline-block rounded-xl px-6 py-3 font-semibold transition-all duration-300;
   background-color: var(--primary);
-  color: var(--primary-fg);
+  color: #000000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:hover {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
   transform: scale(1.02);
-  opacity: 0.95;
+  color: #ffffff;
 }
 
 .btn-primary:focus-visible {
@@ -19,7 +19,7 @@
 }
 
 .btn-secondary {
-  @apply inline-block rounded-lg px-6 py-3 font-semibold transition-all duration-300;
+  @apply inline-block rounded-xl px-6 py-3 font-semibold transition-all duration-300;
   background-color: var(--hover);
   border: 1px solid var(--line);
   color: var(--fg);
@@ -36,7 +36,7 @@
 }
 
 .btn-ghost-white {
-  @apply inline-block rounded-lg px-6 py-3 font-semibold transition-all duration-300;
+  @apply inline-block rounded-xl px-6 py-3 font-semibold transition-all duration-300;
   background-color: transparent;
   color: currentColor;
   border: 1px solid rgba(255, 255, 255, 0.7);

@@ -1,0 +1,76 @@
+/* Glass Panel - Desktop Glass Toggle Dropdown (Opens Horizontally) */
+
+.glass-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch;
+  gap: 0;
+  width: auto;
+  height: auto;
+  max-height: none;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: visible;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  z-index: 50;
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+}
+
+.glass-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.glass-panel .panel-item {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  color: var(--subtle);
+  border-right: 1px solid var(--line);
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  background: transparent;
+  border-left: none;
+  border-top: none;
+  width: auto;
+  vertical-align: top;
+}
+
+.glass-panel .panel-item:last-child {
+  border-right: none;
+}
+
+.glass-panel .panel-item:hover {
+  background: var(--hover);
+  color: var(--fg);
+}
+
+.glass-panel .panel-item.active {
+  background: var(--primary);
+  color: var(--primary-fg);
+  border-bottom-color: var(--primary);
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .glass-panel {
+    display: none !important;
+  }
+}

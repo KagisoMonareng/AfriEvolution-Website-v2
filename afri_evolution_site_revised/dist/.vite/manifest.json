@@ -1,0 +1,29 @@
+{
+  "_input-DNg-ggrf.css": {
+    "file": "assets/input-DNg-ggrf.css",
+    "src": "_input-DNg-ggrf.css"
+  },
+  "_main-BZXEHRBQ.js": {
+    "file": "assets/main-BZXEHRBQ.js",
+    "name": "main"
+  },
+  "approach.html": {
+    "file": "assets/approach-CnPTHMXV.js",
+    "name": "approach",
+    "src": "approach.html",
+    "isEntry": true,
+    "imports": [
+      "_main-BZXEHRBQ.js"
+    ],
+    "css": [
+      "assets/input-DNg-ggrf.css"
+    ],
+    "assets": [
+      "assets/hero-africa-DYv64hjN.jpg"
+    ]
+  },
+  "images/hero-africa.jpg": {
+    "file": "assets/hero-africa-DYv64hjN.jpg",
+    "src": "images/hero-africa.jpg"
+  }
+}

@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Afri Evolution - About Us</title>
-        <link rel="stylesheet" href="/src/styles/fonts.css">
-        <!-- Built CSS placeholder: update to the actual /dist/assets/*.css after build -->
+    <link rel="stylesheet" href="/src/styles/input.css">
 <link rel="canonical" href="https://www.afrievolution.com/about-us">
     <meta property="og:site_name" content="Afri Evolution">
     <script defer src="/src/scripts/theme.js"></script>
     <script defer src="/src/scripts/skin.js"></script>
     <script defer src="/src/scripts/a11y.js"></script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFF3KTE1KT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KFF3KTE1KT');
+    </script>
     <!-- Dev preview script removed for production -->
     <style>
         /* Color Palette mapped to tokens */
@@ -177,8 +185,19 @@
                 <a href="approach.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Our Approach</a>
             </div>
             <div class="hidden md:flex items-center space-x-3">
-                <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line px-2 py-1 text-sm text-secondary hover:bg-hover transition" onclick="window.aeToggleTheme && window.aeToggleTheme(); this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'true' : 'false');">🌙</button>
-                <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line px-2 py-1 text-sm text-secondary hover:bg-hover transition" onclick="window.aeToggleSkin && window.aeToggleSkin();">✨</button>
+                <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing" onclick="window.aeToggleTheme && window.aeToggleTheme()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="sr-only">Toggle dark mode</span>
+                </button>
+                <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing ml-2" onclick="window.aeToggleSkin && window.aeToggleSkin()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+                        <path d="M12 3l1.5 3L17 8l-3.5 1L12 12l-1.5-3L7 8l3.5-2L12 3z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 14l.8 1.6L7.5 17l-1.7.4L5 19l-.8-1.6L2.5 17l1.7-.4L5 14z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="sr-only">Toggle glass effect</span>
+                </button>
             </div>
             <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
                 <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -192,15 +211,24 @@
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
-            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Services</a>
-            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">About Us</a>
-            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Our Approach</a>
-            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="toggleMobileMenu()">Contact Us</a>
+        <div id="mobile-menu" class="md:hidden mobile-panel bg-surface-1 shadow-md py-2 mt-2 absolute" aria-hidden="true">
+              <div class="panel-inner">
+            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Services</a>
+            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">About Us</a>
+            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Our Approach</a>
+            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Contact Us</a>
+            <hr class="my-2 border-line">
+            <button type="button" aria-label="Toggle theme" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'false' : 'true'); window.aeToggleTheme && window.aeToggleTheme();">
+              Toggle theme
+            </button>
+            <button type="button" aria-label="Toggle glass effect" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.getAttribute('data-skin') === 'glass' ? 'false' : 'true'); window.aeToggleSkin && window.aeToggleSkin();">
+              Toggle glass effect
+            </button>
+              </div>
         </div>
     </header>
 
-    <main class="pt-20" id="main">
+    <main id="main">
         <!-- Page Hero Section -->
         <!-- Hero Section with Glass Effect -->
         <section class="relative text-white py-24 md:py-36 px-4 overflow-hidden v-bold" style="z-index: 10;">
@@ -360,7 +388,7 @@
         </section>
 
         <!-- Our Team -->
-        <section id="our-team" class="py-16 md:py-24 px-4 bg-surface-1">
+        <section id="our-team" class="hidden py-16 md:py-24 px-4 bg-surface-1">
             <div class="container mx-auto max-w-4xl">
                 <div class="text-center mb-12">
                     <h2 class="h2 section-header fade-in">Meet the Driving Force Behind Afri Evolution</h2>
@@ -448,13 +476,13 @@
         </section>
 
         <!-- Call to Action (Light) -->
-        <section class="py-16 md:py-24 px-4 bg-gradient-to-tr from-[#E6D3A0] to-[#C99400] text-primary text-center">
+        <section class="py-16 md:py-24 px-4 bg-gradient-to-tr from-[#E6D3A0] to-[#C99400] text-gray-900 text-center">
             <div class="container mx-auto max-w-3xl fade-in">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Ready to Accelerate Your Business?</h2>
                 <p class="text-lg md:text-xl opacity-90 mb-10">
                     Discover how Afri Evolution's intelligent solutions can help you achieve your digital transformation goals and secure a competitive edge.
                 </p>
-                <a href="contact.html" class="btn btn-primary bg-primary text-white py-4 px-10">Schedule a Free Consultation</a>
+                <a href="contact.html" class="btn btn-primary bg-primary text-white" data-cta="contact_consultation" data-cta-location="about_final">Schedule a Free Consultation</a>
             </div>
         </section>
 

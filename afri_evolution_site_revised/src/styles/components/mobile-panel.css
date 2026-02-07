@@ -1,0 +1,33 @@
+/* Mobile panel: horizontal expansion for mobile menu */
+.mobile-panel{
+  top: calc(100% + 0.5rem);
+  right: 1rem;
+  width: 0;
+  max-width: 22rem;
+  overflow: hidden;
+  opacity: 0;
+  transition: width 320ms cubic-bezier(.2,.8,.2,1), opacity 220ms ease;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  z-index: 60;
+}
+.mobile-panel.open{
+  width: 20rem; /* visible width when open (320px) */
+  opacity: 1;
+}
+
+/* Ensure the panel content scrolls if it overflows vertically */
+.mobile-panel .panel-inner{
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+}
+
+/* Fallback for older pages that use hidden/w-full - keep them off-screen */
+.mobile-panel.hidden{
+  width: 0 !important;
+  opacity: 0 !important;
+}
+
+@media (min-width: 768px){
+  .mobile-panel{ display: none !important; }
+}

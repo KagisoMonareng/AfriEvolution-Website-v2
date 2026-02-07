@@ -31,24 +31,26 @@
   }
   
   /**
-   * Cycle through glass variants
-   * Persists preference to localStorage
+   * Set glass variant directly from panel selection
    */
-  window.aeToggleSkin = () => {
-    const currentSkin = body.getAttribute("data-skin") || "";
-    const currentVariant = body.getAttribute("data-glass-variant") || "";
+  window.aeSetGlassVariant = (variantKey) => {
+    let next;
     
-    // Find current state in variants array
-    let currentIndex = VARIANTS.findIndex(v => v.skin === currentSkin && v.variant === currentVariant);
-    if (currentIndex === -1) currentIndex = 0;
+    if (variantKey === 'off') {
+      next = VARIANTS[0]; // Off
+    } else if (variantKey === 'v-subtle') {
+      next = VARIANTS[1]; // Subtle
+    } else if (variantKey === 'standard') {
+      next = VARIANTS[2]; // Standard
+    } else if (variantKey === 'v-bold') {
+      next = VARIANTS[3]; // Bold
+    } else {
+      return;
+    }
     
-    // Move to next variant (cycle back to start after last)
-    const nextIndex = (currentIndex + 1) % VARIANTS.length;
-    const next = VARIANTS[nextIndex];
+    console.log(`Glass: Selecting ${next.label}`);
     
-    console.log(`Glass cycle: ${VARIANTS[currentIndex].label} → ${next.label}`);
-    
-    // Apply new variant
+    // Apply variant
     if (next.skin) {
       body.setAttribute("data-skin", next.skin);
       if (next.variant) {
@@ -71,24 +73,78 @@
       console.warn('Glass skin: Could not save preference', e);
     }
     
+    // Update panel active state
+    updateGlassPanelActive(variantKey);
+    
     // Update toggle button
     const toggleBtn = document.getElementById('glass-toggle');
     if (toggleBtn) {
       toggleBtn.setAttribute('aria-pressed', next.skin === "glass" ? 'true' : 'false');
-      // Update button text to show current variant
-      const textNode = toggleBtn.childNodes[0];
-      if (textNode && textNode.nodeType === Node.TEXT_NODE) {
-        toggleBtn.childNodes[0].textContent = `✨ Glass: ${next.label}`;
+      try {
+        const sr = toggleBtn.querySelector('.sr-only');
+        if (sr) {
+          sr.textContent = `Glass: ${next.label}`;
+        } else {
+          toggleBtn.setAttribute('aria-label', `Toggle glass effect (currently ${next.label})`);
+        }
+      } catch (e) {
+        toggleBtn.setAttribute('aria-label', `Toggle glass effect (currently ${next.label})`);
       }
-      console.log(`Toggle button: ${next.label}`);
     }
     
-    // Dispatch custom event
     window.dispatchEvent(new CustomEvent('skinChanged', { 
       detail: { skin: next.skin || 'default', variant: next.variant, label: next.label } 
     }));
+  };
+  
+  /**
+   * Update glass panel active item
+   */
+  function updateGlassPanelActive(variantKey) {
+    const panel = document.getElementById('glass-panel');
+    if (!panel) return;
     
-    console.log('Body attributes:', body.getAttribute('data-skin'), body.getAttribute('data-glass-variant'));
+    panel.querySelectorAll('.panel-item').forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('data-variant') === variantKey) {
+        item.classList.add('active');
+      }
+    });
+  }
+  
+  /**
+   * Cycle through glass variants (old behavior, kept for backward compatibility)
+   * Persists preference to localStorage
+   */
+  window.aeToggleSkin = () => {
+    const currentSkin = body.getAttribute("data-skin") || "";
+    const currentVariant = body.getAttribute("data-glass-variant") || "";
+    
+    // Find current state in variants array
+    let currentIndex = VARIANTS.findIndex(v => v.skin === currentSkin && v.variant === currentVariant);
+    if (currentIndex === -1) currentIndex = 0;
+    
+    // Move to next variant (cycle back to start after last)
+    const nextIndex = (currentIndex + 1) % VARIANTS.length;
+    const next = VARIANTS[nextIndex];
+    
+    console.log(`Glass cycle: ${VARIANTS[currentIndex].label} → ${next.label}`);
+    
+    // Determine variant key for panel update
+    let variantKey = 'off';
+    if (next.skin === 'glass' && next.variant === 'v-subtle') variantKey = 'v-subtle';
+    else if (next.skin === 'glass' && !next.variant) variantKey = 'standard';
+    else if (next.skin === 'glass' && next.variant === 'v-bold') variantKey = 'v-bold';
+    
+    // Use the new setVariant function
+    window.aeSetGlassVariant(variantKey);
+    
+    // Toggle panel open/close
+    const panel = document.getElementById('glass-panel');
+    if (panel) {
+      panel.classList.toggle('open');
+      panel.setAttribute('aria-hidden', panel.classList.contains('open') ? 'false' : 'true');
+    }
   };
   
   /**
@@ -117,22 +173,64 @@
   }
   
   /**
-   * Initialize toggle button state on page load
+   * Initialize glass panel on DOMContentLoaded
    */
   document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('glass-toggle');
+    const panel = document.getElementById('glass-panel');
+    
+    // Initialize toggle button state
     if (toggleBtn) {
       const currentSkin = body.getAttribute("data-skin") || "";
       const currentVariant = body.getAttribute("data-glass-variant") || "";
       const current = VARIANTS.find(v => v.skin === currentSkin && v.variant === currentVariant) || VARIANTS[0];
       
       toggleBtn.setAttribute('aria-pressed', currentSkin === "glass" ? 'true' : 'false');
-      
-      // Update button text to show current variant
-      const textNode = toggleBtn.childNodes[0];
-      if (textNode && textNode.nodeType === Node.TEXT_NODE) {
-        toggleBtn.childNodes[0].textContent = `✨ Glass: ${current.label}`;
+      try {
+        const sr = toggleBtn.querySelector('.sr-only');
+        if (sr) sr.textContent = `Glass: ${current.label}`;
+        else toggleBtn.setAttribute('aria-label', `Toggle glass effect (currently ${current.label})`);
+      } catch (e) {
+        toggleBtn.setAttribute('aria-label', `Toggle glass effect (currently ${current.label})`);
       }
+    }
+    
+    // Initialize glass panel items and attach click handlers
+    if (panel) {
+      const panelItems = panel.querySelectorAll('.panel-item');
+      
+      panelItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const variantKey = item.getAttribute('data-variant');
+          window.aeSetGlassVariant(variantKey);
+          // Close panel after selection
+          panel.classList.remove('open');
+          panel.setAttribute('aria-hidden', 'true');
+        });
+      });
+      
+      // Set initial active state
+      const currentSkin = body.getAttribute("data-skin") || "";
+      const currentVariant = body.getAttribute("data-glass-variant") || "";
+      let activeVariant = 'off';
+      if (currentSkin === 'glass' && currentVariant === 'v-subtle') activeVariant = 'v-subtle';
+      else if (currentSkin === 'glass' && !currentVariant) activeVariant = 'standard';
+      else if (currentSkin === 'glass' && currentVariant === 'v-bold') activeVariant = 'v-bold';
+      
+      updateGlassPanelActive(activeVariant);
+      
+      // Close panel when clicking outside
+      document.addEventListener('click', (e) => {
+        if (panel.classList.contains('open')) {
+          const isInPanel = panel.contains(e.target);
+          const isToggle = toggleBtn && toggleBtn.contains(e.target);
+          if (!isInPanel && !isToggle) {
+            panel.classList.remove('open');
+            panel.setAttribute('aria-hidden', 'true');
+          }
+        }
+      });
     }
   });
   

@@ -60,9 +60,12 @@
                 Test light/dark modes, responsive scaling, and accessibility.
             </p>
             <div class="flex flex-wrap gap-4">
-                <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line px-4 py-2 text-sm text-fg hover:bg-hover transition" onclick="window.aeToggleTheme && window.aeToggleTheme(); this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'true' : 'false');">
-                    🌙 Toggle Theme
-                </button>
+                        <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line p-2 text-sm text-fg hover:bg-hover transition focus-visible:ring-2 ring-focusRing" onclick="window.aeToggleTheme && window.aeToggleTheme()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="sr-only">Toggle dark mode</span>
+                        </button>
                 <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line px-4 py-2 text-sm text-fg hover:bg-hover transition" onclick="window.aeToggleSkin && window.aeToggleSkin();">
                     ✨ Toggle Glass
                 </button>

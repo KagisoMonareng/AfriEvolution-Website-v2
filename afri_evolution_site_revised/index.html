@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AfriEvolution — Digitize. Automate. Grow.</title>
-        <!-- Self-hosted fonts and built CSS -->
-        <link rel="stylesheet" href="/src/styles/fonts.css">
-        <!-- Built CSS (update after running `npm run build`):
-            Example: <link rel="stylesheet" href="/dist/assets/main.[hash].css"> -->
+    <link rel="stylesheet" href="/src/styles/input.css">
     <link rel="canonical" href="https://www.afrievolution.com/">
     <meta property="og:site_name" content="AfriEvolution">
     <script defer src="/src/scripts/theme.js"></script>
     <script defer src="/src/scripts/skin.js"></script>
     <script defer src="/src/scripts/a11y.js"></script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFF3KTE1KT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KFF3KTE1KT');
+    </script>
     
     <style>
         /* Site tokens are defined in tokens.css; this file may include page tweaks */
@@ -170,13 +176,16 @@
 <meta property="og:url" content="https://www.afrievolution.com/">
 <meta property="og:title" content="AfriEvolution — Digitize. Automate. Grow.">
 <meta property="og:description" content="Human-centered automation and data clarity for African SMEs. From Launchpad websites to CRM and ChatBoost, we help you digitize, automate, and grow.">
-<meta property="og:image" content="/images/og-cover.svg">
+<meta property="og:image" content="https://www.afrievolution.com/images/og-cover.svg">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AfriEvolution — Digitize. Automate. Grow.">
 <meta name="twitter:description" content="Human-centered automation and data clarity for African SMEs. From Launchpad websites to CRM and ChatBoost, we help you digitize, automate, and grow.">
-<meta name="twitter:image" content="/images/og-cover.svg">
+<meta name="twitter:image" content="https://www.afrievolution.com/images/og-cover.svg">
+
+<!-- Preload important image -->
+<link rel="preload" as="image" href="/images/hero-africa.webp">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -191,8 +200,19 @@
                 <a href="approach.html" class="text-secondary hover:text-primary transition duration-300 font-medium">Our Approach</a>
             </div>
             <div class="hidden md:flex items-center space-x-3">
-                <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line px-2 py-1 text-sm text-secondary hover:bg-hover transition" onclick="window.aeToggleTheme && window.aeToggleTheme(); this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'true' : 'false');">🌙</button>
-                <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line px-2 py-1 text-sm text-secondary hover:bg-hover transition" onclick="window.aeToggleSkin && window.aeToggleSkin();">✨</button>
+                <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing" onclick="window.aeToggleTheme && window.aeToggleTheme()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="sr-only">Toggle dark mode</span>
+                </button>
+                <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing ml-2" onclick="window.aeToggleSkin && window.aeToggleSkin()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+                        <path d="M12 3l1.5 3L17 8l-3.5 1L12 12l-1.5-3L7 8l3.5-2L12 3z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 14l.8 1.6L7.5 17l-1.7.4L5 19l-.8-1.6L2.5 17l1.7-.4L5 14z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="sr-only">Toggle glass effect</span>
+                </button>
             </div>
             <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
                 <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -206,23 +226,31 @@
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
-            <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Services</a>
-            <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">About Us</a>
-            <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Our Approach</a>
-            <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Contact Us</a>
-            <hr class="my-2 border-line">
-            <button type="button" aria-label="Toggle theme" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'false' : 'true'); window.aeToggleTheme && window.aeToggleTheme();">
-                Toggle theme
-            </button>
+        <div id="mobile-menu" class="md:hidden mobile-panel bg-surface-1 shadow-md py-2 mt-2 absolute" aria-hidden="true">
+            <div class="panel-inner">
+                <a href="services.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Services</a>
+                <a href="about-us.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">About Us</a>
+                <a href="approach.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Our Approach</a>
+                <a href="contact.html" class="block py-2 px-6 text-secondary hover:bg-hover rounded-md">Contact Us</a>
+                <hr class="my-2 border-line">
+                <button type="button" aria-label="Toggle theme" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'false' : 'true'); window.aeToggleTheme && window.aeToggleTheme();">
+                    Toggle theme
+                </button>
+                <button type="button" aria-label="Toggle glass effect" aria-pressed="false" class="block w-full text-left py-2 px-6 text-secondary hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.getAttribute('data-skin') === 'glass' ? 'false' : 'true'); window.aeToggleSkin && window.aeToggleSkin();">
+                    Toggle glass effect
+                </button>
+            </div>
         </div>
     </header>
 
     <main id="main">
         <!-- Hero Section with Glass Effect -->
         <section id="hero" class="relative text-white py-24 md:py-36 overflow-hidden v-bold vignette noise hero-ambient" style="z-index: 10;">
-            <!-- Background Image (visible top and bottom) -->
-            <img src="/images/hero-africa.jpg" alt="Glowing outline of Africa with flowing gold lines representing digital transformation across the continent" class="absolute inset-0 w-full h-full object-cover z-0" width="1920" height="1080" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='/images/og-cover.svg';">
+            <!-- Background Image (responsive with WebP fallback) -->
+            <picture class="absolute inset-0 w-full h-full z-0">
+                <source type="image/webp" srcset="/images/hero-africa.webp">
+                <img src="/images/hero-africa.jpg" alt="Glowing outline of Africa with flowing gold lines representing digital transformation across the continent" class="absolute inset-0 w-full h-full object-cover" width="1920" height="1080" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='/images/og-cover.svg';">
+            </picture>
 
             <!-- Overlay for contrast -->
             <div class="absolute inset-0 bg-black opacity-40 z-5"></div>
@@ -238,8 +266,8 @@
                                 We design human-centered systems that simplify operations, clarify data, and scale intelligently — empowering SMEs to grow with confidence.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-3 justify-center reveal reveal-delay-2">
-                                <a href="contact.html" class="btn btn-primary glow">Start Your Digital Evolution</a>
-                                <a href="#service-ladder" class="btn btn-ghost-white">See the Five Tiers</a>
+                                <a href="contact.html" class="btn btn-primary glow" data-cta="contact_primary" data-cta-location="home_hero">Start Your Digital Evolution</a>
+                                <a href="#service-ladder" class="btn btn-ghost-white" data-cta="services_overview" data-cta-location="home_hero">See the Five Tiers</a>
                             </div>
                         </div>
                     </div>
@@ -255,7 +283,7 @@
                     <div class="gold-divider mx-auto"></div>
                     <p class="text-subtle mt-4 max-w-3xl mx-auto fade-in">Clarity first, human‑centered automation, and Africa‑first design — built with global standards.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div class="card-elevated p-6 fade-in-up">
                          <div class="w-8 h-8 mb-4" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
@@ -315,7 +343,7 @@
                         </div>
                         <h3 class="h3 mb-2">Launchpad</h3>
                         <p class="body text-subtle mb-3 flex-grow">Your high-performance website.</p>
-                        <p class="small text-primary mb-4">Faster launch time</p>
+                        <p class="small text-subtle mb-4">Faster launch time</p>
                         <a href="services.html#t1" class="text-sm text-primary hover:underline font-semibold">Learn more →</a>
                     </div>
 
@@ -328,7 +356,7 @@
                         </div>
                         <h3 class="h3 mb-2">Clarity Engine</h3>
                         <p class="body text-subtle mb-3 flex-grow">Turn scattered spreadsheets into insight.</p>
-                        <p class="small text-primary mb-4">Reporting time ↓</p>
+                        <p class="small text-subtle mb-4">Reporting time ↓</p>
                         <a href="services.html#t2" class="text-sm text-primary hover:underline font-semibold">Learn more →</a>
                     </div>
 
@@ -344,7 +372,7 @@
                         </div>
                         <h3 class="h3 mb-2">Workflow Studio</h3>
                         <p class="body text-subtle mb-3 flex-grow">Automate the repetitive. Focus on the valuable.</p>
-                        <p class="small text-primary mb-4">Hours saved/month ↑</p>
+                        <p class="small text-subtle mb-4">Hours saved/month ↑</p>
                         <a href="services.html#t3" class="text-sm text-primary hover:underline font-semibold">Learn more →</a>
                     </div>
 
@@ -360,7 +388,7 @@
                         </div>
                         <h3 class="h3 mb-2">ClientConnect CRM</h3>
                         <p class="body text-subtle mb-3 flex-grow">Centralize clients, tasks, and pipeline.</p>
-                        <p class="small text-primary mb-4">Retention rate ↑</p>
+                        <p class="small text-subtle mb-4">Retention rate ↑</p>
                         <a href="services.html#t4" class="text-sm text-primary hover:underline font-semibold">Learn more →</a>
                     </div>
 
@@ -373,8 +401,8 @@
                         </div>
                         <h3 class="h3 mb-2">ChatBoost</h3>
                         <p class="body text-subtle mb-3 flex-grow">AI conversations that engage, convert, and support.</p>
-                        <p class="small text-primary mb-4">Response time ↓</p>
-                        <a href="services.html#t5" class="text-sm text-primary hover:underline font-semibold">Learn more →</a>
+                        <p class="small text-subtle mb-4">Response time ↓</p>
+                        <a href="services.html#t4" class="text-sm text-primary hover:underline font-semibold">Learn more →</a>
                     </div>
                 </div>
             </div>
@@ -484,7 +512,7 @@
                 </div>
 
                 <div class="text-center fade-in-up" style="transition-delay: 0.2s;">
-                <a href="approach.html" class="btn btn-secondary">See Our Approach</a>
+                <a href="approach.html" class="btn btn-secondary" data-cta="approach_overview" data-cta-location="home_approach">See Our Approach</a>
                 </div>
             </div>
         </section>
@@ -496,7 +524,7 @@
                 <p class="lead opacity-90 mb-10 text-white">
                     Start your digital evolution with human-centered systems that simplify, clarify, and scale.
                 </p>
-                <a href="contact.html" class="btn btn-primary bg-primary text-white py-4 px-10">Book a Discovery Call</a>
+                <a href="contact.html" class="btn btn-primary bg-primary text-white" data-cta="contact_discovery" data-cta-location="home_final">Book a Discovery Call</a>
             </div>
         </section>
 
@@ -520,14 +548,17 @@
   "@type":"Organization",
   "name":"AfriEvolution",
   "url":"https://www.afrievolution.com",
-  "logo":"https://www.afrievolution.com/logo.png",
+    "logo":"https://www.afrievolution.com/images/logo.webp",
   "description":"Human-centered automation and data clarity for African SMEs. From Launchpad websites to CRM and ChatBoost, we help you digitize, automate, and grow.",
-  "sameAs": [],
+    "sameAs": [
+        "https://www.linkedin.com/company/afrievolution",
+        "https://twitter.com/afrievolution"
+    ],
   "contactPoint": [{
     "@type":"ContactPoint",
     "contactType":"sales",
     "email":"info@afrievolution.com",
-    "telephone":"+27-12-345-6789",
+    "telephone":"+27-11-123-4567",
     "areaServed":"ZA"
   }]
 }

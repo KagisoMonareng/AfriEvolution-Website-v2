@@ -26,6 +26,26 @@ Visit http://localhost:5173
 
 ---
 
+## 🚀 Deployment & Launch
+
+**Site is ready for production!** See detailed guides:
+
+- **[LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md)** — Complete pre-launch verification and deployment steps
+- **[GOOGLE_ANALYTICS_SETUP.md](GOOGLE_ANALYTICS_SETUP.md)** — Set up Google Analytics 4 tracking
+- **[POST_LAUNCH_OPTIMIZATION.md](POST_LAUNCH_OPTIMIZATION.md)** — Performance and SEO optimization roadmap
+
+### Quick Deployment
+```bash
+# 1. Set up Google Analytics (see GOOGLE_ANALYTICS_SETUP.md)
+# 2. Build for production
+npm run build
+
+# 3. Deploy dist/ folder to your hosting
+# (See LAUNCH_CHECKLIST.md for hosting-specific instructions)
+```
+
+---
+
 ## 📁 Project Structure
 
 ```

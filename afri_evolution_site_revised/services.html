@@ -2,17 +2,25 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The AfriEvolution Stack — AI-Powered Systems for African SMEs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="stylesheet" href="/src/styles/fonts.css">
-  <!-- Built CSS placeholder: replace with /dist/assets/*.css after build -->
+  <link rel="stylesheet" href="/src/styles/input.css">
   <link rel="canonical" href="https://www.afrievolution.com/services">
   <meta property="og:site_name" content="Afri Evolution">
   <script defer src="/src/scripts/theme.js"></script>
   <script defer src="/src/scripts/skin.js"></script>
   <script defer src="/src/scripts/a11y.js"></script>
   <script defer src="/src/scripts/tabs.js"></script>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFF3KTE1KT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KFF3KTE1KT');
+  </script>
+  
   <!-- DEV-ONLY: tweakcn live preview (remove before production) -->
   
 
@@ -142,14 +150,25 @@
   <header class="glass glass-nav bg-surface-1 shadow-md py-4 px-6 sticky top-0 w-full z-20 border-line">
     <nav class="container mx-auto flex items-center justify-between">
       <a href="index.html" class="brand-logo text-2xl font-extrabold">AfriEvolution</a>
-      <div class="hidden md:flex flex-1 justify-center space-x-6 items-center">
-        <a href="services.html" class="text-subtle hover:text-fg transition duration-300 font-medium">Services</a>
-        <a href="about-us.html" class="text-subtle hover:text-fg transition duration-300 font-medium">About Us</a>
-        <a href="approach.html" class="text-subtle hover:text-fg transition duration-300 font-medium">Our Approach</a>
+      <div class="hidden md:flex flex-1 justify-center space-x-4 items-center">
+        <a href="services.html" class="text-subtle hover:text-fg transition duration-300 font-medium text-sm">Services</a>
+        <a href="about-us.html" class="text-subtle hover:text-fg transition duration-300 font-medium text-sm">About Us</a>
+        <a href="approach.html" class="text-subtle hover:text-fg transition duration-300 font-medium text-sm">Our Approach</a>
       </div>
       <div class="hidden md:flex items-center space-x-3">
-        <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line px-2 py-1 text-sm text-subtle hover:bg-hover transition" onclick="window.aeToggleTheme && window.aeToggleTheme(); this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'true' : 'false');">🌙</button>
-        <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line px-2 py-1 text-sm text-subtle hover:bg-hover transition" onclick="window.aeToggleSkin && window.aeToggleSkin();">✨</button>
+        <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing" onclick="window.aeToggleTheme && window.aeToggleTheme()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="sr-only">Toggle dark mode</span>
+        </button>
+        <button id="glass-toggle" aria-pressed="false" aria-label="Toggle glass effect" class="rounded-full border border-line p-2 text-sm text-subtle hover:bg-hover transition focus-visible:ring-2 ring-focusRing ml-2" onclick="window.aeToggleSkin && window.aeToggleSkin()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="text-primary">
+            <path d="M12 3l1.5 3L17 8l-3.5 1L12 12l-1.5-3L7 8l3.5-2L12 3z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 14l.8 1.6L7.5 17l-1.7.4L5 19l-.8-1.6L2.5 17l1.7-.4L5 14z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="sr-only">Toggle glass effect</span>
+        </button>
       </div>
       <button class="md:hidden mobile-menu-toggle" data-toggle="mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
         <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -163,11 +182,20 @@
         </svg>
       </button>
     </nav>
-    <div id="mobile-menu" class="md:hidden bg-surface-1 shadow-md rounded-b-lg py-2 mt-2 hidden absolute w-full left-0">
-      <a href="services.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Services</a>
-      <a href="about-us.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">About Us</a>
-      <a href="approach.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Our Approach</a>
-      <a href="contact.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Contact Us</a>
+        <div id="mobile-menu" class="md:hidden mobile-panel bg-surface-1 shadow-md py-2 mt-2 absolute" aria-hidden="true">
+      <div class="panel-inner">
+        <a href="services.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Services</a>
+        <a href="about-us.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">About Us</a>
+        <a href="approach.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Our Approach</a>
+        <a href="contact.html" class="block py-2 px-6 text-subtle hover:bg-hover rounded-md">Contact Us</a>
+        <hr class="my-2 border-line">
+        <button type="button" aria-label="Toggle theme" aria-pressed="false" class="block w-full text-left py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.classList.contains('dark') ? 'false' : 'true'); window.aeToggleTheme && window.aeToggleTheme();">
+          Toggle theme
+        </button>
+        <button type="button" aria-label="Toggle glass effect" aria-pressed="false" class="block w-full text-left py-2 px-6 text-subtle hover:bg-hover rounded-md" onclick="this.setAttribute('aria-pressed', document.documentElement.getAttribute('data-skin') === 'glass' ? 'false' : 'true'); window.aeToggleSkin && window.aeToggleSkin();">
+          Toggle glass effect
+        </button>
+      </div>
     </div>
   </header>
 
@@ -193,8 +221,8 @@
       <p class="lead max-w-4xl mx-auto text-white reveal reveal-delay-1">Human-centered systems that connect data, automate workflows, and scale engagement.</p>
       <p class="text-white/90 text-lg mt-3 reveal reveal-delay-1">Start anywhere. Integrate to amplify.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center mt-6 reveal reveal-delay-2">
-        <a href="contact.html?topic=discovery" class="btn btn-primary">Start Your Digital Evolution</a>
-        <a href="approach.html" class="btn btn-ghost-white">See the Stack</a>
+        <a href="contact.html?topic=discovery" class="btn btn-primary" data-cta="contact_discovery" data-cta-location="services_hero">Start Your Digital Evolution</a>
+        <a href="approach.html" class="btn btn-ghost-white" data-cta="approach_overview" data-cta-location="services_hero">See the Stack</a>
       </div>
     </div>
   </section>
@@ -301,28 +329,12 @@
   </section>
 
   <a id="services"></a>
-  <!-- 3) STICKY TABS -->
-  <section id="tabs" class="py-4 bg-transparent sticky top-[64px] z-40 mb-2 md:mb-3">
-    <div class="container mx-auto max-w-6xl px-4">
-      <div id="tabs-sticky" class="bg-surface-1/95 backdrop-blur-md rounded-full border border-line shadow-lg">
-        <nav aria-label="Service tiers" class="overflow-x-auto scrollbar-hide">
-          <ul id="service-tabs" class="flex items-center gap-2 p-2">
-            <li><a href="#t1" class="tab px-5 py-2 rounded-full text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary" title="Launchpad OS">Launchpad OS</a></li>
-            <li><a href="#t2" class="tab px-5 py-2 rounded-full text-sm font-semibold text-subtle focus:outline-none focus:ring-2 focus:ring-primary" title="Clarity Engine">Clarity Engine</a></li>
-            <li><a href="#t3" class="tab px-5 py-2 rounded-full text-sm font-semibold text-subtle focus:outline-none focus:ring-2 focus:ring-primary" title="Flow Studio">Flow Studio</a></li>
-            <li><a href="#t4" class="tab px-5 py-2 rounded-full text-sm font-semibold text-subtle focus:outline-none focus:ring-2 focus:ring-primary" title="Connect CRM+">Connect CRM+</a></li>
-            <li><a href="#t5" class="tab px-5 py-2 rounded-full text-sm font-semibold text-subtle focus:outline-none focus:ring-2 focus:ring-primary" title="ChatBoost AI">ChatBoost AI</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </section>
 
   <!-- 4) TIERS -->
-  <section id="tiers" class="pt-6 md:pt-8 pb-16 md:pb-24 bg-surface-1">
+  <section id="tiers" class="pt-6 md:pt-20 pb-16 md:pb-24 bg-surface-1">
     <div class="container mx-auto max-w-6xl px-4 space-y-10">
       <!-- Tier 1: Launchpad OS -->
-      <div id="t1" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-24">
+      <div id="t1" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
         <div class="flex items-start gap-3 mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 1</span>
         </div>
@@ -341,11 +353,6 @@
             </ul>
           </article>
           <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
-            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
             <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
             <ul class="text-sm text-subtle space-y-2">
               <li class="flex gap-2"><span class="text-primary">✓</span><span>AI-assisted copy optimization suggestions</span></li>
@@ -381,13 +388,13 @@
           </article>
         </div>
         <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
-          <a href="contact.html?topic=launchpad" class="btn btn-primary">Launch Your Website</a>
+          <a href="contact.html?topic=launchpad" class="btn btn-primary" data-cta="launchpad_interest" data-cta-location="services_launchpad">Launch Your Website</a>
           <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
         </div>
       </div>
 
       <!-- Tier 2: Clarity Engine -->
-      <div id="t2" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-24">
+      <div id="t2" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
         <div class="flex items-start gap-3 mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 2</span>
         </div>
@@ -407,11 +414,6 @@
             </ul>
           </article>
           <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
-            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
-            </div>
             <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
             <ul class="text-sm text-subtle space-y-2">
               <li class="flex gap-2"><span class="text-primary">✓</span><span>Auto-schema builder suggestions</span></li>
@@ -447,13 +449,13 @@
           </article>
         </div>
         <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
-          <a href="contact.html?topic=dcf" class="btn btn-primary">Book a DCF Discovery</a>
+          <a href="contact.html?topic=dcf" class="btn btn-primary" data-cta="dcf_interest" data-cta-location="services_clarity">Book a DCF Discovery</a>
           <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
         </div>
       </div>
 
       <!-- Tier 3: Flow Studio -->
-      <div id="t3" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-24">
+      <div id="t3" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
         <div class="flex items-start gap-3 mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 3</span>
         </div>
@@ -473,11 +475,6 @@
             </ul>
           </article>
           <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
-            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-              </svg>
-            </div>
             <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
             <ul class="text-sm text-subtle space-y-2">
               <li class="flex gap-2"><span class="text-primary">✓</span><span>"FlowSense" automation suggestions</span></li>
@@ -513,13 +510,13 @@
           </article>
         </div>
         <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
-          <a href="contact.html?topic=workflow" class="btn btn-primary">Automate My Process</a>
+          <a href="contact.html?topic=workflow" class="btn btn-primary" data-cta="flowstudio_interest" data-cta-location="services_workflow">Automate My Process</a>
           <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
         </div>
       </div>
 
       <!-- Tier 4: Connect CRM+ -->
-      <div id="t4" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-24">
+      <div id="t4" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
         <div class="flex items-start gap-3 mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 4</span>
         </div>
@@ -539,11 +536,6 @@
             </ul>
           </article>
           <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
-            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-              </svg>
-            </div>
             <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
             <ul class="text-sm text-subtle space-y-2">
               <li class="flex gap-2"><span class="text-primary">✓</span><span>Lead scoring & prioritization</span></li>
@@ -579,13 +571,13 @@
           </article>
         </div>
         <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
-          <a href="contact.html?topic=crm" class="btn btn-primary">Centralize My Clients</a>
+          <a href="contact.html?topic=crm" class="btn btn-primary" data-cta="connectcrm_interest" data-cta-location="services_crm">Centralize My Clients</a>
           <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
         </div>
       </div>
 
       <!-- Tier 5: ChatBoost AI -->
-      <div id="t5" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-24">
+      <div id="t5" class="panel-cohesive p-6 md:p-8 reveal scroll-mt-32">
         <div class="flex items-start gap-3 mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-xs font-bold tracking-wider uppercase text-primary">Layer 5</span>
         </div>
@@ -605,11 +597,6 @@
             </ul>
           </article>
           <article class="card-elevated p-5 border-2 border-primary/20 bg-primary/5 relative">
-            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
-              </svg>
-            </div>
             <h3 class="text-lg font-semibold mb-3 text-primary">AI Capabilities</h3>
             <ul class="text-sm text-subtle space-y-2">
               <li class="flex gap-2"><span class="text-primary">✓</span><span>Multilingual LLM (African languages ready)</span></li>
@@ -645,7 +632,7 @@
           </article>
         </div>
         <div class="flex items-center justify-between mt-6 flex-col sm:flex-row gap-3">
-          <a href="contact.html?topic=chatboost" class="btn btn-primary">Activate ChatBoost</a>
+          <a href="contact.html?topic=chatboost" class="btn btn-primary" data-cta="chatboost_interest" data-cta-location="services_chatboost">Activate ChatBoost</a>
           <a href="approach.html" class="text-sm font-semibold text-primary hover:underline">See Our Approach →</a>
         </div>
       </div>
@@ -670,12 +657,12 @@
             <li class="flex gap-2"><span aria-hidden="true">✓</span><span>ChatBoost AI</span></li>
           </ul>
           <p class="text-lg font-bold text-primary mb-4">From R47k setup</p>
-          <a href="contact.html?topic=engagement-pack" class="btn btn-primary w-full text-center block mt-auto">Get Started</a>
+          <a href="contact.html?topic=engagement-pack" class="btn btn-primary w-full text-center block mt-auto" data-cta="engagement_pack" data-cta-location="services_bundles">Get Started</a>
         </article>
         
         <!-- Insight Pack -->
         <article class="panel-cohesive p-6 reveal reveal-delay-1 border-2 border-primary shadow-2xl bundle-featured relative overflow-hidden flex flex-col">
-          <div class="absolute -top-3 -right-3 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse-subtle z-10">
+          <div class="absolute top-4 right-4 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse-subtle z-10">
             Most Popular
           </div>
           <h3 class="text-2xl font-bold mb-2 mt-2">Insight Pack</h3>
@@ -685,7 +672,7 @@
             <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Flow Studio</span></li>
           </ul>
           <p class="text-lg font-bold text-primary mb-4">From R45k setup</p>
-          <a href="contact.html?topic=insight-pack" class="btn btn-primary w-full text-center block mt-auto">Get Started</a>
+          <a href="contact.html?topic=insight-pack" class="btn btn-primary w-full text-center block mt-auto" data-cta="insight_pack" data-cta-location="services_bundles">Get Started</a>
         </article>
         
         <!-- Evolution Pack -->
@@ -698,7 +685,7 @@
             <li class="flex gap-2"><span aria-hidden="true">✓</span><span>Priority support</span></li>
           </ul>
           <p class="text-lg font-bold text-primary mb-4">Contact for pricing</p>
-          <a href="contact.html?topic=evolution-pack" class="btn btn-primary w-full text-center block mt-auto">Book Discovery</a>
+          <a href="contact.html?topic=evolution-pack" class="btn btn-primary w-full text-center block mt-auto" data-cta="evolution_pack" data-cta-location="services_bundles">Book Discovery</a>
         </article>
       </div>
     </div>
@@ -785,7 +772,7 @@
     <div class="container mx-auto max-w-3xl reveal">
       <h2 class="h2 mb-6 text-white">Ready to evolve your business?</h2>
       <p class="lead opacity-90 mb-10 text-white">Book a discovery call and we'll map the right entry point for your needs—whether it's one layer or the full stack.</p>
-      <a href="contact.html?topic=discovery" class="btn btn-primary">Book a Discovery Call</a>
+      <a href="contact.html?topic=discovery" class="btn btn-primary" data-cta="contact_discovery" data-cta-location="services_final">Book a Discovery Call</a>
     </div>
   </section>
   </main>

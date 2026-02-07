@@ -1,14 +1,19 @@
 /* Afri Evolution - Main Stylesheet Input */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Import custom tokens and utilities */
+@import './fonts.css';
 @import './tokens.css';
+@import './type.css';
 @import './utilities.css';
+@import './uiux-improvements.css';
+@import './glass.css';
 
 /* Import component styles */
 @import './components/buttons.css';
 @import './components/cards.css';
 @import './components/forms.css';
+@import './components/mobile-panel.css';
+@import './components/glass-panel.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 

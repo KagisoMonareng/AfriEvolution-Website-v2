@@ -1,27 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
   <url>
     <loc>https://www.afrievolution.com/</loc>
-    <lastmod>2025-11-25T14:09:07.846Z</lastmod>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
+
+  <!-- Services Page -->
   <url>
-    <loc>https://www.afrievolution.com/</loc>
-    <lastmod>2025-11-25T14:14:56.667Z</lastmod>
+    <loc>https://www.afrievolution.com/services</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
+
+  <!-- About Us Page -->
   <url>
-    <loc>https://www.afrievolution.com/about-us.html</loc>
-    <lastmod>2025-11-25T14:14:56.667Z</lastmod>
+    <loc>https://www.afrievolution.com/about-us</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Our Approach Page -->
   <url>
-    <loc>https://www.afrievolution.com/services.html</loc>
-    <lastmod>2025-11-25T14:14:56.667Z</lastmod>
+    <loc>https://www.afrievolution.com/approach</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Contact Page -->
   <url>
-    <loc>https://www.afrievolution.com/approach.html</loc>
-    <lastmod>2025-11-25T14:14:56.667Z</lastmod>
+    <loc>https://www.afrievolution.com/contact</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+
+  <!-- Privacy Policy -->
   <url>
-    <loc>https://www.afrievolution.com/contact.html</loc>
-    <lastmod>2025-11-25T14:14:56.667Z</lastmod>
+    <loc>https://www.afrievolution.com/privacy</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://www.afrievolution.com/terms</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
+
